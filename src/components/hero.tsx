@@ -4,52 +4,41 @@ const APP_URL = "https://app.shiftrwa.xyz";
 
 export function Hero() {
   return (
-    <section className="relative pt-[72px]">
-      {/* Hero image area — dark gradient placeholder for bull/bear 3D art */}
-      <div className="relative w-full h-[500px] md:h-[700px] overflow-hidden bg-gradient-to-b from-[#0a1a22] via-[#071520] to-background">
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 60% at 50% 40%, rgba(38,200,184,0.12) 0%, transparent 70%)",
-          }}
-        />
-        {/* Placeholder for bull/bear 3D illustration */}
+    <section className="relative pt-[72px] bg-white">
+      {/* Hero image area — gradient bg for bull/bear 3D art */}
+      <div className="relative w-full h-[450px] md:h-[650px] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1f2a] via-[#0a1a22] to-white" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-muted/30 text-sm font-mono">
+          <div className="text-center text-white/20 text-sm font-mono">
             [Bull &amp; Bear 3D Illustration]
           </div>
         </div>
       </div>
 
-      {/* Headline overlay */}
-      <div className="max-w-[1440px] mx-auto section-padding -mt-[200px] relative z-10 text-center pb-16">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6">
+      {/* Headline — white bg, dark text */}
+      <div className="max-w-[1440px] mx-auto section-padding text-center pb-4">
+        <h1 className="text-5xl md:text-7xl lg:text-[80px] font-bold leading-[1.05] tracking-tight mb-6 text-foreground">
           The home of tokenized
           <br />
-          <span className="bg-gradient-to-r from-mint to-accent bg-clip-text text-transparent">
-            Leveraged Stocks
-          </span>
+          <span className="text-[#2d3748]">Leveraged Stocks</span>
         </h1>
-        <p className="text-lg md:text-xl text-muted max-w-[700px] mx-auto mb-10">
-          Trade tokenized stocks and leveraged equity tokens 24/7 — non-liquidatable,
-          fully backed, and composable across DeFi.
+        <p className="text-sm md:text-base uppercase tracking-[0.2em] text-text-light mb-10">
+          All the leverage of perps, without the risks of liquidations
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap">
           <a
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-white text-sm font-semibold hover:bg-foreground/90 transition-colors"
           >
             Launch App
-            <ArrowRight className="h-4 w-4" />
           </a>
           <a
             href="#how-it-works"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-card-border text-foreground text-sm font-semibold hover:border-mint/50 hover:text-mint transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-gray-300 text-foreground text-sm font-semibold hover:border-foreground transition-colors"
           >
-            How It Works
+            Learn More
           </a>
         </div>
       </div>

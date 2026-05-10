@@ -1,70 +1,75 @@
-import { Check, X, Minus } from "lucide-react";
-
-type CellValue = "yes" | "no" | "partial" | string;
+type CellValue = "yes" | "no" | string;
 
 const ROWS: { feature: string; shift: CellValue; tokenized: CellValue; perps: CellValue; tradfi: CellValue }[] = [
-  { feature: "24/7 Trading", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Leveraged trading", shift: "Up to ×5", tokenized: "no", perps: "Unlimited", tradfi: "Up to ×300" },
-  { feature: "Permissionless tokens", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Self custody", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Transferable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "DeFi compatible", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Asset holder protection", shift: "yes", tokenized: "yes", perps: "no", tradfi: "yes" },
-  { feature: "No liquidation risk", shift: "yes", tokenized: "no", perps: "no", tradfi: "no" },
+  { feature: "24/7 Trading Availability", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
+  { feature: "Leveraged Trading", shift: "up to ×5", tokenized: "no", perps: "Unlimited", tradfi: "up to ×300" },
+  { feature: "Permissionless Tokens", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
+  { feature: "Self Custody", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
+  { feature: "Transferrable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
+  { feature: "DeFi Compatible", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
+  { feature: "Asset Holder Protection", shift: "yes", tokenized: "yes", perps: "no", tradfi: "yes" },
 ];
 
-function CellIcon({ value }: { value: CellValue }) {
+function CellContent({ value }: { value: CellValue }) {
   if (value === "yes")
-    return <Check className="h-4 w-4 text-mint mx-auto" />;
+    return <span className="text-mint text-lg">◆</span>;
   if (value === "no")
-    return <X className="h-4 w-4 text-danger/60 mx-auto" />;
-  if (value === "partial")
-    return <Minus className="h-4 w-4 text-muted mx-auto" />;
-  return <span className="text-xs text-muted">{value}</span>;
+    return <span className="text-danger text-sm font-bold">✕</span>;
+  return <span className="text-sm text-white/70">{value}</span>;
 }
 
 export function Comparison() {
   return (
-    <section id="comparison" className="py-20 md:py-28 bg-gradient-to-b from-background via-card/20 to-background">
+    <section id="comparison" className="py-20 md:py-28 bg-section-dark text-white">
       <div className="max-w-[1440px] mx-auto section-padding">
-        <div className="mb-12">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Why SHIFT wins
+            Why SHIFT Wins
           </h2>
-          <p className="text-muted text-lg max-w-[600px]">
-            The only tokenized leveraged equity product with zero liquidation risk,
-            full self-custody, and DeFi composability.
+          <p className="text-white/50 text-lg italic max-w-[600px] mx-auto">
+            Trade all your favorite stocks, and eliminate risks of margin and liquidation
           </p>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[700px]">
+          <table className="w-full min-w-[750px]">
             <thead>
-              <tr className="border-b border-card-border">
-                <th className="text-left py-4 px-4 text-sm font-medium text-muted w-[280px]" />
-                <th className="py-4 px-4 text-sm font-bold text-mint text-center">SHIFT</th>
-                <th className="py-4 px-4 text-sm font-medium text-muted text-center">Other Tokenized</th>
-                <th className="py-4 px-4 text-sm font-medium text-muted text-center">Perps</th>
-                <th className="py-4 px-4 text-sm font-medium text-muted text-center">TradFi Brokers</th>
+              <tr>
+                <th className="text-left py-4 px-5 w-[280px]" />
+                <th className="py-4 px-5 text-center">
+                  <div className="inline-block px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm font-semibold">SHIFT</div>
+                </th>
+                <th className="py-4 px-5 text-center">
+                  <div className="inline-block px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm font-semibold text-white/70">Other Tokenized</div>
+                </th>
+                <th className="py-4 px-5 text-center">
+                  <div className="inline-block px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm font-semibold text-white/70">Perps</div>
+                </th>
+                <th className="py-4 px-5 text-center">
+                  <div className="inline-block px-5 py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm font-semibold text-white/70">TradFi Brokers</div>
+                </th>
               </tr>
             </thead>
             <tbody>
               {ROWS.map((r) => (
-                <tr key={r.feature} className="border-b border-card-border/40 hover:bg-card/40 transition-colors">
-                  <td className="py-4 px-4 text-sm text-foreground font-medium">
-                    {r.feature}
+                <tr key={r.feature}>
+                  <td className="py-4 px-5">
+                    <div className="flex items-center gap-3">
+                      <span className="text-mint/60 text-sm">◈</span>
+                      <span className="text-sm font-medium">{r.feature}</span>
+                    </div>
                   </td>
-                  <td className="py-4 px-4 text-center bg-mint/[0.03]">
-                    <CellIcon value={r.shift} />
+                  <td className="py-4 px-5 text-center bg-white/[0.02] rounded-lg">
+                    <CellContent value={r.shift} />
                   </td>
-                  <td className="py-4 px-4 text-center">
-                    <CellIcon value={r.tokenized} />
+                  <td className="py-4 px-5 text-center">
+                    <CellContent value={r.tokenized} />
                   </td>
-                  <td className="py-4 px-4 text-center">
-                    <CellIcon value={r.perps} />
+                  <td className="py-4 px-5 text-center">
+                    <CellContent value={r.perps} />
                   </td>
-                  <td className="py-4 px-4 text-center">
-                    <CellIcon value={r.tradfi} />
+                  <td className="py-4 px-5 text-center">
+                    <CellContent value={r.tradfi} />
                   </td>
                 </tr>
               ))}

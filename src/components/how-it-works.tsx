@@ -1,82 +1,46 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const APP_URL = "https://app.shiftrwa.xyz";
 
-const STEPS = [
-  {
-    num: "01",
-    title: "Prime Brokerage",
-    desc: "Leveraged ETFs are acquired through regulated brokerage rails (Alpaca Markets) and held in segregated custody.",
-  },
-  {
-    num: "02",
-    title: "On-Chain Verification",
-    desc: "Chainlink Proof-of-Reserves continuously verifies 1:1 backing on-chain. Tokens cannot be minted beyond verified reserves.",
-  },
-  {
-    num: "03",
-    title: "Tokenization",
-    desc: "The SHIFT Solana program mints SPL Series Tokens against verified backing. Standard wallet-native assets.",
-  },
-  {
-    num: "04",
-    title: "Your Wallet",
-    desc: "Trade on Jupiter 24/7. Self-custodied. No exchange account, no margin, no liquidation engine.",
-  },
-];
-
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-20 md:py-28">
+    <section id="how-it-works" className="py-20 md:py-28 bg-white">
       <div className="max-w-[1440px] mx-auto section-padding">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground">
             From prime brokers, to your Web3 wallet
           </h2>
-          <p className="text-muted text-lg">
+          <p className="text-text-light text-lg italic">
             Your assets are fully segregated, bankruptcy remote
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {STEPS.map((s) => (
-            <div
-              key={s.num}
-              className="relative p-6 rounded-2xl border border-card-border bg-card/60 hover:border-mint/30 transition-colors group"
-            >
-              <div className="text-5xl font-bold text-mint/15 group-hover:text-mint/25 transition-colors mb-4 font-mono">
-                {s.num}
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
-                {s.title}
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">{s.desc}</p>
+        <div className="flex flex-col lg:flex-row items-center gap-12">
+          {/* Left — partner logos */}
+          <div className="flex flex-col gap-4 shrink-0">
+            <div className="flex items-center justify-center h-20 w-[250px] rounded-xl bg-gray-100 px-6">
+              <Image src="/partners/alpaca.png" alt="Alpaca" width={160} height={46} className="h-8 w-auto object-contain" />
             </div>
-          ))}
+            <div className="flex items-center justify-center h-20 w-[250px] rounded-xl bg-gray-100 px-6">
+              <span className="text-sm font-semibold text-text-light">DekaBank</span>
+            </div>
+          </div>
+
+          {/* Right — app mockup placeholder */}
+          <div className="flex-1 relative">
+            <div className="w-full h-[400px] md:h-[500px] rounded-2xl bg-section-dark flex items-center justify-center overflow-hidden">
+              <span className="text-white/20 text-sm font-mono">[App Desktop + Mobile Mockup]</span>
+            </div>
+          </div>
         </div>
 
-        {/* Flow line */}
-        <div className="hidden lg:flex items-center justify-center gap-2 mb-12">
-          {["Alpaca", "→", "Chainlink PoR", "→", "SHIFT Protocol", "→", "Your Wallet"].map(
-            (label, i) => (
-              <span
-                key={i}
-                className={`text-sm font-mono ${
-                  label === "→" ? "text-mint" : "text-muted"
-                }`}
-              >
-                {label}
-              </span>
-            ),
-          )}
-        </div>
-
-        <div className="text-center">
+        <div className="text-center mt-12">
           <a
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-background text-sm font-semibold hover:bg-foreground/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-white text-sm font-semibold hover:bg-foreground/90 transition-colors"
           >
             Trade Now
             <ArrowRight className="h-4 w-4" />

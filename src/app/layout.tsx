@@ -22,14 +22,8 @@ export const metadata: Metadata = {
   description:
     "Trade tokenized stocks and leveraged equity tokens 24/7 — non-liquidatable, fully backed, and composable across DeFi.",
   keywords: [
-    "tokenized stocks",
-    "leveraged tokens",
-    "RWA",
-    "real-world assets",
-    "no liquidation",
-    "DeFi",
-    "Solana",
-    "SHIFT",
+    "tokenized stocks", "leveraged tokens", "RWA", "real-world assets",
+    "no liquidation", "DeFi", "Solana", "SHIFT",
   ],
   openGraph: {
     type: "website",
@@ -39,11 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${grotesk.variable} ${mono.variable}`}>
       <head>
