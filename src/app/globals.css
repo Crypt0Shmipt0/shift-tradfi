@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050a0e;
+  --foreground: #e8edf2;
+  --card: #0c1319;
+  --card-border: #1a2530;
+  --mint: #26c8b8;
+  --mint-dim: #1a8c80;
+  --accent: #14a6c8;
+  --muted: #6b7f8e;
+  --danger: #ff4d6a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-mint: var(--mint);
+  --color-mint-dim: var(--mint-dim);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-grotesk);
+  --font-mono: var(--font-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section spacing */
+.section-padding {
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
