@@ -5,15 +5,17 @@ const APP_URL = "https://app.shiftrwa.xyz";
 export function Hero() {
   return (
     <section className="relative bg-white" style={{ paddingTop: 148 }}>
-      {/* Hero image — bull & bear 3D art */}
+      {/* Hero video — bull & bear 3D animation */}
       <div className="relative w-full overflow-hidden" style={{ height: 810 }}>
-        <Image
-          src="/visuals/hero-bulls.png"
-          alt="Bull and Bear"
-          fill
-          className="object-cover object-center"
-          priority
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        >
+          <source src="/visuals/hero-video.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white to-transparent" />
       </div>
 
