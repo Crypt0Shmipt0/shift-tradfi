@@ -11,7 +11,7 @@ const PARTNERS = [
   { name: "Birdeye", logo: "/partners/birdeye.png" },
   { name: "PRIM3 VC", logo: "/partners/prim3.svg" },
   { name: "DEXTools", logo: null },
-  { name: "Cointelegraph", logo: null },
+  { name: "Cointelegraph Accelerator", logo: "/partners/cointelegraph.png" },
   { name: "Meteora", logo: "/partners/meteora.png" },
 ];
 

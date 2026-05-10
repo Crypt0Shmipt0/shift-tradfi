@@ -5,6 +5,7 @@ import { Partners } from "@/components/partners";
 import { ProblemCta } from "@/components/problem-cta";
 import { HowItWorks } from "@/components/how-it-works";
 import { Product } from "@/components/product";
+import { TokenShowcase } from "@/components/token-showcase";
 import { Advantages } from "@/components/advantages";
 import { MarketsTable } from "@/components/markets-table";
 import { ApiSection } from "@/components/api-section";
@@ -22,6 +23,7 @@ export default function Home() {
       <ProblemCta />
       <HowItWorks />
       <Product />
+      <TokenShowcase />
       <Advantages />
       <MarketsTable />
       <ApiSection />
