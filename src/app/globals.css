@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #021c24;
-  --gray-text: #8d8d8d;
+  --gray-text: #9ca3af;
   --off-white: #edeeee;
   --dark-bg: #000000;
   --dark-card: #151515;
@@ -35,4 +35,9 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+:focus-visible {
+  outline: 2px solid #26c8b8;
+  outline-offset: 2px;
 }

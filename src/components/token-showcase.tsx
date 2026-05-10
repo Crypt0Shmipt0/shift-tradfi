@@ -16,7 +16,7 @@ const TOKENS_3D = [
 export function TokenShowcase() {
   return (
     <section className="bg-white overflow-hidden" style={{ paddingTop: 48, paddingBottom: 48 }}>
-      <div className="mx-auto" style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128 }}>
+      <div className="mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         <div className="flex items-center justify-center flex-wrap" style={{ gap: 32 }}>
           {TOKENS_3D.map((t) => (
             <div

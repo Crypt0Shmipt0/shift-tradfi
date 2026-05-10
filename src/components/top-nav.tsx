@@ -3,13 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-
-const APP_URL = "https://app.shiftrwa.xyz";
+import { APP_URL } from "@/lib/constants";
 
 const LINKS = [
   { href: "#", label: "Home", active: true },
   { href: "#markets", label: "Markets" },
-  { href: "#", label: "Blockchain Stats" },
+  { href: "https://dune.com/shiftrwa/shift-rwa", label: "Blockchain Stats", external: true },
   { href: "#how-it-works", label: "Learn" },
   { href: "#api", label: "Resources" },
 ];
@@ -20,8 +19,8 @@ export function TopNav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
       <div
-        className="mx-auto flex items-center justify-between"
-        style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128, paddingTop: 37, paddingBottom: 37 }}
+        className="mx-auto flex items-center justify-between px-6 md:px-16 lg:px-[128px]"
+        style={{ maxWidth: 1440, paddingTop: 37, paddingBottom: 37 }}
       >
         <a href="#">
           <Image src="/shift-logo.png" alt="SHIFT" width={125} height={28} className="h-7 w-auto" />
@@ -33,12 +32,16 @@ export function TopNav() {
             <a
               key={l.label}
               href={l.href}
+              target={l.external ? "_blank" : undefined}
+              rel={l.external ? "noopener noreferrer" : undefined}
+              aria-current={l.active ? "page" : undefined}
               className="font-[var(--font-inter)] font-medium text-[#021c24] transition-colors hover:opacity-70"
               style={{
                 fontSize: 18,
                 letterSpacing: "0.18px",
                 textDecoration: l.active ? "underline" : "none",
                 textUnderlineOffset: "4px",
+                textDecorationColor: l.active ? "#26c8b8" : undefined,
               }}
             >
               {l.label}
@@ -82,6 +85,8 @@ export function TopNav() {
             <a
               key={l.label}
               href={l.href}
+              target={l.external ? "_blank" : undefined}
+              rel={l.external ? "noopener noreferrer" : undefined}
               onClick={() => setOpen(false)}
               className="block font-[var(--font-inter)] font-medium text-[#021c24] py-2"
               style={{ fontSize: 18, letterSpacing: "0.18px" }}

@@ -1,6 +1,5 @@
 import Image from "next/image";
-
-const APP_URL = "https://app.shiftrwa.xyz";
+import { APP_URL } from "@/lib/constants";
 
 export function FinalCta() {
   return (
@@ -15,9 +14,12 @@ export function FinalCta() {
         />
       </div>
 
+      {/* Dark overlay to obscure ghost text in bg image */}
+      <div className="absolute inset-0 bg-black/70 z-[1]" aria-hidden="true" />
+
       {/* Giant SHIFT watermark */}
       <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+        className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-[2]"
         aria-hidden="true"
       >
         <span
@@ -29,10 +31,10 @@ export function FinalCta() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto text-center" style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128 }}>
+      <div className="relative z-10 mx-auto text-center px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         <h2
           className="font-[var(--font-grotesk)] font-medium text-white mb-4"
-          style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+          style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
         >
           Start trading now
         </h2>

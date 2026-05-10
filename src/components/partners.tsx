@@ -17,7 +17,7 @@ const PARTNERS = [
 
 export function Partners() {
   return (
-    <section className="bg-white">
+    <section className="bg-black">
       {/* Decorative banner image */}
       <div className="relative w-full overflow-hidden" style={{ height: 400 }}>
         <Image
@@ -30,12 +30,12 @@ export function Partners() {
       </div>
 
       <div
-        className="mx-auto"
-        style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128, paddingTop: 64, paddingBottom: 64 }}
+        className="mx-auto px-6 md:px-16 lg:px-[128px]"
+        style={{ maxWidth: 1440, paddingTop: 64, paddingBottom: 64 }}
       >
         <h2
-          className="font-[var(--font-grotesk)] font-medium text-center text-[#021c24] mb-16"
-          style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+          className="font-[var(--font-grotesk)] font-medium text-center text-white mb-16"
+          style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
         >
           Built for the Next Financial EcoSystem
         </h2>
@@ -44,7 +44,7 @@ export function Partners() {
           {PARTNERS.map((p) => (
             <div
               key={p.name}
-              className="flex items-center justify-center rounded-xl border border-gray-200 bg-[#f5f5f5] transition-colors hover:border-gray-300"
+              className="flex items-center justify-center rounded-xl border border-[#2a2a2a] bg-[#1a1a1a] transition-colors hover:border-[#3a3a3a]"
               style={{ width: "100%", height: 80 }}
             >
               {p.isPng ? (

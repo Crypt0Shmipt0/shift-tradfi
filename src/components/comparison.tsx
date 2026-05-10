@@ -16,11 +16,29 @@ const ROWS: {
   { feature: "Asset Holder Protection", shift: "yes", tokenized: "yes", perps: "no", tradfi: "yes" },
 ];
 
+function DiamondIcon({ color }: { color: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M8 1L15 8L8 15L1 8L8 1Z" fill={color} />
+    </svg>
+  );
+}
+
 function CellContent({ value }: { value: CellValue }) {
   if (value === "yes")
-    return <span className="text-[#26c8b8]" style={{ fontSize: 20 }}>{"\u25C6"}</span>;
+    return (
+      <span className="inline-flex items-center justify-center">
+        <DiamondIcon color="#26c8b8" />
+      </span>
+    );
   if (value === "no")
-    return <span className="text-[#ef4444] font-bold" style={{ fontSize: 16 }}>{"\u2715"}</span>;
+    return (
+      <span className="inline-flex items-center justify-center">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M2 2L12 12M12 2L2 12" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      </span>
+    );
   return (
     <span className="font-[var(--font-inter)] text-white/70" style={{ fontSize: 14 }}>
       {value}
@@ -31,7 +49,7 @@ function CellContent({ value }: { value: CellValue }) {
 export function Comparison() {
   return (
     <section id="comparison" className="relative bg-black text-white overflow-hidden" style={{ paddingTop: 80, paddingBottom: 80 }}>
-      {/* Subtle teal gradient background (replaces missing chevron image) */}
+      {/* Subtle teal gradient background */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
@@ -40,11 +58,11 @@ export function Comparison() {
         }}
       />
 
-      <div className="relative z-10 mx-auto" style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128 }}>
+      <div className="relative z-10 mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         <div className="text-center mb-12">
           <h2
             className="font-[var(--font-grotesk)] font-medium text-white"
-            style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+            style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
           >
             Why SHIFT Wins
           </h2>
@@ -54,16 +72,18 @@ export function Comparison() {
           <table className="w-full" style={{ minWidth: 750 }}>
             <thead>
               <tr>
-                <th className="text-left py-4 px-5" style={{ width: 280 }} />
-                <th className="py-4 px-5 text-center">
+                <th scope="col" className="text-left py-4 px-5" style={{ width: 280 }}>
+                  <span className="sr-only">Feature</span>
+                </th>
+                <th scope="col" className="py-4 px-5 text-center">
                   <div
-                    className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white"
+                    className="inline-block rounded-lg bg-white/[0.05] border border-white/10 font-[var(--font-inter)] font-semibold text-white"
                     style={{ fontSize: 14, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 }}
                   >
                     SHIFT
                   </div>
                 </th>
-                <th className="py-4 px-5 text-center">
+                <th scope="col" className="py-4 px-5 text-center">
                   <div
                     className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white/70"
                     style={{ fontSize: 14, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 }}
@@ -71,7 +91,7 @@ export function Comparison() {
                     Other Tokenized
                   </div>
                 </th>
-                <th className="py-4 px-5 text-center">
+                <th scope="col" className="py-4 px-5 text-center">
                   <div
                     className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white/70"
                     style={{ fontSize: 14, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 }}
@@ -79,7 +99,7 @@ export function Comparison() {
                     Perps
                   </div>
                 </th>
-                <th className="py-4 px-5 text-center">
+                <th scope="col" className="py-4 px-5 text-center">
                   <div
                     className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white/70"
                     style={{ fontSize: 14, paddingLeft: 20, paddingRight: 20, paddingTop: 10, paddingBottom: 10 }}
@@ -94,7 +114,7 @@ export function Comparison() {
                 <tr key={r.feature} className="border-b border-white/5">
                   <td className="py-4 px-5">
                     <div className="flex items-center gap-3">
-                      <span className="text-[#26c8b8]/60" style={{ fontSize: 14 }}>{"\u25C8"}</span>
+                      <DiamondIcon color="rgba(38,200,184,0.5)" />
                       <span
                         className="font-[var(--font-inter)] font-medium text-white"
                         style={{ fontSize: 14 }}
@@ -103,17 +123,25 @@ export function Comparison() {
                       </span>
                     </div>
                   </td>
-                  <td className="py-4 px-5 text-center bg-white/[0.02]">
-                    <CellContent value={r.shift} />
+                  <td className="py-4 px-5 text-center bg-white/[0.05] border-x border-white/10">
+                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
+                      <CellContent value={r.shift} />
+                    </div>
                   </td>
                   <td className="py-4 px-5 text-center">
-                    <CellContent value={r.tokenized} />
+                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
+                      <CellContent value={r.tokenized} />
+                    </div>
                   </td>
                   <td className="py-4 px-5 text-center">
-                    <CellContent value={r.perps} />
+                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
+                      <CellContent value={r.perps} />
+                    </div>
                   </td>
                   <td className="py-4 px-5 text-center">
-                    <CellContent value={r.tradfi} />
+                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
+                      <CellContent value={r.tradfi} />
+                    </div>
                   </td>
                 </tr>
               ))}

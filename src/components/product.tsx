@@ -4,7 +4,7 @@ import { LIVE_TOKENS } from "@/data/tokens";
 export function Product() {
   return (
     <section id="product" className="bg-black text-white" style={{ paddingTop: 80, paddingBottom: 80 }}>
-      <div className="mx-auto" style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128 }}>
+      <div className="mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         {/* Chain pill */}
         <div className="flex items-center justify-center mb-8">
           <span
@@ -35,13 +35,13 @@ export function Product() {
         <div className="text-center mb-4">
           <h2
             className="font-[var(--font-grotesk)] font-medium text-white mb-4"
-            style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+            style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
           >
             Trade like Perps, Never Liquidated
           </h2>
           <p
-            className="font-[var(--font-inter)] font-normal text-[#8d8d8d]"
-            style={{ fontSize: 32, letterSpacing: "-0.64px" }}
+            className="font-[var(--font-inter)] font-normal text-[#9ca3af]"
+            style={{ fontSize: "clamp(20px, 3.5vw, 32px)", letterSpacing: "-0.64px" }}
           >
             Leveraged exposure without margin calls or funding rates
           </p>
@@ -72,12 +72,12 @@ export function Product() {
         <div className="grid md:grid-cols-2 gap-6" style={{ maxWidth: 1100, margin: "0 auto" }}>
           {/* Long card */}
           <div
-            className="relative rounded-2xl bg-[#111820] border border-white/10 overflow-hidden"
-            style={{ padding: 32, minHeight: 400 }}
+            className="relative rounded-2xl bg-[#111820] border border-white/10 overflow-hidden p-6 md:p-8"
+            style={{ minHeight: 400 }}
           >
             <h3
               className="font-[var(--font-grotesk)] font-medium text-white mb-3"
-              style={{ fontSize: 32, letterSpacing: "-0.64px" }}
+              style={{ fontSize: "clamp(20px, 3.5vw, 32px)", letterSpacing: "-0.64px" }}
             >
               Long 5X
             </h3>
@@ -100,12 +100,12 @@ export function Product() {
 
           {/* Short card */}
           <div
-            className="relative rounded-2xl bg-[#111820] border border-white/10 overflow-hidden"
-            style={{ padding: 32, minHeight: 400 }}
+            className="relative rounded-2xl bg-[#111820] border border-white/10 overflow-hidden p-6 md:p-8"
+            style={{ minHeight: 400 }}
           >
             <h3
               className="font-[var(--font-grotesk)] font-medium text-white mb-3 text-right"
-              style={{ fontSize: 32, letterSpacing: "-0.64px" }}
+              style={{ fontSize: "clamp(20px, 3.5vw, 32px)", letterSpacing: "-0.64px" }}
             >
               Short 3X
             </h3>

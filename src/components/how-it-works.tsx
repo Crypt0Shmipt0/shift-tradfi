@@ -1,24 +1,23 @@
 import Image from "next/image";
-
-const APP_URL = "https://app.shiftrwa.xyz";
+import { APP_URL } from "@/lib/constants";
 
 export function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-white" style={{ paddingTop: 80, paddingBottom: 80 }}>
       <div
-        className="mx-auto"
-        style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128 }}
+        className="mx-auto px-6 md:px-16 lg:px-[128px]"
+        style={{ maxWidth: 1440 }}
       >
         {/* Heading */}
         <div className="text-center mb-16">
           <h2
             className="font-[var(--font-grotesk)] font-medium text-[#021c24] mb-4"
-            style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+            style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
           >
             From prime brokers, to your Web3 wallet
           </h2>
           <p
-            className="font-[var(--font-inter)] font-normal italic text-[#8d8d8d]"
+            className="font-[var(--font-inter)] font-normal italic text-[#9ca3af]"
             style={{ fontSize: 20 }}
           >
             Your assets are fully segregated, bankruptcy remote
@@ -43,8 +42,8 @@ export function HowItWorks() {
               style={{ width: 250, height: 80 }}
             >
               <span
-                className="font-[var(--font-inter)] font-semibold text-[#8d8d8d]"
-                style={{ fontSize: 16 }}
+                className="font-[var(--font-grotesk)] font-bold text-[#5a5a5a] tracking-wider uppercase"
+                style={{ fontSize: 22 }}
               >
                 DekaBank
               </span>

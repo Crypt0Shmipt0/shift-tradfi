@@ -1,4 +1,4 @@
-const APP_URL = "https://app.shiftrwa.xyz";
+import { APP_URL } from "@/lib/constants";
 
 export function Hero() {
   return (
@@ -9,6 +9,7 @@ export function Hero() {
         loop
         muted
         playsInline
+        aria-label="Abstract financial data visualization background"
         className="absolute inset-0 w-full h-full object-cover object-center"
         style={{ opacity: 0.5 }}
       >
@@ -17,12 +18,12 @@ export function Hero() {
 
       {/* Content */}
       <div
-        className="relative z-10 mx-auto text-center"
-        style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128, paddingTop: 200, paddingBottom: 120 }}
+        className="relative z-10 mx-auto text-center px-6 md:px-16 lg:px-[128px]"
+        style={{ maxWidth: 1440, paddingTop: 200, paddingBottom: 120 }}
       >
         <h1
           className="font-[var(--font-grotesk)] font-medium leading-[1.05] mb-6"
-          style={{ fontSize: 96, letterSpacing: "-1.92px" }}
+          style={{ fontSize: "clamp(36px, 8vw, 96px)", letterSpacing: "-1.92px" }}
         >
           <span style={{ color: "rgba(255,255,255,0.6)" }}>The home of tokenized</span>
           <br />
@@ -31,7 +32,7 @@ export function Hero() {
 
         <p
           className="font-[var(--font-inter)] font-normal uppercase mb-10"
-          style={{ fontSize: 20, letterSpacing: "2px", color: "rgba(255,255,255,0.8)" }}
+          style={{ fontSize: "clamp(14px, 2vw, 20px)", letterSpacing: "2px", color: "rgba(255,255,255,0.8)" }}
         >
           ALL THE LEVERAGE OF PERPS, WITHOUT THE RISKS OF LIQUIDATIONS
         </p>

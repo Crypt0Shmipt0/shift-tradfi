@@ -1,23 +1,22 @@
 import Image from "next/image";
-
-const APP_URL = "https://app.shiftrwa.xyz";
+import { APP_URL } from "@/lib/constants";
 
 export function ProblemCta() {
   return (
-    <section className="bg-[#151515]" style={{ paddingLeft: 120, paddingRight: 120, paddingTop: 40, paddingBottom: 40 }}>
+    <section className="bg-[#151515] px-6 md:px-16 lg:px-[120px]" style={{ paddingTop: 40, paddingBottom: 40 }}>
       <div className="mx-auto" style={{ maxWidth: 1440 }}>
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left copy */}
           <div className="flex-1">
             <h2
               className="font-[var(--font-grotesk)] font-medium text-white leading-tight mb-6"
-              style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+              style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
             >
               Liquidated by a broken price feed?
             </h2>
             <p
               className="font-[var(--font-inter)] font-medium leading-snug mb-10"
-              style={{ fontSize: 32, letterSpacing: "-0.64px", color: "#edeeee" }}
+              style={{ fontSize: "clamp(16px, 2.5vw, 20px)", letterSpacing: "-0.64px", color: "#edeeee" }}
             >
               Explore our leveraged stock tokens, designed for pricing integrity.
               Same leverage, no margin calls.
@@ -34,7 +33,7 @@ export function ProblemCta() {
           </div>
 
           {/* Right visual */}
-          <div className="shrink-0" style={{ width: 420, height: 420 }}>
+          <div className="shrink-0 w-full max-w-[420px] aspect-square">
             <Image
               src="/visuals/broken-cube.png"
               alt="Broken price feed visualization"

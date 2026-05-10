@@ -3,20 +3,20 @@ import Image from "next/image";
 export function ApiSection() {
   return (
     <section id="api" className="bg-white" style={{ paddingTop: 80, paddingBottom: 80 }}>
-      <div className="mx-auto" style={{ maxWidth: 1440, paddingLeft: 128, paddingRight: 128 }}>
+      <div className="mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Left copy */}
           <div className="flex-1">
             <h2
               className="font-[var(--font-grotesk)] font-medium text-[#021c24] leading-tight mb-4"
-              style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+              style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
             >
               One API
               <br />
-              <span className="text-[#8d8d8d]">Hundreds of stocks</span>
+              <span className="text-[#9ca3af]">Hundreds of stocks</span>
             </h2>
             <p
-              className="font-[var(--font-inter)] font-normal text-[#8d8d8d] mb-8"
+              className="font-[var(--font-inter)] font-normal text-[#9ca3af] mb-8"
               style={{ fontSize: 18, maxWidth: 500 }}
             >
               Integrate tokenized equity issuance and trading directly into your
