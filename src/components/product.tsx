@@ -5,37 +5,40 @@ const APP_URL = "https://app.shiftrwa.xyz";
 
 export function Product() {
   return (
-    <section id="product" className="py-20 md:py-28 bg-section-dark text-white">
-      <div className="max-w-[1440px] mx-auto section-padding">
-        {/* Chain badges */}
-        <div className="flex items-center justify-center mb-6">
-          <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-mint/10 border border-mint/30 text-sm text-mint font-medium">
-            <span className="w-2 h-2 rounded-full bg-mint animate-pulse" />
+    <section id="product" className="py-20 md:py-28 bg-dark-bg text-white">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-[128px]">
+        {/* Chain pill */}
+        <div className="flex items-center justify-center mb-8">
+          <span
+            className="inline-flex items-center gap-2 rounded-full bg-mint text-white font-[var(--font-inter)] font-medium"
+            style={{ fontSize: 14, paddingLeft: 20, paddingRight: 20, paddingTop: 8, paddingBottom: 8, borderRadius: 100 }}
+          >
             Live Across Top Tier Blockchains
           </span>
         </div>
 
-        <div className="flex items-center justify-center gap-6 mb-12">
+        {/* Chain icons */}
+        <div className="flex items-center justify-center gap-8 mb-12">
           <div className="flex items-center gap-2">
             <Image src="/partners/solana.png" alt="Solana" width={28} height={28} className="h-7 w-7 object-contain" />
-            <span className="text-lg font-semibold">Solana</span>
+            <span className="font-[var(--font-inter)] font-semibold text-white" style={{ fontSize: 18 }}>Solana</span>
           </div>
           <div className="flex items-center gap-2 opacity-60">
-            <span className="text-lg font-semibold">BNB Chain</span>
+            <span className="font-[var(--font-inter)] font-semibold text-white" style={{ fontSize: 18 }}>BNB Chain</span>
           </div>
         </div>
 
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2
+            className="font-[var(--font-grotesk)] font-medium text-white mb-4"
+            style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+          >
             Trade like Perps, Never Liquidated
           </h2>
-          <p className="text-white/60 text-lg max-w-[600px] mx-auto">
-            Trade all your favorite stocks, and eliminate risks of margin and liquidation
-          </p>
         </div>
 
-        {/* Token strip — horizontal scroll */}
-        <div className="flex items-center justify-center gap-6 mb-16 overflow-x-auto pb-4 px-4">
+        {/* Token strip */}
+        <div className="flex items-center justify-center gap-8 mb-16 overflow-x-auto pb-4 px-4">
           {LIVE_TOKENS.map((t) => (
             <div key={t.ticker} className="flex items-center gap-3 shrink-0">
               <Image
@@ -46,19 +49,19 @@ export function Product() {
                 className="w-12 h-12 rounded-xl object-cover"
               />
               <div>
-                <div className="font-mono font-bold text-sm">{t.ticker}</div>
+                <div className="font-mono font-bold text-sm text-white">{t.ticker}</div>
                 <div className="text-xs text-white/50">{t.name}</div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Long / Short cards with 3D arrow graphics */}
+        {/* Long / Short cards */}
         <div className="grid md:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
-          <div className="relative rounded-2xl bg-[#111820] border border-white/10 p-8 overflow-hidden min-h-[400px]">
-            <h3 className="text-2xl font-bold mb-3">Long 5X</h3>
-            <p className="text-sm text-white/60 leading-relaxed max-w-[280px]">
-              Capture amplified upside on your thesis. Up to 5× leveraged exposure
+          <div className="relative rounded-2xl bg-dark-card-alt border border-white/10 p-8 overflow-hidden min-h-[400px]">
+            <h3 className="font-[var(--font-grotesk)] font-medium text-white mb-3" style={{ fontSize: 32 }}>Long 5X</h3>
+            <p className="font-[var(--font-inter)] font-normal text-white/60 leading-relaxed max-w-[280px]" style={{ fontSize: 16 }}>
+              Capture amplified upside on your thesis. Up to 5x leveraged exposure
               to major equities without margin accounts or funding fees.
             </p>
             <div className="absolute bottom-0 right-0 w-[280px] h-[280px]">
@@ -70,11 +73,11 @@ export function Product() {
               />
             </div>
           </div>
-          <div className="relative rounded-2xl bg-[#111820] border border-white/10 p-8 overflow-hidden min-h-[400px]">
-            <h3 className="text-2xl font-bold mb-3 text-right">Short 3X</h3>
-            <p className="text-sm text-white/60 leading-relaxed max-w-[280px] ml-auto text-right">
+          <div className="relative rounded-2xl bg-dark-card-alt border border-white/10 p-8 overflow-hidden min-h-[400px]">
+            <h3 className="font-[var(--font-grotesk)] font-medium text-white mb-3 text-right" style={{ fontSize: 32 }}>Short 3X</h3>
+            <p className="font-[var(--font-inter)] font-normal text-white/60 leading-relaxed max-w-[280px] ml-auto text-right" style={{ fontSize: 16 }}>
               Take the other side without borrowing or shorting on margin.
-              Inverse exposure on the same underlyings, up to 3× leverage.
+              Inverse exposure on the same underlyings, up to 3x leverage.
             </p>
             <div className="absolute bottom-0 left-0 w-[280px] h-[280px]">
               <Image

@@ -29,7 +29,7 @@ const SOCIALS = [
 function FooterCol({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div>
-      <div className="text-xs font-semibold uppercase tracking-wider text-white/40 mb-4">{title}</div>
+      <div className="font-[var(--font-inter)] font-semibold uppercase text-white/40 mb-4" style={{ fontSize: 12, letterSpacing: "1px" }}>{title}</div>
       <ul className="space-y-2.5">
         {links.map((l) => (
           <li key={l.label}>
@@ -37,7 +37,8 @@ function FooterCol({ title, links }: { title: string; links: { label: string; hr
               href={l.href}
               target={l.href.startsWith("http") ? "_blank" : undefined}
               rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="text-sm text-white/60 hover:text-mint transition-colors"
+              className="font-[var(--font-inter)] text-white/60 hover:text-mint transition-colors"
+              style={{ fontSize: 14 }}
             >
               {l.label}
             </a>
@@ -50,13 +51,13 @@ function FooterCol({ title, links }: { title: string; links: { label: string; hr
 
 export function Footer() {
   return (
-    <footer className="bg-section-dark text-white border-t border-white/10">
-      <div className="max-w-[1440px] mx-auto section-padding py-14 grid grid-cols-2 md:grid-cols-5 gap-10">
+    <footer className="bg-dark-bg text-white border-t border-white/10">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-[128px] py-14 grid grid-cols-2 md:grid-cols-5 gap-10">
         <div className="col-span-2 md:col-span-1">
           <div className="mb-3">
             <img src="/shift-logo.png" alt="SHIFT" className="h-7 w-auto invert" />
           </div>
-          <p className="text-xs text-white/40 leading-relaxed max-w-[240px]">
+          <p className="font-[var(--font-inter)] text-white/40 leading-relaxed max-w-[240px]" style={{ fontSize: 12 }}>
             Tokenized leveraged stocks, ETFs, and ETNs. On-chain. Zero liquidation risk.
           </p>
         </div>
@@ -67,9 +68,11 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/5">
-        <div className="max-w-[1440px] mx-auto section-padding py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/30">
-          <span>© 2026 SHIFT DAO LLC. Trading involves risk. Not investment advice.</span>
-          <span className="flex items-center gap-2">
+        <div className="max-w-[1440px] mx-auto px-8 lg:px-[128px] py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="font-[var(--font-inter)] text-white/30" style={{ fontSize: 12 }}>
+            &copy; 2026 SHIFT DAO LLC. Trading involves risk. Not investment advice.
+          </span>
+          <span className="flex items-center gap-2 font-[var(--font-inter)] text-white/30" style={{ fontSize: 12 }}>
             <span className="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" />
             All systems operational
           </span>
@@ -77,7 +80,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/5">
-        <p className="max-w-[1440px] mx-auto section-padding py-4 text-[10px] leading-[1.55] text-white/20">
+        <p className="max-w-[1440px] mx-auto px-8 lg:px-[128px] py-4 font-[var(--font-inter)] text-white/20 leading-[1.55]" style={{ fontSize: 10 }}>
           The tokens issued by SHIFT DAO LLC and all of its respective Series established under the laws of the Republic of the Marshall Islands are membership-interest tokens. Members&rsquo; rights in a DAO may differ materially from those in other limited liability companies. The Series tokens provide their holders with economic exposure to the value of the Series Assets; holding the Tokens does not grant dividend rights, voting power, legal title, or claims to the underlying Series Assets. The Tokens have not been registered under the U.S. Securities Act of 1933 and are not offered in the United States or the United Kingdom. Nothing herein constitutes financial, legal, or investment advice. Acquiring the Tokens involves significant risks; a holder may incur substantial losses up to the total loss of their purchase price.
         </p>
       </div>

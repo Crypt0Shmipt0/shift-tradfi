@@ -1,40 +1,43 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 
 const APP_URL = "https://app.shiftrwa.xyz";
 
 export function ProblemCta() {
   return (
-    <section className="py-20 md:py-28 bg-white">
-      <div className="max-w-[1440px] mx-auto section-padding">
+    <section className="bg-dark-card" style={{ paddingLeft: 120, paddingRight: 120, paddingTop: 40, paddingBottom: 40 }}>
+      <div className="max-w-[1440px] mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           <div className="flex-1">
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6 text-foreground">
-              Liquidated by a broken
-              <br />
-              <span className="text-danger">price feed?</span>
+            <h2
+              className="font-[var(--font-grotesk)] font-medium text-white leading-tight mb-6"
+              style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+            >
+              Liquidated by a broken price feed?
             </h2>
-            <p className="text-lg text-text-light leading-relaxed mb-8 max-w-[600px]">
+            <p
+              className="font-[var(--font-inter)] font-medium leading-snug mb-10"
+              style={{ fontSize: 32, letterSpacing: "-0.64px", color: "#edeeee" }}
+            >
               Explore our leveraged stock tokens, designed for pricing integrity.
-              Same leverage, no margin calls. Up to 3× exposure on major equities
-              without the risk of forced liquidation.
+              Same leverage, no margin calls.
             </p>
             <a
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-white text-sm font-semibold hover:bg-foreground/90 transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-white text-foreground font-[var(--font-inter)] font-medium transition-colors hover:bg-white/90"
+              style={{ fontSize: 24, paddingLeft: 40, paddingRight: 40, paddingTop: 16, paddingBottom: 16, borderRadius: 100 }}
             >
               Trade Now
-              <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-          <div className="w-full lg:w-[420px] h-[420px] rounded-3xl bg-section-dark shrink-0 overflow-hidden relative">
+          <div className="shrink-0" style={{ width: 420, height: 420 }}>
             <Image
-              src="/visuals/3d-broken-cube.png"
+              src="/visuals/problem-gauge.png"
               alt="Broken price feed visualization"
-              fill
-              className="object-contain p-4"
+              width={420}
+              height={420}
+              className="w-full h-full object-contain"
             />
           </div>
         </div>

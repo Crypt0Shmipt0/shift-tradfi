@@ -3,20 +3,24 @@ import Image from "next/image";
 export function ApiSection() {
   return (
     <section id="api" className="py-20 md:py-28 bg-white">
-      <div className="max-w-[1440px] mx-auto section-padding">
+      <div className="max-w-[1440px] mx-auto px-8 lg:px-[128px]">
         <div className="flex flex-col lg:flex-row items-start gap-16">
           <div className="flex-1">
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-4 text-foreground">
+            <h2
+              className="font-[var(--font-grotesk)] font-medium text-foreground leading-tight mb-4"
+              style={{ fontSize: 48, letterSpacing: "-0.96px" }}
+            >
               One API
               <br />
-              <span className="text-text-light">Hundreds of stocks</span>
+              <span className="text-gray-text">Hundreds of stocks</span>
             </h2>
-            <p className="text-text-light text-lg mb-8 max-w-[500px]">
-              Trade all your favorite stocks, and eliminate risks of margin and liquidation
+            <p className="font-[var(--font-inter)] font-normal text-gray-text mb-8 max-w-[500px]" style={{ fontSize: 18 }}>
+              Integrate tokenized equity issuance and trading directly into your application via a single unified API.
             </p>
             <a
               href="#"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-foreground text-white text-sm font-semibold hover:bg-foreground/90 transition-colors"
+              className="inline-flex items-center justify-center rounded-full bg-foreground text-white font-[var(--font-inter)] font-medium transition-colors hover:bg-foreground/90"
+              style={{ fontSize: 18, paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14, borderRadius: 100 }}
             >
               Read API Docs
             </a>
@@ -32,8 +36,8 @@ export function ApiSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h3 className="text-xl font-bold text-white mb-2">Mint/Burn via API</h3>
-                <p className="text-sm text-white/70 leading-relaxed max-w-[300px]">
+                <h3 className="font-[var(--font-grotesk)] font-medium text-white mb-2" style={{ fontSize: 24 }}>Mint/Burn via API</h3>
+                <p className="font-[var(--font-inter)] font-normal text-white/70 leading-relaxed max-w-[300px]" style={{ fontSize: 14 }}>
                   Seamless issuance and redemption of tokenized equities via API, with
                   deterministic flows aligned to underlying asset settlement.
                 </p>
@@ -48,8 +52,8 @@ export function ApiSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h3 className="text-xl font-bold text-white mb-2">Trading RFQ</h3>
-                <p className="text-sm text-white/70 leading-relaxed max-w-[300px]">
+                <h3 className="font-[var(--font-grotesk)] font-medium text-white mb-2" style={{ fontSize: 24 }}>Trading RFQ</h3>
+                <p className="font-[var(--font-inter)] font-normal text-white/70 leading-relaxed max-w-[300px]" style={{ fontSize: 14 }}>
                   Request quotes on demand with low-latency pricing, enabling precise
                   execution in dynamic market conditions.
                 </p>
