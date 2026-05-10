@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const PARTNERS = [
+const PARTNERS: { name: string; logo: string; isPng?: boolean }[] = [
   { name: "Alpaca", logo: "/partners/alpaca.svg" },
   { name: "Jupiter", logo: "/partners/jupiter.svg" },
   { name: "Chainlink", logo: "/partners/chainlink.svg" },
@@ -17,25 +17,27 @@ const PARTNERS = [
 
 export function Partners() {
   return (
-    <section className="bg-black">
+    <section id="partners" className="bg-black" aria-label="Partners and integrations">
       {/* Decorative banner image */}
-      <div className="relative w-full overflow-hidden" style={{ height: 400 }}>
+      <div className="relative w-full overflow-hidden h-48 sm:h-64 md:h-80 lg:h-[400px]">
         <Image
           src="/visuals/partners-bg.png"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover"
+          loading="lazy"
           aria-hidden="true"
         />
       </div>
 
       <div
-        className="mx-auto px-6 md:px-16 lg:px-[128px]"
-        style={{ maxWidth: 1440, paddingTop: 64, paddingBottom: 64 }}
+        className="mx-auto px-6 md:px-16 lg:px-[128px] py-16"
+        style={{ maxWidth: 1440 }}
       >
         <h2
-          className="font-[var(--font-grotesk)] font-medium text-center text-white mb-16"
-          style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
+          className="font-[var(--font-grotesk)] font-medium text-center text-white mb-16 tracking-[-0.96px]"
+          style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
         >
           Built for the Next Financial EcoSystem
         </h2>
@@ -44,8 +46,7 @@ export function Partners() {
           {PARTNERS.map((p) => (
             <div
               key={p.name}
-              className="flex items-center justify-center rounded-xl border border-[#2a2a2a] bg-[#1a1a1a] transition-colors hover:border-[#3a3a3a]"
-              style={{ width: "100%", height: 80 }}
+              className="flex items-center justify-center rounded-xl border border-[#2a2a2a] bg-[#1a1a1a] h-20 transition-all duration-200 hover:border-mint/40 hover:bg-[#1f1f1f]"
             >
               {p.isPng ? (
                 <Image
@@ -53,13 +54,17 @@ export function Partners() {
                   alt={p.name}
                   width={160}
                   height={48}
+                  sizes="160px"
                   className="h-7 w-auto object-contain"
+                  loading="lazy"
                 />
               ) : (
+                /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   src={p.logo}
                   alt={p.name}
                   className="h-7 w-auto object-contain"
+                  loading="lazy"
                 />
               )}
             </div>

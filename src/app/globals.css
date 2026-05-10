@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #021c24;
-  --gray-text: #9ca3af;
+  --gray-text: #6b7280;
   --off-white: #edeeee;
   --dark-bg: #000000;
   --dark-card: #151515;
@@ -37,7 +37,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset scroll targets for fixed nav */
+[id] {
+  scroll-margin-top: 80px;
+}
+
 :focus-visible {
   outline: 2px solid #26c8b8;
   outline-offset: 2px;
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
 }

@@ -7,38 +7,34 @@ const CARDS = [
   { title: "Onchain Transparency", desc: "Real-time visibility into supply, flows, and asset backing.", icon: "/tokens/3d/coinbase.png" },
   { title: "DeFi Composability", desc: "Use tokenized equities as collateral or integrate across DeFi.", icon: "/tokens/3d/meta.png" },
   { title: "Institutional-Grade Security", desc: "Audited infrastructure designed for secure, compliant operation.", icon: "/tokens/3d/intel.png" },
-];
+] as const;
 
 export function Advantages() {
   return (
-    <section className="bg-black text-white p-6 md:p-16 lg:p-[120px]">
+    <section id="advantages" className="bg-black text-white px-6 md:px-16 lg:px-[128px] py-16 md:py-24" aria-label="Platform advantages">
       <div className="mx-auto" style={{ maxWidth: 1440 }}>
         {/* Heading */}
         <div className="mb-16 text-center">
           <h2
-            className="font-[var(--font-grotesk)] font-medium text-white mb-4"
-            style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
+            className="font-[var(--font-grotesk)] font-medium text-white mb-4 tracking-[-0.96px]"
+            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
           >
             Equities redesigned for Web3
           </h2>
           <p
-            className="font-[var(--font-inter)] font-normal text-[#9ca3af]"
-            style={{ fontSize: "clamp(20px, 3.5vw, 32px)", letterSpacing: "-0.64px" }}
+            className="font-[var(--font-inter)] font-normal text-[#9ca3af] tracking-[-0.64px]"
+            style={{ fontSize: "clamp(20px, 3.5vw, 32px)" }}
           >
-            institutional-grade equity exposure with onchain transparency
+            Institutional-grade equity exposure with onchain transparency
           </p>
         </div>
 
         {/* Card grid */}
         <div className="grid md:grid-cols-2 gap-5 mb-12">
           {CARDS.map((c) => (
-            <div
+            <article
               key={c.title}
-              className="bg-[#151515] px-6 md:px-10 py-10 md:py-[60px]"
-              style={{
-                borderRadius: 12,
-                boxShadow: "0 4px 2px rgba(0,0,0,0.25)",
-              }}
+              className="bg-dark-card px-6 md:px-10 py-10 md:py-[60px] rounded-xl shadow-[0_4px_2px_rgba(0,0,0,0.25)] transition-all duration-300 hover:bg-[#1a1a1a] hover:shadow-[0_8px_16px_rgba(38,200,184,0.08)]"
             >
               <div className="flex items-center gap-3 mb-4">
                 <Image
@@ -46,23 +42,24 @@ export function Advantages() {
                   alt=""
                   width={36}
                   height={36}
+                  sizes="36px"
                   className="w-9 h-9 rounded object-contain"
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 <h3
-                  className="font-[var(--font-grotesk)] font-medium text-white"
-                  style={{ fontSize: "clamp(20px, 3.5vw, 32px)", letterSpacing: "-0.64px" }}
+                  className="font-[var(--font-grotesk)] font-medium text-white tracking-[-0.64px]"
+                  style={{ fontSize: "clamp(20px, 3.5vw, 32px)" }}
                 >
                   {c.title}
                 </h3>
               </div>
               <p
-                className="font-[var(--font-inter)] font-normal text-[#9ca3af] leading-relaxed"
-                style={{ fontSize: 18 }}
+                className="font-[var(--font-inter)] font-normal text-[#a3aab5] leading-relaxed text-lg"
               >
                 {c.desc}
               </p>
-            </div>
+            </article>
           ))}
         </div>
 
@@ -72,16 +69,7 @@ export function Advantages() {
             href="https://dune.com/shiftrwa/shift-rwa"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium transition-colors hover:bg-[#edeeee]/80"
-            style={{
-              fontSize: 18,
-              letterSpacing: "0.36px",
-              paddingLeft: 32,
-              paddingRight: 32,
-              paddingTop: 14,
-              paddingBottom: 14,
-              borderRadius: 100,
-            }}
+            className="inline-flex items-center justify-center bg-off-white text-[#021c24] font-[var(--font-inter)] font-medium text-lg tracking-[0.36px] px-8 py-3.5 rounded-full transition-all duration-200 hover:bg-off-white/80 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
           >
             View Analytics
           </a>

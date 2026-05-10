@@ -3,19 +3,21 @@ import { APP_URL } from "@/lib/constants";
 
 export function FinalCta() {
   return (
-    <section className="relative bg-black text-white overflow-hidden" style={{ paddingTop: 96, paddingBottom: 128 }}>
+    <section id="cta" className="relative bg-black text-white overflow-hidden py-24 md:py-32" aria-label="Call to action">
       {/* Background image */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <Image
           src="/visuals/cta-bg.png"
           alt=""
           fill
-          className="object-cover opacity-60"
+          sizes="100vw"
+          className="object-cover opacity-10"
+          loading="lazy"
         />
       </div>
 
-      {/* Dark overlay to obscure ghost text in bg image */}
-      <div className="absolute inset-0 bg-black/70 z-[1]" aria-hidden="true" />
+      {/* Dark overlay to fully obscure ghost text in bg image */}
+      <div className="absolute inset-0 bg-black/95 z-[1]" aria-hidden="true" />
 
       {/* Giant SHIFT watermark */}
       <div
@@ -23,7 +25,7 @@ export function FinalCta() {
         aria-hidden="true"
       >
         <span
-          className="font-[var(--font-grotesk)] font-bold text-white/[0.04] tracking-tighter leading-none"
+          className="font-[var(--font-grotesk)] font-bold text-white/[0.06] tracking-tighter leading-none"
           style={{ fontSize: "clamp(200px, 25vw, 400px)" }}
         >
           SHIFT
@@ -33,14 +35,13 @@ export function FinalCta() {
       {/* Content */}
       <div className="relative z-10 mx-auto text-center px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         <h2
-          className="font-[var(--font-grotesk)] font-medium text-white mb-4"
-          style={{ fontSize: "clamp(28px, 5vw, 48px)", letterSpacing: "-0.96px" }}
+          className="font-[var(--font-grotesk)] font-medium text-white mb-4 tracking-[-0.96px]"
+          style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
         >
           Start trading now
         </h2>
         <p
-          className="font-[var(--font-inter)] font-normal text-white/60 mb-10"
-          style={{ fontSize: 18 }}
+          className="font-[var(--font-inter)] font-normal text-white/60 mb-10 text-lg"
         >
           24/7 markets. No liquidations. Fully backed tokenized equities.
         </p>
@@ -48,16 +49,7 @@ export function FinalCta() {
           href={APP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-white text-[#021c24] font-[var(--font-inter)] font-medium transition-colors hover:bg-white/90"
-          style={{
-            fontSize: 18,
-            letterSpacing: "0.36px",
-            paddingLeft: 32,
-            paddingRight: 32,
-            paddingTop: 14,
-            paddingBottom: 14,
-            borderRadius: 100,
-          }}
+          className="inline-flex items-center justify-center bg-white text-[#021c24] font-[var(--font-inter)] font-medium text-lg tracking-[0.36px] px-8 py-3.5 rounded-full transition-all duration-200 hover:bg-white/90 hover:shadow-lg hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         >
           Trade Now
         </a>

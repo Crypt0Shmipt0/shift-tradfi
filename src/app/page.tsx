@@ -17,18 +17,20 @@ export default function Home() {
   return (
     <>
       <TopNav />
-      <Hero />
-      <Milestones />
-      <Partners />
-      <ProblemCta />
-      <HowItWorks />
-      <Product />
-      <TokenShowcase />
-      <Advantages />
-      <MarketsTable />
-      <ApiSection />
-      <Comparison />
-      <FinalCta />
+      <main id="main-content">
+        <Hero />
+        <Milestones />
+        <Partners />
+        <ProblemCta />
+        <HowItWorks />
+        <Product />
+        <TokenShowcase />
+        <Advantages />
+        <MarketsTable />
+        <ApiSection />
+        <Comparison />
+        <FinalCta />
+      </main>
       <Footer />
     </>
   );
