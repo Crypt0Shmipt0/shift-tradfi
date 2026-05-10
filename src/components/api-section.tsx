@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function ApiSection() {
   return (
     <section id="api" className="py-20 md:py-28 bg-white">
@@ -21,23 +23,37 @@ export function ApiSection() {
           </div>
 
           <div className="w-full lg:w-[520px] space-y-5 shrink-0">
-            <div className="relative rounded-2xl bg-section-dark p-8 min-h-[260px] overflow-hidden">
-              <h3 className="text-xl font-bold text-white mb-3">Mint/Burn via API</h3>
-              <p className="text-sm text-white/60 leading-relaxed max-w-[300px]">
-                Seamless issuance and redemption of tokenized equities via API, with
-                deterministic flows aligned to underlying asset settlement.
-              </p>
-              {/* 3D globe placeholder */}
-              <div className="absolute bottom-4 right-4 text-mint/10 text-6xl">◈</div>
+            <div className="relative rounded-2xl overflow-hidden min-h-[280px]">
+              <Image
+                src="/visuals/api-mint-burn.png"
+                alt="Mint and Burn via API"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="text-xl font-bold text-white mb-2">Mint/Burn via API</h3>
+                <p className="text-sm text-white/70 leading-relaxed max-w-[300px]">
+                  Seamless issuance and redemption of tokenized equities via API, with
+                  deterministic flows aligned to underlying asset settlement.
+                </p>
+              </div>
             </div>
-            <div className="relative rounded-2xl bg-section-dark p-8 min-h-[240px] overflow-hidden">
-              <h3 className="text-xl font-bold text-white mb-3">Trading RFQ</h3>
-              <p className="text-sm text-white/60 leading-relaxed max-w-[300px]">
-                Request quotes on demand with low-latency pricing, enabling precise
-                execution in dynamic market conditions.
-              </p>
-              {/* 3D chart placeholder */}
-              <div className="absolute bottom-4 right-4 text-accent/10 text-6xl">◇</div>
+            <div className="relative rounded-2xl overflow-hidden min-h-[260px]">
+              <Image
+                src="/visuals/api-rfq.png"
+                alt="Trading RFQ"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <h3 className="text-xl font-bold text-white mb-2">Trading RFQ</h3>
+                <p className="text-sm text-white/70 leading-relaxed max-w-[300px]">
+                  Request quotes on demand with low-latency pricing, enabling precise
+                  execution in dynamic market conditions.
+                </p>
+              </div>
             </div>
           </div>
         </div>

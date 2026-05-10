@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const APP_URL = "https://app.shiftrwa.xyz";
@@ -5,14 +6,16 @@ const APP_URL = "https://app.shiftrwa.xyz";
 export function Hero() {
   return (
     <section className="relative pt-[72px] bg-white">
-      {/* Hero image area — gradient bg for bull/bear 3D art */}
+      {/* Hero image — bull & bear 3D art */}
       <div className="relative w-full h-[450px] md:h-[650px] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0d1f2a] via-[#0a1a22] to-white" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white/20 text-sm font-mono">
-            [Bull &amp; Bear 3D Illustration]
-          </div>
-        </div>
+        <Image
+          src="/visuals/hero-bulls.png"
+          alt="Bull and Bear"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-white to-transparent" />
       </div>
 
       {/* Headline — white bg, dark text */}

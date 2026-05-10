@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 const APP_URL = "https://app.shiftrwa.xyz";
@@ -28,9 +29,13 @@ export function ProblemCta() {
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
-          {/* 3D visual placeholder */}
-          <div className="w-full lg:w-[420px] h-[420px] rounded-3xl bg-section-dark flex items-center justify-center shrink-0 overflow-hidden">
-            <span className="text-white/20 text-sm font-mono">[3D Visual]</span>
+          <div className="w-full lg:w-[420px] h-[420px] rounded-3xl bg-section-dark shrink-0 overflow-hidden relative">
+            <Image
+              src="/visuals/problem-3d.png"
+              alt="3D visualization"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </div>

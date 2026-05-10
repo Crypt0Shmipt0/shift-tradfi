@@ -18,6 +18,16 @@ const PARTNERS = [
 export function Partners() {
   return (
     <section className="py-20 md:py-28 bg-white">
+      {/* Partners background image */}
+      <div className="relative w-full h-[250px] md:h-[350px] overflow-hidden mb-10">
+        <Image
+          src="/visuals/partners-bg.png"
+          alt=""
+          fill
+          className="object-cover"
+          aria-hidden
+        />
+      </div>
       <div className="max-w-[1440px] mx-auto section-padding">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-foreground">
           Built for the Next Financial Ecosystem

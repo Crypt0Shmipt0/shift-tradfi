@@ -53,28 +53,36 @@ export function Product() {
           ))}
         </div>
 
-        {/* Long / Short cards with arrow visuals */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-[1000px] mx-auto">
-          <div className="relative rounded-2xl bg-[#111820] border border-white/10 p-8 overflow-hidden min-h-[350px]">
+        {/* Long / Short cards with 3D arrow graphics */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-[1100px] mx-auto">
+          <div className="relative rounded-2xl bg-[#111820] border border-white/10 p-8 overflow-hidden min-h-[400px]">
             <h3 className="text-2xl font-bold mb-3">Long 5X</h3>
             <p className="text-sm text-white/60 leading-relaxed max-w-[280px]">
               Capture amplified upside on your thesis. Up to 5× leveraged exposure
               to major equities without margin accounts or funding fees.
             </p>
-            {/* Up arrow placeholder */}
-            <div className="absolute bottom-0 right-0 w-[200px] h-[200px] flex items-end justify-end">
-              <div className="text-mint/20 text-[120px] font-bold leading-none">↑</div>
+            <div className="absolute bottom-0 right-0 w-[300px] h-[300px]">
+              <Image
+                src="/visuals/product-long.png"
+                alt="Long position"
+                fill
+                className="object-contain object-bottom-right"
+              />
             </div>
           </div>
-          <div className="relative rounded-2xl bg-[#111820] border border-white/10 p-8 overflow-hidden min-h-[350px]">
+          <div className="relative rounded-2xl bg-[#111820] border border-white/10 p-8 overflow-hidden min-h-[400px]">
             <h3 className="text-2xl font-bold mb-3 text-right">Short 3X</h3>
             <p className="text-sm text-white/60 leading-relaxed max-w-[280px] ml-auto text-right">
               Take the other side without borrowing or shorting on margin.
               Inverse exposure on the same underlyings, up to 3× leverage.
             </p>
-            {/* Down arrow placeholder */}
-            <div className="absolute bottom-0 left-0 w-[200px] h-[200px] flex items-end">
-              <div className="text-accent/20 text-[120px] font-bold leading-none">↓</div>
+            <div className="absolute bottom-0 left-0 w-[300px] h-[300px]">
+              <Image
+                src="/visuals/product-short.png"
+                alt="Short position"
+                fill
+                className="object-contain object-bottom-left"
+              />
             </div>
           </div>
         </div>

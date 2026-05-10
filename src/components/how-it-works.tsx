@@ -27,10 +27,24 @@ export function HowItWorks() {
             </div>
           </div>
 
-          {/* Right — app mockup placeholder */}
+          {/* Right — app mockup */}
           <div className="flex-1 relative">
-            <div className="w-full h-[400px] md:h-[500px] rounded-2xl bg-section-dark flex items-center justify-center overflow-hidden">
-              <span className="text-white/20 text-sm font-mono">[App Desktop + Mobile Mockup]</span>
+            <div className="relative w-full h-[400px] md:h-[500px]">
+              <Image
+                src="/visuals/how-it-works-app.png"
+                alt="SHIFT trading app on desktop"
+                fill
+                className="object-contain object-center"
+              />
+              {/* Phone overlay */}
+              <div className="absolute -right-4 md:right-4 bottom-0 w-[120px] md:w-[160px] h-[250px] md:h-[330px]">
+                <Image
+                  src="/visuals/how-it-works-phone.png"
+                  alt="SHIFT trading app on mobile"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
