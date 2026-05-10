@@ -31,15 +31,14 @@ export function HowItWorks() {
           <div className="flex-1 relative">
             <div className="relative w-full h-[400px] md:h-[500px]">
               <Image
-                src="/visuals/how-it-works-app.png"
+                src="/visuals/app-desktop.png"
                 alt="SHIFT trading app on desktop"
                 fill
                 className="object-contain object-center"
               />
-              {/* Phone overlay */}
               <div className="absolute -right-4 md:right-4 bottom-0 w-[120px] md:w-[160px] h-[250px] md:h-[330px]">
                 <Image
-                  src="/visuals/how-it-works-phone.png"
+                  src="/visuals/app-phone.png"
                   alt="SHIFT trading app on mobile"
                   fill
                   className="object-contain"

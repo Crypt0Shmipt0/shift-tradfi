@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const LINKS = [
@@ -20,38 +21,24 @@ export function TopNav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-[1440px] mx-auto section-padding flex items-center justify-between h-[72px]">
-        <a href="#" className="text-xl font-bold tracking-tight">
-          <span className="bg-gradient-to-r from-mint to-accent bg-clip-text text-transparent">
-            SHIFT
-          </span>
+        <a href="#">
+          <Image src="/shift-logo.png" alt="SHIFT" width={125} height={28} className="h-7 w-auto" />
         </a>
 
         <div className="hidden lg:flex items-center gap-8">
           {LINKS.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="text-sm text-text-light hover:text-foreground transition-colors"
-            >
+            <a key={l.label} href={l.href} className="text-sm text-text-light hover:text-foreground transition-colors">
               {l.label}
             </a>
           ))}
         </div>
 
-        <a
-          href={APP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-foreground text-white text-sm font-semibold hover:bg-foreground/90 transition-colors"
-        >
+        <a href={APP_URL} target="_blank" rel="noopener noreferrer"
+          className="hidden lg:inline-flex items-center px-6 py-2.5 rounded-full bg-foreground text-white text-sm font-semibold hover:bg-foreground/90 transition-colors">
           Launch App
         </a>
 
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden p-2 text-text-light hover:text-foreground"
-          aria-label="Toggle menu"
-        >
+        <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-text-light hover:text-foreground" aria-label="Toggle menu">
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
@@ -59,13 +46,10 @@ export function TopNav() {
       {open && (
         <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-3">
           {LINKS.map((l) => (
-            <a key={l.label} href={l.href} onClick={() => setOpen(false)}
-              className="block text-sm text-text-light hover:text-foreground py-2">{l.label}</a>
+            <a key={l.label} href={l.href} onClick={() => setOpen(false)} className="block text-sm text-text-light hover:text-foreground py-2">{l.label}</a>
           ))}
           <a href={APP_URL} target="_blank" rel="noopener noreferrer"
-            className="block text-center px-6 py-2.5 rounded-full bg-foreground text-white text-sm font-semibold mt-3">
-            Launch App
-          </a>
+            className="block text-center px-6 py-2.5 rounded-full bg-foreground text-white text-sm font-semibold mt-3">Launch App</a>
         </div>
       )}
     </nav>

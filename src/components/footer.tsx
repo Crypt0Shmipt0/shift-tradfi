@@ -53,8 +53,8 @@ export function Footer() {
     <footer className="bg-section-dark text-white border-t border-white/10">
       <div className="max-w-[1440px] mx-auto section-padding py-14 grid grid-cols-2 md:grid-cols-5 gap-10">
         <div className="col-span-2 md:col-span-1">
-          <div className="text-xl font-bold mb-3">
-            <span className="bg-gradient-to-r from-mint to-accent bg-clip-text text-transparent">SHIFT</span>
+          <div className="mb-3">
+            <img src="/shift-logo.png" alt="SHIFT" className="h-7 w-auto invert" />
           </div>
           <p className="text-xs text-white/40 leading-relaxed max-w-[240px]">
             Tokenized leveraged stocks, ETFs, and ETNs. On-chain. Zero liquidation risk.

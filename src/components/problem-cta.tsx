@@ -31,10 +31,10 @@ export function ProblemCta() {
           </div>
           <div className="w-full lg:w-[420px] h-[420px] rounded-3xl bg-section-dark shrink-0 overflow-hidden relative">
             <Image
-              src="/visuals/problem-gauge.png"
-              alt="Risk gauge visualization"
+              src="/visuals/3d-broken-cube.png"
+              alt="Broken price feed visualization"
               fill
-              className="object-contain p-6"
+              className="object-contain p-4"
             />
           </div>
         </div>
