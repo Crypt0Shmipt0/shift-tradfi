@@ -61,12 +61,12 @@ export function Product() {
               Capture amplified upside on your thesis. Up to 5× leveraged exposure
               to major equities without margin accounts or funding fees.
             </p>
-            <div className="absolute bottom-0 right-0 w-[300px] h-[300px]">
+            <div className="absolute bottom-0 right-0 w-[280px] h-[280px]">
               <Image
-                src="/visuals/product-long.png"
+                src="/visuals/arrow-long-3d.png"
                 alt="Long position"
                 fill
-                className="object-contain object-bottom-right"
+                className="object-contain"
               />
             </div>
           </div>
@@ -76,12 +76,12 @@ export function Product() {
               Take the other side without borrowing or shorting on margin.
               Inverse exposure on the same underlyings, up to 3× leverage.
             </p>
-            <div className="absolute bottom-0 left-0 w-[300px] h-[300px]">
+            <div className="absolute bottom-0 left-0 w-[280px] h-[280px]">
               <Image
-                src="/visuals/product-short.png"
+                src="/visuals/arrow-short-3d.png"
                 alt="Short position"
                 fill
-                className="object-contain object-bottom-left"
+                className="object-contain"
               />
             </div>
           </div>

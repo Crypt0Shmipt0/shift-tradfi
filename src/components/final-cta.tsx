@@ -1,8 +1,19 @@
+import Image from "next/image";
+
 const APP_URL = "https://app.shiftrwa.xyz";
 
 export function FinalCta() {
   return (
     <section className="relative py-24 md:py-32 bg-section-dark text-white overflow-hidden">
+      {/* Geometric background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <Image
+          src="/visuals/cta-bg-geometric.png"
+          alt=""
+          fill
+          className="object-cover opacity-60"
+        />
+      </div>
       {/* Giant SHIFT watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden>
         <span className="text-[200px] md:text-[300px] lg:text-[400px] font-bold text-white/[0.04] tracking-tighter leading-none">

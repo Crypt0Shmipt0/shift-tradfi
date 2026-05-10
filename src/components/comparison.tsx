@@ -20,7 +20,10 @@ function CellContent({ value }: { value: CellValue }) {
 
 export function Comparison() {
   return (
-    <section id="comparison" className="py-20 md:py-28 bg-section-dark text-white">
+    <section id="comparison" className="relative py-20 md:py-28 bg-section-dark text-white overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" aria-hidden>
+        <img src="/visuals/shift-chevron-bg.png" alt="" className="w-full h-full object-cover opacity-40" />
+      </div>
       <div className="max-w-[1440px] mx-auto section-padding">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
