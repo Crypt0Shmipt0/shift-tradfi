@@ -29,7 +29,7 @@ export function HowItWorks() {
           {/* Left -- partner logo cards */}
           <div className="flex flex-col gap-[40px] items-center justify-center shrink-0">
             <div
-              className="flex items-center justify-center rounded-[12px] bg-[#777] w-[250px] h-[80px]"
+              className="flex items-center justify-center rounded-[12px] bg-[#1a1a1a] border border-white/[0.06] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)] w-[250px] h-[80px]"
             >
               <div
                 className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
@@ -45,7 +45,7 @@ export function HowItWorks() {
               </div>
             </div>
             <div
-              className="flex items-center justify-center rounded-[12px] bg-[#777] w-[250px] h-[80px]"
+              className="flex items-center justify-center rounded-[12px] bg-[#1a1a1a] border border-white/[0.06] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)] w-[250px] h-[80px]"
             >
               <div
                 className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
