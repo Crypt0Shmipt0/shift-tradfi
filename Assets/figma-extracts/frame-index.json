@@ -1,0 +1,113 @@
+{
+  "fileKey": "xCq3eoTM8cvLYunmidxFk5",
+  "rootNodeId": "3000:42",
+  "rootName": "Suits Website",
+  "rootDimensions": { "width": 1440, "height": 11478 },
+  "sections": {
+    "top-nav": {
+      "nodeId": "3010:62",
+      "y": 0,
+      "size": "1440x124",
+      "component": "src/components/top-nav.tsx"
+    },
+    "hero-visual": {
+      "nodeId": "3015:1273",
+      "y": 204,
+      "size": "1440x810",
+      "note": "Figma uses static image 'Untitled design (8) 1'. Current implementation replaced this with a video at 50% opacity (per Tomer's request).",
+      "component": "src/components/hero.tsx"
+    },
+    "hero-text": {
+      "nodeId": "3036:1403",
+      "y": 1094,
+      "size": "1440x560",
+      "component": "src/components/hero.tsx"
+    },
+    "milestones": {
+      "nodeId": "3015:1275",
+      "parent": "3036:1404 (Frame 2147224588, y=1734)",
+      "size": "1440x120",
+      "component": "src/components/milestones.tsx"
+    },
+    "partners": {
+      "nodeId": "3019:1555",
+      "parent": "3036:1404",
+      "size": "1440x1615",
+      "note": "Figma name is 'Logos', not 'Partners'.",
+      "component": "src/components/partners.tsx"
+    },
+    "how-it-works": {
+      "nodeId": "3022:1193",
+      "y": 3429,
+      "size": "1440x1102",
+      "component": "src/components/how-it-works.tsx"
+    },
+    "product-and-advantages": {
+      "nodeId": "3076:899",
+      "parent": "3068:127 (Frame 2147224600, y=4611, 1440x2671)",
+      "size": "1440x1374",
+      "note": "Contains both Product overview and KEY FEATURES/ADVANTAGES (3036:341, 1440x1297) as one frame. Code splits these into product.tsx + advantages.tsx.",
+      "component": ["src/components/product.tsx", "src/components/advantages.tsx"]
+    },
+    "markets-table": {
+      "nodeId": "3036:1597",
+      "y": 7362,
+      "size": "1440x1154",
+      "component": "src/components/markets-table.tsx"
+    },
+    "api-section": {
+      "nodeId": "3041:1851",
+      "y": 8596,
+      "size": "1440x1000",
+      "note": "Figma name is 'Markets' (duplicate); contains 'Key features' frame with Text + Cards children. Code names this api-section.tsx.",
+      "component": "src/components/api-section.tsx"
+    },
+    "comparison": {
+      "nodeId": "3020:572",
+      "parent": "3068:128 (Frame 2147224601, y=9676, 1440x1578)",
+      "size": "1440x1018",
+      "note": "Figma name is 'Comperison' [sic]. Spec confirms 4 pillars: Non-liquidatable exposure, No margin calls, Leverage inside the token, No external risk engine + 4 more (Composable, Works across Solana DeFi, Self-custody, Assets live in your wallet).",
+      "component": "src/components/comparison.tsx"
+    },
+    "final-cta": {
+      "nodeId": "3039:319",
+      "parent": "3068:128",
+      "size": "1440x560",
+      "component": "src/components/final-cta.tsx"
+    }
+  },
+  "missing": {
+    "problem-cta": {
+      "note": "Spec section 5 'Problem / Solution (CTA): Liquidated by a broken price feed?'. Likely nested inside 3068:127. Needs deeper drill in Phase 1.",
+      "component": "src/components/problem-cta.tsx"
+    },
+    "token-showcase": {
+      "note": "Floating tokens visual. Likely nested inside 3068:127 around the Product/Advantages area.",
+      "component": "src/components/token-showcase.tsx"
+    },
+    "footer": {
+      "note": "Not found in top-3 depth scan. Likely at y > 11000 — needs drilling into the bottom of the tree.",
+      "component": "src/components/footer.tsx"
+    }
+  },
+  "spec_to_component_map": {
+    "Topnav (spec)": "top-nav.tsx",
+    "1. Hero Section": "hero.tsx",
+    "2. Milestones": "milestones.tsx",
+    "4. Partnerships": "partners.tsx",
+    "5. Problem / Solution (CTA)": "problem-cta.tsx",
+    "6. Product": "product.tsx",
+    "7. How It Works": "how-it-works.tsx",
+    "8. Comparison table": "comparison.tsx",
+    "9. Tokenized Stocks Advantages": "advantages.tsx",
+    "3. Tokens Overview (Markets)": "markets-table.tsx + token-showcase.tsx",
+    "10. Single API": "api-section.tsx",
+    "11. Media/news": "MISSING from current code — spec calls for announcements/blogs/youtube section",
+    "12. CTA Section": "final-cta.tsx",
+    "12. Footer (dup numbering)": "footer.tsx"
+  },
+  "spec_open_questions": [
+    "Spec section 11 'Media/news' is NOT in current page composition. Add or skip?",
+    "Spec topnav lists Trade, Leaderboard?, Investors Data room, Legal, Media. Current nav has Home, Markets, Blockchain Stats, Learn, Resources. Reconcile."
+  ]
+}
