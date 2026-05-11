@@ -31,32 +31,30 @@ export function ApiSection() {
             </a>
           </div>
 
-          {/* Right cards — LIGHT surfaces on the white section (was dark, flipped per UX audit) */}
+          {/* Right cards — LIGHT surfaces with a transparent glass-dome chart visual */}
           <div className="flex flex-col gap-10 w-full lg:w-[512px] shrink-0">
             {/* Mint/Burn card */}
             <article
               className="relative rounded-xl overflow-hidden w-full bg-off-white border border-black/[0.04]"
               style={{ boxShadow: "0px 4px 12px rgba(0,0,0,0.06)" }}
             >
-              <div className="relative rounded-xl px-10 py-[48px] md:py-[56px] flex flex-col items-center gap-[10px]">
+              <div className="relative rounded-xl px-8 py-[40px] md:py-[48px] flex items-center gap-6">
                 <Image
-                  src="/visuals/chart-globe.webp"
+                  src="/visuals/chart-dome.webp"
                   alt=""
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 512px"
-                  className="object-cover opacity-[0.08]"
-                  style={{ objectPosition: "65% center" }}
+                  width={160}
+                  height={160}
+                  sizes="(max-width: 768px) 120px, 160px"
+                  className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] object-contain shrink-0"
                   loading="lazy"
                   aria-hidden="true"
                 />
-                <div className="relative z-10 w-full text-center">
-                  <h3 className="font-[var(--font-grotesk)] font-medium text-[#021c24] text-[22px] md:text-[28px] tracking-[-0.6px] capitalize leading-[1.04]">
+                <div className="flex flex-col gap-[10px] min-w-0">
+                  <h3 className="font-[var(--font-grotesk)] font-medium text-[#021c24] text-[20px] md:text-[24px] tracking-[-0.5px] capitalize leading-[1.1]">
                     Mint/Burn via API
                   </h3>
-                </div>
-                <div className="relative z-10 w-full flex justify-center">
-                  <p className="font-[var(--font-inter)] font-normal text-[#6b7280] text-[15px] md:text-[17px] tracking-[-0.3px] leading-normal text-center max-w-[360px]">
-                    Programmatic issuance and redemption of tokenized equities via API,
+                  <p className="font-[var(--font-inter)] font-normal text-[#6b7280] text-[14px] md:text-[15px] tracking-[-0.2px] leading-normal">
+                    Programmatic issuance and redemption of tokenized equities,
                     with deterministic flows aligned to underlying asset settlement.
                   </p>
                 </div>
@@ -68,24 +66,22 @@ export function ApiSection() {
               className="relative rounded-xl overflow-hidden w-full bg-off-white border border-black/[0.04]"
               style={{ boxShadow: "0px 4px 12px rgba(0,0,0,0.06)" }}
             >
-              <div className="relative rounded-xl px-10 py-[48px] md:py-[56px] flex flex-col items-center gap-[10px]">
+              <div className="relative rounded-xl px-8 py-[40px] md:py-[48px] flex items-center gap-6">
                 <Image
-                  src="/visuals/api-rfq-bg.webp"
+                  src="/visuals/chart-dome.webp"
                   alt=""
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 512px"
-                  className="object-cover opacity-[0.08]"
-                  style={{ objectPosition: "60% center" }}
+                  width={160}
+                  height={160}
+                  sizes="(max-width: 768px) 120px, 160px"
+                  className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] object-contain shrink-0 -scale-x-100"
                   loading="lazy"
                   aria-hidden="true"
                 />
-                <div className="relative z-10 w-full text-center">
-                  <h3 className="font-[var(--font-grotesk)] font-medium text-[#021c24] text-[22px] md:text-[28px] tracking-[-0.6px] capitalize leading-[1.04]">
+                <div className="flex flex-col gap-[10px] min-w-0">
+                  <h3 className="font-[var(--font-grotesk)] font-medium text-[#021c24] text-[20px] md:text-[24px] tracking-[-0.5px] capitalize leading-[1.1]">
                     Trading RFQ
                   </h3>
-                </div>
-                <div className="relative z-10 w-full flex justify-center">
-                  <p className="font-[var(--font-inter)] font-normal text-[#6b7280] text-[15px] md:text-[17px] tracking-[-0.3px] leading-normal text-center max-w-[360px]">
+                  <p className="font-[var(--font-inter)] font-normal text-[#6b7280] text-[14px] md:text-[15px] tracking-[-0.2px] leading-normal">
                     Request quotes on demand with low-latency pricing, enabling
                     precise execution in dynamic market conditions.
                   </p>

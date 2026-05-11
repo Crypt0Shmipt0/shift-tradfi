@@ -43,15 +43,15 @@ export function ProblemCta() {
             </a>
           </div>
 
-          {/* Right visual: 420x420 */}
+          {/* Right visual: jar with downward chart + warning — semantic match for "broken price feed" */}
           <div className="shrink-0 w-[280px] h-[280px] md:w-[420px] md:h-[420px]">
             <Image
-              src="/visuals/broken-cube.webp"
-              alt="Broken price feed visualization"
+              src="/visuals/broken-feed-warning.webp"
+              alt="Liquidation warning — broken price feed visualization"
               width={420}
               height={420}
               sizes="(max-width: 768px) 280px, 420px"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               loading="lazy"
             />
           </div>

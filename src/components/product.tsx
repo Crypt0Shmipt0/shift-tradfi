@@ -14,26 +14,17 @@ export function Product() {
               style={{ backgroundColor: "rgba(38,200,184,0.12)" }}
             >
               <span className="w-[10px] h-[10px] rounded-full bg-[#26c8b8] shrink-0" />
-              Live on Solana &amp; BNB Chain
+              Live on Solana
             </span>
           </div>
 
-          {/* Chain icons */}
-          <div className="flex items-start gap-[20px]">
-            <div className="flex items-center justify-center gap-[18px] w-[250px] h-[80px] rounded-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/partners/solana.svg" alt="Solana" className="max-h-[48px] w-auto object-contain" loading="lazy" />
-              <span className="font-[var(--font-inter)] font-semibold text-white text-[28px] whitespace-nowrap">
-                Solana
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-[18px] w-[250px] h-[80px] rounded-full">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/partners/bnb.svg" alt="BNB Chain" className="max-h-[48px] w-auto object-contain" loading="lazy" />
-              <span className="font-[var(--font-inter)] font-semibold text-white text-[28px] whitespace-nowrap">
-                BNB Chain
-              </span>
-            </div>
+          {/* Chain — Solana only (BNB not yet live) */}
+          <div className="flex items-center justify-center gap-[18px] h-[80px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/partners/solana.svg" alt="Solana" className="max-h-[48px] w-auto object-contain" loading="lazy" />
+            <span className="font-[var(--font-inter)] font-semibold text-white text-[24px] md:text-[28px] whitespace-nowrap">
+              Solana
+            </span>
           </div>
         </div>
 
