@@ -86,21 +86,23 @@ export function Product() {
         <div className="flex flex-col md:flex-row flex-wrap gap-[40px] items-start justify-center overflow-clip w-full max-w-[1320px]">
           {/* Long card */}
           <article
-            className="relative rounded-[12px] overflow-hidden flex flex-col gap-[10px] items-start px-[40px] py-[60px] w-full md:w-[512px] h-auto md:h-[512px] transition-all duration-300"
+            className="relative rounded-[12px] overflow-hidden flex flex-col gap-[10px] items-start px-[40px] py-[60px] w-full md:w-[512px] h-auto md:h-[512px] border border-[rgba(0,0,0,0.32)]"
             style={{
               boxShadow: "0px 4px 2px rgba(0,0,0,0.25)",
             }}
           >
             {/* Background layers */}
-            <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[12px]">
+            <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[12px] overflow-hidden">
               <div className="absolute bg-[#111] inset-0 rounded-[12px]" />
               <div className="absolute inset-0 opacity-50 overflow-hidden rounded-[12px]">
                 <Image
                   src="/visuals/arrow-up.png"
                   alt=""
-                  fill
+                  width={760}
+                  height={760}
                   sizes="(max-width: 768px) 100vw, 512px"
-                  className="object-contain object-bottom"
+                  className="absolute max-w-none"
+                  style={{ left: "17.52%", top: "7.78%", width: "148.56%", height: "148.56%" }}
                   loading="lazy"
                 />
               </div>
@@ -125,21 +127,23 @@ export function Product() {
 
           {/* Short card */}
           <article
-            className="relative rounded-[12px] overflow-hidden flex flex-col gap-[10px] items-end px-[40px] py-[60px] w-full md:w-[512px] h-auto md:h-[512px] transition-all duration-300"
+            className="relative rounded-[12px] overflow-hidden flex flex-col gap-[10px] items-end px-[40px] py-[60px] w-full md:w-[512px] h-auto md:h-[512px]"
             style={{
               boxShadow: "0px 4px 2px rgba(0,0,0,0.25)",
             }}
           >
             {/* Background layers */}
-            <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[12px]">
+            <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[12px] overflow-hidden">
               <div className="absolute bg-[#151515] inset-0 rounded-[12px]" />
               <div className="absolute inset-0 opacity-50 overflow-hidden rounded-[12px]">
                 <Image
                   src="/visuals/arrow-down.png"
                   alt=""
-                  fill
+                  width={760}
+                  height={760}
                   sizes="(max-width: 768px) 100vw, 512px"
-                  className="object-contain object-bottom"
+                  className="absolute max-w-none"
+                  style={{ left: "-65.38%", top: "-36.86%", width: "148.56%", height: "148.56%" }}
                   loading="lazy"
                 />
               </div>
