@@ -87,9 +87,11 @@ export function Hero() {
           </a>
         </div>
 
-        {/* Stat trio — laurel-flanked stats per Figma node 3036:1403 */}
+        {/* Stat trio — stacks vertically <640px (each stat gets own row),
+            3-up at sm+. Laurels sized SHORTER than content stack so they
+            bracket cleanly without dominating or merging across stats. */}
         <div
-          className="grid grid-cols-3 items-center justify-items-center gap-x-[clamp(8px,3vw,56px)] gap-y-[20px] pt-[12px] md:pt-[24px] w-full max-w-[860px]"
+          className="flex flex-col sm:grid sm:grid-cols-3 items-center justify-items-center gap-y-[18px] gap-x-[clamp(16px,4vw,64px)] pt-[12px] md:pt-[24px] w-full max-w-[860px]"
           role="list"
           aria-label="Key milestones"
         >
@@ -97,15 +99,15 @@ export function Hero() {
             <div
               key={s.label}
               role="listitem"
-              className="flex items-center justify-center gap-[4px] md:gap-[6px]"
+              className="flex items-center justify-center gap-[6px] md:gap-[10px]"
             >
-              {/* Left laurel — black per Tomer (filter forces silver→solid black silhouette) */}
-              <div className="relative w-[34px] h-[88px] md:w-[44px] md:h-[108px] shrink-0">
+              {/* Left laurel — shorter than stat content so it brackets cleanly */}
+              <div className="relative w-[26px] h-[60px] md:w-[32px] md:h-[72px] shrink-0">
                 <Image
                   src="/visuals/laurel.png"
                   alt=""
                   fill
-                  sizes="(max-width: 768px) 34px, 44px"
+                  sizes="(max-width: 768px) 26px, 32px"
                   className="object-contain"
                   style={{ filter: "brightness(0)" }}
                   aria-hidden="true"
@@ -115,26 +117,26 @@ export function Hero() {
               {/* Stat content — bold per Tomer */}
               <div className="flex flex-col items-center justify-center text-[#021c24] whitespace-nowrap px-1">
                 <div className="font-[var(--font-inter)] font-bold leading-none tracking-tight">
-                  <span className="text-[18px] md:text-[24px]">{s.prefix}</span>
-                  <span className="text-[28px] md:text-[40px]">{s.value}</span>
+                  <span className="text-[20px] md:text-[24px]">{s.prefix}</span>
+                  <span className="text-[32px] md:text-[40px]">{s.value}</span>
                 </div>
-                <div className="font-[var(--font-inter)] font-semibold text-[12px] md:text-[15px] text-[#021c24] leading-[1.35] mt-1.5">
+                <div className="font-[var(--font-inter)] font-semibold text-[13px] md:text-[15px] text-[#021c24] leading-[1.35] mt-1.5">
                   {s.label}
                 </div>
                 {s.sub && (
-                  <div className="font-[var(--font-inter)] font-medium text-[10px] md:text-[12px] text-[#6b7280] leading-[1.35]">
+                  <div className="font-[var(--font-inter)] font-medium text-[11px] md:text-[12px] text-[#6b7280] leading-[1.35]">
                     {s.sub}
                   </div>
                 )}
               </div>
 
-              {/* Right laurel (mirrored) — black */}
-              <div className="relative w-[34px] h-[88px] md:w-[44px] md:h-[108px] shrink-0 -scale-x-100">
+              {/* Right laurel (mirrored) */}
+              <div className="relative w-[26px] h-[60px] md:w-[32px] md:h-[72px] shrink-0 -scale-x-100">
                 <Image
                   src="/visuals/laurel.png"
                   alt=""
                   fill
-                  sizes="(max-width: 768px) 34px, 44px"
+                  sizes="(max-width: 768px) 26px, 32px"
                   className="object-contain"
                   style={{ filter: "brightness(0)" }}
                   aria-hidden="true"
