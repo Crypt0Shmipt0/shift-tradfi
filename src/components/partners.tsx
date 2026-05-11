@@ -11,7 +11,7 @@ const PARTNERS: { name: string; logo: string; isPng?: boolean }[] = [
   { name: "Birdeye", logo: "/partners/birdeye.png", isPng: true },
   { name: "Cointelegraph", logo: "/partners/cointelegraph.svg" },
   { name: "Kamino", logo: "/partners/kamino.svg" },
-  { name: "Meteora", logo: "/partners/meteora.svg" },
+  { name: "SNZ Holdings", logo: "/partners/snz.png", isPng: true },
   { name: "PRIM3", logo: "/partners/prim3.svg" },
 ];
 
