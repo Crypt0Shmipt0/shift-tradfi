@@ -64,40 +64,44 @@ export function Partners() {
 
         {/* Logo grid: 4 columns, 40px gap, 250px wide cards, 80px tall */}
         <div className="flex flex-wrap items-start justify-center gap-[40px]">
-          {PARTNERS.map((p) => (
-            <div
-              key={p.name}
-              className="relative flex items-center justify-center rounded-[12px] w-[250px] h-[80px]"
-            >
-              {/* Card bg */}
-              <div className="absolute inset-0 bg-[#444] rounded-[12px]" aria-hidden="true" />
-              {/* Inner shadow */}
-              <div className="absolute inset-0 rounded-[12px] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.25)]" aria-hidden="true" />
+          {PARTNERS.map((p, i) => {
+            // First 8 partner logos render above-the-fold once section enters viewport — eager-load.
+            const loadingMode = i < 8 ? "eager" : "lazy";
+            return (
+              <div
+                key={p.name}
+                className="relative flex items-center justify-center rounded-[12px] w-[250px] h-[80px]"
+              >
+                {/* Card bg */}
+                <div className="absolute inset-0 bg-[#444] rounded-[12px]" aria-hidden="true" />
+                {/* Inner shadow */}
+                <div className="absolute inset-0 rounded-[12px] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.25)]" aria-hidden="true" />
 
-              {/* Logo — uniform 48px max-height for optical balance across natural ratios */}
-              <div className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200" style={{ filter: "brightness(0) invert(1)" }}>
-                {p.isPng ? (
-                  <Image
-                    src={p.logo}
-                    alt={p.name}
-                    width={p.w}
-                    height={p.h}
-                    sizes={`${p.w}px`}
-                    className="max-h-[48px] w-auto object-contain"
-                    loading="lazy"
-                  />
-                ) : (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={p.logo}
-                    alt={p.name}
-                    className="max-h-[48px] w-auto object-contain"
-                    loading="lazy"
-                  />
-                )}
+                {/* Logo — uniform 48px max-height for optical balance across natural ratios */}
+                <div className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200" style={{ filter: "brightness(0) invert(1)" }}>
+                  {p.isPng ? (
+                    <Image
+                      src={p.logo}
+                      alt={p.name}
+                      width={p.w}
+                      height={p.h}
+                      sizes={`${p.w}px`}
+                      className="max-h-[48px] w-auto object-contain"
+                      loading={loadingMode}
+                    />
+                  ) : (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={p.logo}
+                      alt={p.name}
+                      className="max-h-[48px] w-auto object-contain"
+                      loading={loadingMode}
+                    />
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -22,14 +22,14 @@ export function Product() {
           <div className="flex items-start gap-[20px]">
             <div className="flex items-center justify-center gap-[18px] w-[250px] h-[80px] rounded-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/partners/solana.svg" alt="Solana" className="h-[32px] w-[41px] object-contain" loading="lazy" />
+              <img src="/partners/solana.svg" alt="Solana" className="max-h-[48px] w-auto object-contain" loading="lazy" />
               <span className="font-[var(--font-inter)] font-semibold text-white text-[28px] whitespace-nowrap">
                 Solana
               </span>
             </div>
             <div className="flex items-center justify-center gap-[18px] w-[250px] h-[80px] rounded-full">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/partners/bnb.svg" alt="BNB Chain" className="h-[48px] w-[48px] object-contain" loading="lazy" />
+              <img src="/partners/bnb.svg" alt="BNB Chain" className="max-h-[48px] w-auto object-contain" loading="lazy" />
               <span className="font-[var(--font-inter)] font-semibold text-white text-[28px] whitespace-nowrap">
                 BNB Chain
               </span>
