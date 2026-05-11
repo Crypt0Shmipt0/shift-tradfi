@@ -38,12 +38,12 @@ export function MarketsTable() {
           <div className="flex flex-col gap-[12px] items-center w-full">
             {/* Table header */}
             <div className="flex flex-col gap-[18px] items-start w-full">
-              <div className="flex items-center py-[12px] pr-[108px] w-full text-[#8d8d8d] text-[18px]" role="row">
-                <div className="flex flex-1 items-center px-[10px]" role="columnheader">
-                  <span className="flex-1 max-w-[280px] font-[var(--font-inter)] font-medium capitalize leading-normal">Token</span>
-                  <span className="flex-1 font-[var(--font-inter)] font-medium capitalize leading-normal">Token Name</span>
+              <div className="flex items-center py-[12px] pr-[108px] w-full text-[#8d8d8d] text-[18px] font-[var(--font-inter)] font-medium" role="row">
+                <div className="flex flex-1 items-center px-[10px] gap-[20px]" role="columnheader">
+                  <span className="flex-1 max-w-[280px] capitalize leading-normal">Token</span>
+                  <span className="flex-1 capitalize leading-normal">Token Name</span>
                 </div>
-                <div className="flex flex-1 items-center max-w-[320px] font-[var(--font-inter)] font-normal" role="columnheader">
+                <div className="flex flex-1 items-center max-w-[320px] font-normal leading-[20px]" role="columnheader">
                   <span className="flex-1">Price</span>
                   <span className="flex-1">24h change</span>
                 </div>
@@ -60,12 +60,12 @@ export function MarketsTable() {
                 return (
                   <div key={t.ticker}>
                     <div className="flex items-center w-full" role="row">
-                      <div className="flex flex-1 items-center px-[10px]">
-                        <div className="flex flex-1 gap-[18px] items-center max-w-[280px]" role="cell">
+                      <div className="flex flex-1 items-center px-[10px] gap-[20px]">
+                        <div className="flex flex-1 max-w-[280px] gap-[18px] items-center" role="cell">
                           <Image src={t.image} alt={t.ticker} width={36} height={36} sizes="36px" className="w-[36px] h-[36px] rounded-full object-cover shrink-0" loading="lazy" />
                           <span className="font-[var(--font-inter)] font-medium text-black text-[18px] capitalize leading-normal whitespace-nowrap">{t.ticker}</span>
                         </div>
-                        <span className="flex-1 font-[var(--font-inter)] font-medium text-black text-[18px] leading-normal" role="cell">{t.name.toUpperCase()}</span>
+                        <span className="flex-1 font-[var(--font-inter)] font-medium text-black text-[18px] uppercase leading-normal" role="cell">{t.name}</span>
                       </div>
                       <div className={`flex flex-1 items-center max-w-[320px] font-[var(--font-inter)] font-normal text-[18px] ${priceColor}`}>
                         <span className="flex-1 leading-[20px]" role="cell">{t.comingSoon ? "---" : (priceData?.price ?? "$ ---")}</span>
