@@ -19,7 +19,7 @@ const PARTNERS: Partner[] = [
   { name: "Solana",        logo: "/partners/solana.svg",        w: 250, h: 80,  displayH: 24 },
   { name: "BNB Chain",     logo: "/partners/bnb.svg",           w: 137, h: 48,  displayH: 28 },
   { name: "Wallet",        logo: "/partners/wallet.svg",        w: 250, h: 80,  displayH: 26 },
-  { name: "Chainlink",     logo: "/partners/chainlink.png",     w: 188, h: 48,  displayH: 28, isPng: true },
+  { name: "Chainlink",     logo: "/partners/chainlink.svg",     w: 248, h: 63,  displayH: 28 },
   { name: "Orca",          logo: "/partners/orca.svg",          w: 163, h: 42,  displayH: 28 },
   { name: "Birdeye",       logo: "/partners/birdeye.png",       w: 154, h: 48,  displayH: 38, isPng: true },
   { name: "Cointelegraph", logo: "/partners/cointelegraph.svg", w: 189, h: 48,  displayH: 32 },

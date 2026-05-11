@@ -99,7 +99,7 @@ export function Hero() {
               role="listitem"
               className="flex items-center justify-center gap-[4px] md:gap-[6px]"
             >
-              {/* Left laurel */}
+              {/* Left laurel — black per Tomer (filter forces silver→solid black silhouette) */}
               <div className="relative w-[34px] h-[88px] md:w-[44px] md:h-[108px] shrink-0">
                 <Image
                   src="/visuals/laurel.png"
@@ -107,27 +107,28 @@ export function Hero() {
                   fill
                   sizes="(max-width: 768px) 34px, 44px"
                   className="object-contain"
+                  style={{ filter: "brightness(0)" }}
                   aria-hidden="true"
                 />
               </div>
 
-              {/* Stat content */}
+              {/* Stat content — bold per Tomer */}
               <div className="flex flex-col items-center justify-center text-[#021c24] whitespace-nowrap px-1">
-                <div className="font-[var(--font-inter)] font-light leading-none tracking-tight">
+                <div className="font-[var(--font-inter)] font-bold leading-none tracking-tight">
                   <span className="text-[18px] md:text-[24px]">{s.prefix}</span>
                   <span className="text-[28px] md:text-[40px]">{s.value}</span>
                 </div>
-                <div className="font-[var(--font-inter)] font-normal text-[12px] md:text-[15px] text-[#6b7280] leading-[1.35] mt-1.5">
+                <div className="font-[var(--font-inter)] font-semibold text-[12px] md:text-[15px] text-[#021c24] leading-[1.35] mt-1.5">
                   {s.label}
                 </div>
                 {s.sub && (
-                  <div className="font-[var(--font-inter)] font-normal text-[10px] md:text-[12px] text-[#6b7280] leading-[1.35]">
+                  <div className="font-[var(--font-inter)] font-medium text-[10px] md:text-[12px] text-[#6b7280] leading-[1.35]">
                     {s.sub}
                   </div>
                 )}
               </div>
 
-              {/* Right laurel (mirrored) */}
+              {/* Right laurel (mirrored) — black */}
               <div className="relative w-[34px] h-[88px] md:w-[44px] md:h-[108px] shrink-0 -scale-x-100">
                 <Image
                   src="/visuals/laurel.png"
@@ -135,6 +136,7 @@ export function Hero() {
                   fill
                   sizes="(max-width: 768px) 34px, 44px"
                   className="object-contain"
+                  style={{ filter: "brightness(0)" }}
                   aria-hidden="true"
                 />
               </div>
