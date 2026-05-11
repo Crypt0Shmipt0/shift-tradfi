@@ -46,7 +46,7 @@ export function ProblemCta() {
           {/* Right visual: 420x420 */}
           <div className="shrink-0 w-[280px] h-[280px] md:w-[420px] md:h-[420px]">
             <Image
-              src="/visuals/broken-cube.png"
+              src="/visuals/broken-cube.webp"
               alt="Broken price feed visualization"
               width={420}
               height={420}

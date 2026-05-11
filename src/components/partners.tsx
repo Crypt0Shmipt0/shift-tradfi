@@ -21,7 +21,7 @@ export function Partners() {
       {/* Decorative banner image */}
       <div className="relative w-full overflow-hidden" style={{ height: "clamp(200px, 24.93vw, 359px)" }}>
         <Image
-          src="/visuals/partners-bg.png"
+          src="/visuals/partners-bg.webp"
           alt=""
           fill
           sizes="100vw"

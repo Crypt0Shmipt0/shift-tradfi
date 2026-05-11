@@ -39,7 +39,7 @@ export function ApiSection() {
               <div className="relative bg-black rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
-                  src="/visuals/chart-globe.png"
+                  src="/visuals/chart-globe.webp"
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 512px"
@@ -72,7 +72,7 @@ export function ApiSection() {
               <div className="relative bg-black rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
-                  src="/visuals/api-rfq-bg.png"
+                  src="/visuals/api-rfq-bg.webp"
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 512px"

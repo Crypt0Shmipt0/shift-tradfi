@@ -18,6 +18,8 @@ export function Hero() {
           loop
           muted
           playsInline
+          preload="metadata"
+          poster="/visuals/hero-poster.jpg"
           aria-label="Abstract financial data visualization background"
           className="absolute inset-0 w-full h-full object-cover object-center opacity-50"
         >

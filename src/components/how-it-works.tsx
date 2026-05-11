@@ -54,7 +54,7 @@ export function HowItWorks() {
           <div className="flex items-end shrink-0">
             <div className="relative w-[600px] lg:w-[955px] h-[340px] lg:h-[540px] mr-[-100px] lg:mr-[-224px]">
               <Image
-                src="/visuals/app-desktop.png"
+                src="/visuals/app-desktop.webp"
                 alt="SHIFT trading app on desktop"
                 fill
                 sizes="(max-width: 1024px) 600px, 955px"
@@ -64,7 +64,7 @@ export function HowItWorks() {
             </div>
             <div className="relative w-[120px] lg:w-[229px] h-[250px] lg:h-[468px]">
               <Image
-                src="/visuals/app-phone.png"
+                src="/visuals/app-phone.webp"
                 alt="SHIFT trading app on mobile"
                 fill
                 sizes="(max-width: 1024px) 120px, 229px"
