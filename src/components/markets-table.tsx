@@ -20,10 +20,19 @@ export function MarketsTable() {
         {/* Header */}
         <div className="flex flex-col gap-[18px] items-center text-center w-full">
           <h2
-            className="font-[var(--font-grotesk)] font-medium text-black tracking-[-0.96px] leading-[1.1] w-full"
+            className="flex items-center justify-center gap-[12px] md:gap-[16px] font-[var(--font-grotesk)] font-medium text-black tracking-[-0.96px] leading-[1.1] w-full"
             style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
           >
-            SHIFT Markets
+            <Image
+              src="/shift-logo.png"
+              alt="SHIFT"
+              width={125}
+              height={28}
+              sizes="(max-width: 768px) 96px, 160px"
+              className="h-[0.66em] w-auto"
+              priority={false}
+            />
+            <span>Markets</span>
           </h2>
           <p
             className="font-[var(--font-inter)] font-medium lowercase text-[#6b7280] tracking-[-0.36px] leading-normal w-full max-w-[680px]"
