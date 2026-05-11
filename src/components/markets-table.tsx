@@ -2,15 +2,15 @@ import Image from "next/image";
 import { TOKENS } from "@/data/tokens";
 import { APP_URL } from "@/lib/constants";
 
-/* Static placeholder prices matching Figma */
+/* Static placeholder prices — differentiated per token */
 const PLACEHOLDER_PRICES: Record<string, { price: string; change: string; positive: boolean }> = {
-  TSL2L: { price: "$ 437.32", change: "+4.14%", positive: true },
-  TSL1S: { price: "$ 437.32", change: "+4.14%", positive: false },
-  SPX3L: { price: "$ 437.32", change: "+4.14%", positive: true },
-  SPX3S: { price: "$ 437.32", change: "+4.14%", positive: false },
-  SOX3L: { price: "$ 437.32", change: "+4.14%", positive: true },
-  SOX3S: { price: "$ 437.32", change: "+4.14%", positive: false },
-  URA2L: { price: "$ 437.32", change: "+4.14%", positive: true },
+  TSL2L: { price: "$ 175.60", change: "+2.41%", positive: true },
+  TSL1S: { price: "$ 42.77", change: "-1.85%", positive: false },
+  SPX3L: { price: "$ 563.22", change: "+0.84%", positive: true },
+  SPX3S: { price: "$ 89.33", change: "-0.74%", positive: false },
+  SOX3L: { price: "$ 142.18", change: "+3.15%", positive: true },
+  SOX3S: { price: "$ 38.45", change: "-2.87%", positive: false },
+  URA2L: { price: "$ 28.94", change: "+1.62%", positive: true },
 };
 
 export function MarketsTable() {

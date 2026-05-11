@@ -8,10 +8,10 @@ const PRODUCT = [
 ] as const;
 
 const RESOURCES = [
-  { label: "Documentation", href: "#" },
+  { label: "Documentation", href: "https://shiftrwa.xyz/learn" },
   { label: "GitHub", href: "https://github.com/devrwa" },
   { label: "Dune Dashboard", href: "https://dune.com/shiftrwa/shift-rwa" },
-  { label: "Blog", href: "#" },
+  { label: "Blog", href: "https://shiftrwa.xyz/blog" },
 ] as const;
 
 const LEGAL = [

@@ -48,7 +48,7 @@ export function Partners() {
           <p
             className="font-[var(--font-inter)] font-normal text-center text-[#edeeee] text-[18px] leading-normal tracking-[-0.36px] max-w-[900px]"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo non urna facilisis aliquet. Integer vel nibh at sapien tincidunt posuere.
+            Backed by leading infrastructure providers, exchanges, and institutional investors across DeFi and traditional finance.
           </p>
         </div>
 

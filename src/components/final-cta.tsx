@@ -4,16 +4,17 @@ import { APP_URL } from "@/lib/constants";
 export function FinalCta() {
   return (
     <section id="cta" className="relative bg-black text-white overflow-hidden flex flex-col items-center justify-center" style={{ minHeight: 560 }} aria-label="Call to action">
-      {/* Background image at 20% opacity per Figma */}
+      {/* Background image */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <Image
           src="/visuals/cta-bg.png"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover object-bottom opacity-20"
+          className="object-cover object-bottom opacity-10"
           loading="lazy"
         />
+        <div className="absolute inset-0 bg-black/80" />
       </div>
 
       {/* Content */}

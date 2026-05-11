@@ -40,7 +40,7 @@ export function TopNav() {
       >
         {/* Left: logo + links */}
         <div className="flex items-center gap-[48px]">
-          <a href="#" aria-label="SHIFT home">
+          <a href="#hero" aria-label="SHIFT home">
             <Image
               src="/shift-logo.png"
               alt="SHIFT"

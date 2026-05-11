@@ -20,7 +20,7 @@ export function ApiSection() {
               </p>
             </div>
             <a
-              href="#"
+              href="https://shiftrwa.xyz/learn"
               className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[20px] md:text-[24px] capitalize tracking-[0.48px] px-8 py-[14px] rounded-full transition-all duration-200 hover:bg-black/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 w-fit"
             >
               Read API Docs

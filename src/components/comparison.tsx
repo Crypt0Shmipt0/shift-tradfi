@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type CellValue = "yes" | "no" | string;
 
 interface ComparisonRow {
@@ -25,14 +23,14 @@ const COLUMNS = ["SHIFT", "Other Tokenized", "Perps", "TradFi Brokers"] as const
 function CellContent({ value }: { value: CellValue }) {
   if (value === "yes")
     return (
-      <div className="flex items-center justify-center">
-        <Image src="/diamond-teal.png" alt="Yes" width={24} height={24} className="w-6 h-6" />
+      <div className="flex items-center justify-center" role="img" aria-label="Yes">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.5 7.5L20 10L12.5 12.5L10 20L7.5 12.5L0 10L7.5 7.5L10 0Z" fill="#26c8b8"/></svg>
       </div>
     );
   if (value === "no")
     return (
-      <div className="flex items-center justify-center">
-        <Image src="/x-red.png" alt="No" width={16} height={16} className="w-4 h-4" />
+      <div className="flex items-center justify-center" role="img" aria-label="No">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round"/></svg>
       </div>
     );
   return (
@@ -92,7 +90,7 @@ export function Comparison() {
                 {/* Feature label */}
                 <div className="flex-1 bg-[#151515] rounded-xl p-5">
                   <div className="flex gap-[18px] items-center">
-                    <Image src="/diamond-teal.png" alt="" width={24} height={24} className="w-6 h-6 shrink-0" aria-hidden="true" />
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 shrink-0" aria-hidden="true"><path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z" fill="#26c8b8" opacity="0.6"/></svg>
                     <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">
                       {r.feature}
                     </span>
