@@ -91,7 +91,7 @@ export function Hero() {
             3-up at sm+. Laurels sized SHORTER than content stack so they
             bracket cleanly without dominating or merging across stats. */}
         <div
-          className="flex flex-col sm:grid sm:grid-cols-3 items-center justify-items-center gap-y-[18px] gap-x-[clamp(16px,4vw,64px)] pt-[12px] md:pt-[24px] w-full max-w-[860px]"
+          className="flex flex-col lg:grid lg:grid-cols-3 items-center justify-items-center gap-y-[20px] gap-x-[80px] xl:gap-x-[100px] pt-[12px] md:pt-[24px] w-full max-w-[920px]"
           role="list"
           aria-label="Key milestones"
         >
