@@ -72,11 +72,12 @@ export function ApiSection() {
               <div className="relative bg-black rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
-                  src="/visuals/cta-bg.png"
+                  src="/visuals/api-rfq-bg.png"
                   alt=""
                   fill
                   sizes="(max-width: 1024px) 100vw, 512px"
-                  className="object-cover opacity-40"
+                  className="object-cover opacity-60"
+                  style={{ objectPosition: "60% center" }}
                   loading="lazy"
                   aria-hidden="true"
                 />
