@@ -109,7 +109,7 @@ export function Media() {
                     )}
                   </span>
                   <ArrowUpRight
-                    className="w-4 h-4 text-white/60 group-hover:text-[#26c8b8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                    className="w-4 h-4 text-white/60 group-hover:text-[#26c8b8] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-[color,transform] duration-200"
                     aria-hidden="true"
                   />
                 </div>

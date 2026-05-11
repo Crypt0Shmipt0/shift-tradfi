@@ -77,7 +77,7 @@ export function TopNav() {
           href={APP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-all duration-300 hover:bg-[#021c24]/90"
+          className="hidden lg:inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors duration-200 hover:bg-[#021c24]/90"
           style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
         >
           Launch App
@@ -98,7 +98,7 @@ export function TopNav() {
       {/* Mobile menu with slide transition */}
       <div
         id="mobile-menu"
-        className={`lg:hidden bg-white border-t border-gray-100 px-8 overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden bg-white border-t border-gray-100 px-8 overflow-hidden transition-[max-height,opacity,padding] duration-300 ease-in-out ${
           open ? "max-h-[400px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
         }`}
         aria-hidden={!open}
@@ -121,7 +121,7 @@ export function TopNav() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-lg px-8 py-3.5 rounded-full mt-4 transition-all duration-200 hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="block text-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-lg px-8 py-3.5 rounded-full mt-4 transition-colors duration-200 hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
             tabIndex={open ? 0 : -1}
           >
             Launch App

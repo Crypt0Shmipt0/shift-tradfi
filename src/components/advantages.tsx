@@ -47,7 +47,7 @@ export function Advantages() {
               {CARDS.slice(row * 2, row * 2 + 2).map((c) => (
                 <article
                   key={c.title}
-                  className="bg-[#151515] flex-1 min-w-0 flex flex-col gap-[18px] items-end px-[40px] py-[60px] rounded-[12px] transition-all duration-300 hover:bg-[#1a1a1a]"
+                  className="bg-[#151515] flex-1 min-w-0 flex flex-col gap-[18px] items-end px-[40px] py-[60px] rounded-[12px] transition-colors duration-200 hover:bg-[#1a1a1a]"
                   style={{ boxShadow: "0px 4px 2px rgba(0,0,0,0.25)" }}
                 >
                   <div className="flex items-center gap-[12px] w-full">
@@ -77,7 +77,7 @@ export function Advantages() {
           href="https://dune.com/shiftrwa/shift-rwa"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-[#edeeee] text-black font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full transition-all duration-200 hover:bg-[#edeeee]/80 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full transition-colors duration-200 hover:bg-[#edeeee]/80 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         >
           View Analytics
         </a>

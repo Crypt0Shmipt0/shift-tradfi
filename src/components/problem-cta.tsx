@@ -36,7 +36,7 @@ export function ProblemCta() {
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-white text-black font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] rounded-full transition-all duration-200 hover:bg-white/90 hover:shadow-lg hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-[#151515]"
+              className="inline-flex items-center justify-center bg-white text-[#021c24] font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] rounded-full transition-colors duration-200 hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-[#151515]"
               style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
             >
               Trade Now
