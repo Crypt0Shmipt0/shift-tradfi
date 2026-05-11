@@ -27,15 +27,15 @@ const PARTNERS: Partner[] = [
 
 export function Partners() {
   return (
-    <section id="partners" className="bg-[#0a0a0a]" aria-label="Partners and integrations">
-      {/* Decorative banner image */}
+    <section id="partners" className="bg-[#0a0a0a] overflow-hidden" aria-label="Partners and integrations">
+      {/* Decorative banner image — object-position top clips half-tokens cleanly at bottom edge */}
       <div className="relative w-full overflow-hidden" style={{ height: "clamp(200px, 24.93vw, 359px)" }}>
         <Image
           src="/visuals/partners-bg.webp"
           alt=""
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-top"
           loading="lazy"
           aria-hidden="true"
         />
