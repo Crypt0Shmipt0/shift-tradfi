@@ -31,22 +31,36 @@ export function HowItWorks() {
             <div
               className="flex items-center justify-center rounded-[12px] bg-[#777] w-[250px] h-[80px]"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/partners/alpaca.svg"
-                alt="Alpaca"
-                className="h-[46px] w-[160px] object-contain"
-                loading="lazy"
-              />
+              <div
+                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
+                style={{ filter: "brightness(0) invert(1)" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/partners/alpaca.svg"
+                  alt="Alpaca"
+                  className="h-[46px] w-[160px] object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div
               className="flex items-center justify-center rounded-[12px] bg-[#777] w-[250px] h-[80px]"
             >
-              <span
-                className="font-[var(--font-grotesk)] font-bold text-white tracking-wider uppercase text-xl md:text-[22px]"
+              <div
+                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
+                style={{ filter: "brightness(0) invert(1)" }}
               >
-                DekaBank
-              </span>
+                <Image
+                  src="/partners/dekabank.png"
+                  alt="DekaBank"
+                  width={200}
+                  height={28}
+                  sizes="200px"
+                  className="h-[28px] w-auto"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
 
