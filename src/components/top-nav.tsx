@@ -62,7 +62,7 @@ export function TopNav() {
                 aria-current={l.active ? "page" : undefined}
                 className={`font-[var(--font-inter)] font-medium leading-[20px] text-[18px] tracking-[0.18px] transition-colors duration-200 hover:opacity-80 text-[#021c24] ${
                   l.active
-                    ? "underline underline-offset-4 decoration-[#021c24]"
+                    ? "underline underline-offset-4 decoration-2 decoration-[#26c8b8]"
                     : ""
                 }`}
               >
