@@ -56,29 +56,23 @@ export function Comparison() {
           </p>
         </div>
 
-        {/* Table grid */}
-        <div className="flex flex-col gap-3 overflow-x-auto" tabIndex={0} role="region" aria-label="Scrollable comparison table">
+        {/* ───────────────────  Desktop / tablet table  ─────────────────── */}
+        <div className="hidden md:flex flex-col gap-3 overflow-x-auto" tabIndex={0} role="region" aria-label="Scrollable comparison table">
           <div style={{ minWidth: 900 }}>
             {/* Column headers */}
             <div className="flex gap-5 items-end mb-3">
-              {/* Feature column - empty header */}
               <div className="flex-1 p-5 rounded-xl" />
-              {/* Data columns */}
               <div className="flex flex-1 gap-5">
                 {COLUMNS.slice(0, 2).map((col) => (
                   <div key={col} className="flex-1 bg-[#151515] rounded-xl p-5">
-                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">
-                      {col}
-                    </p>
+                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">{col}</p>
                   </div>
                 ))}
               </div>
               <div className="flex flex-1 gap-5">
                 {COLUMNS.slice(2).map((col) => (
                   <div key={col} className="flex-1 bg-[#151515] rounded-xl p-5">
-                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">
-                      {col}
-                    </p>
+                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">{col}</p>
                   </div>
                 ))}
               </div>
@@ -87,37 +81,61 @@ export function Comparison() {
             {/* Data rows */}
             {ROWS.map((r) => (
               <div key={r.feature} className="flex gap-5 mb-3">
-                {/* Feature label */}
                 <div className="flex-1 bg-[#151515] rounded-xl p-5">
                   <div className="flex gap-[18px] items-center">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 shrink-0" aria-hidden="true"><path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z" fill="#26c8b8" opacity="0.6"/></svg>
-                    <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">
-                      {r.feature}
-                    </span>
+                    <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">{r.feature}</span>
                   </div>
                 </div>
-                {/* SHIFT + Other Tokenized */}
                 <div className="flex flex-1 gap-5">
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
-                    <CellContent value={r.shift} />
-                  </div>
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
-                    <CellContent value={r.tokenized} />
-                  </div>
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.shift} /></div>
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.tokenized} /></div>
                 </div>
-                {/* Perps + TradFi */}
                 <div className="flex flex-1 gap-5">
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
-                    <CellContent value={r.perps} />
-                  </div>
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
-                    <CellContent value={r.tradfi} />
-                  </div>
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.perps} /></div>
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.tradfi} /></div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* ───────────────────  Mobile cards  ─────────────────── */}
+        <ul className="md:hidden flex flex-col gap-3" role="list" aria-label="Comparison (mobile)">
+          {ROWS.map((r) => (
+            <li key={r.feature} className="bg-[#151515] rounded-2xl p-5 flex flex-col gap-4">
+              {/* Feature heading */}
+              <div className="flex gap-3 items-center">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="w-5 h-5 shrink-0" aria-hidden="true">
+                  <path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z" fill="#26c8b8" />
+                </svg>
+                <h3 className="font-[var(--font-inter)] font-semibold text-white text-[16px] capitalize leading-tight">
+                  {r.feature}
+                </h3>
+              </div>
+              {/* Divider */}
+              <div className="h-px bg-white/10" />
+              {/* Value list — SHIFT first, visually emphasized */}
+              <dl className="flex flex-col gap-2.5">
+                {[
+                  { label: "SHIFT", value: r.shift, isShift: true },
+                  { label: "Other Tokenized", value: r.tokenized, isShift: false },
+                  { label: "Perps", value: r.perps, isShift: false },
+                  { label: "TradFi Brokers", value: r.tradfi, isShift: false },
+                ].map(({ label, value, isShift }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <dt className={`font-[var(--font-inter)] text-[14px] capitalize ${isShift ? "text-[#26c8b8] font-semibold" : "text-[#8d8d8d] font-medium"}`}>
+                      {label}
+                    </dt>
+                    <dd className="ml-3 flex items-center">
+                      <CellContent value={value} />
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
