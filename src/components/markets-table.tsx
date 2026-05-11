@@ -38,42 +38,35 @@ export function MarketsTable() {
           <div className="flex flex-col gap-[12px] items-center w-full">
             {/* Table header */}
             <div className="flex flex-col gap-[18px] items-start w-full">
-              <div className="flex items-center py-[12px] pr-[108px] w-full text-[#8d8d8d] text-[18px] font-[var(--font-inter)] font-medium" role="row">
-                <div className="flex flex-1 items-center px-[10px] gap-[20px]" role="columnheader">
-                  <span className="flex-1 max-w-[280px] capitalize leading-normal">Token</span>
-                  <span className="flex-1 capitalize leading-normal">Token Name</span>
-                </div>
-                <div className="flex flex-1 items-center max-w-[320px] font-normal leading-[20px]" role="columnheader">
-                  <span className="flex-1">Price</span>
-                  <span className="flex-1">24h change</span>
-                </div>
+              <div className="flex items-center w-full py-[12px] text-[#8d8d8d] text-[18px] font-[var(--font-inter)] font-medium leading-[20px]" role="row">
+                <div className="w-[140px] shrink-0 px-[10px] capitalize" role="columnheader">Token</div>
+                <div className="flex-1 px-[10px] capitalize" role="columnheader">Token Name</div>
+                <div className="w-[140px] shrink-0 px-[10px] font-normal" role="columnheader">Price</div>
+                <div className="w-[140px] shrink-0 px-[10px] font-normal" role="columnheader">24h change</div>
+                <div className="w-[108px] shrink-0" aria-hidden="true" />
               </div>
               <div className="w-full h-px bg-[#e5e5e5]" />
             </div>
 
             {/* Rows */}
-            <div className="flex flex-col gap-[20px] items-center w-full">
+            <div className="flex flex-col gap-[20px] items-stretch w-full">
               {TOKENS.map((t) => {
                 const priceData = PLACEHOLDER_PRICES[t.ticker];
                 const isPositive = priceData?.positive ?? true;
                 const priceColor = isPositive ? "text-[#01b95a]" : "text-[#c4162f]";
                 return (
-                  <div key={t.ticker}>
+                  <div key={t.ticker} className="w-full">
                     <div className="flex items-center w-full" role="row">
-                      <div className="flex flex-1 items-center px-[10px] gap-[20px]">
-                        <div className="flex flex-1 max-w-[280px] gap-[18px] items-center" role="cell">
-                          <Image src={t.image} alt={t.ticker} width={36} height={36} sizes="36px" className="w-[36px] h-[36px] rounded-full object-cover shrink-0" loading="lazy" />
-                          <span className="font-[var(--font-inter)] font-medium text-black text-[18px] capitalize leading-normal whitespace-nowrap">{t.ticker}</span>
-                        </div>
-                        <span className="flex-1 font-[var(--font-inter)] font-medium text-black text-[18px] uppercase leading-normal" role="cell">{t.name}</span>
+                      <div className="w-[140px] shrink-0 px-[10px] flex items-center gap-[12px]" role="cell">
+                        <Image src={t.image} alt={t.ticker} width={36} height={36} sizes="36px" className="w-[36px] h-[36px] rounded-full object-cover shrink-0" loading="lazy" />
+                        <span className="font-[var(--font-inter)] font-medium text-black text-[18px] capitalize leading-normal whitespace-nowrap">{t.ticker}</span>
                       </div>
-                      <div className={`flex flex-1 items-center max-w-[320px] font-[var(--font-inter)] font-normal text-[18px] ${priceColor}`}>
-                        <span className="flex-1 leading-[20px]" role="cell">{t.comingSoon ? "---" : (priceData?.price ?? "$ ---")}</span>
-                        <span className="flex-1 leading-[20px]" role="cell">{t.comingSoon ? "---" : (priceData?.change ?? "---%")}</span>
-                      </div>
-                      <div role="cell">
+                      <span className="flex-1 px-[10px] font-[var(--font-inter)] font-medium text-black text-[18px] uppercase leading-normal" role="cell">{t.name}</span>
+                      <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-inter)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.price ?? "$ ---")}</span>
+                      <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-inter)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.change ?? "---%")}</span>
+                      <div className="w-[108px] shrink-0 flex justify-end" role="cell">
                         {!t.comingSoon ? (
-                          <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[16px] tracking-[0.32px] capitalize px-[24px] py-[6px] rounded-full transition-all duration-200 hover:bg-black/90 hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
+                          <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[16px] tracking-[0.32px] capitalize px-[24px] py-[6px] rounded-full hover:bg-black/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
                             Explore
                           </a>
                         ) : (
