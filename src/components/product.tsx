@@ -99,6 +99,7 @@ export function Product() {
                   src="/visuals/arrow-up.png"
                   alt=""
                   fill
+                  sizes="(max-width: 768px) 100vw, 512px"
                   className="object-contain object-bottom"
                   loading="lazy"
                 />
@@ -137,6 +138,7 @@ export function Product() {
                   src="/visuals/arrow-down.png"
                   alt=""
                   fill
+                  sizes="(max-width: 768px) 100vw, 512px"
                   className="object-contain object-bottom"
                   loading="lazy"
                 />
