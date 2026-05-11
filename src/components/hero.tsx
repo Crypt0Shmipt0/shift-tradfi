@@ -40,11 +40,10 @@ export function Hero() {
         {/* Text group: 40px gap between heading and subtitle */}
         <div className="flex flex-col items-center gap-[40px] w-full text-center">
           <h1
-            className="font-[var(--font-grotesk)] font-medium leading-[1.04] tracking-[-1.92px] w-full"
+            className="flex flex-col items-center font-[var(--font-grotesk)] font-medium leading-[1.04] tracking-[-1.92px] text-center max-w-[900px] mx-auto"
             style={{ fontSize: "clamp(36px, 6.67vw, 96px)" }}
           >
-            <span className="text-[#5d5d5d]">The home of tokenized</span>
-            <br />
+            <span className="text-[#8d8d8d]">The home of tokenized</span>
             <span className="text-[#021c24]">Leveraged Stocks</span>
           </h1>
 
