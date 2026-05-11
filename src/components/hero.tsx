@@ -1,11 +1,19 @@
+"use client";
+
+import { useRef } from "react";
 import { APP_URL } from "@/lib/constants";
+import { useVideoResume } from "@/lib/use-video-resume";
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  useVideoResume(videoRef);
+
   return (
     <section id="hero" className="relative overflow-hidden" aria-label="Hero">
       {/* Video background section - dark with video at 50% opacity */}
       <div className="relative bg-black">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
