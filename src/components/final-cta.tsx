@@ -3,7 +3,7 @@ import { APP_URL } from "@/lib/constants";
 
 export function FinalCta() {
   return (
-    <section id="cta" className="relative bg-[#0a0a0a] text-white overflow-hidden flex flex-col items-center justify-center" style={{ minHeight: 560 }} aria-label="Call to action">
+    <section id="cta" className="relative bg-dark-bg text-white overflow-hidden flex flex-col items-center justify-center" style={{ minHeight: 560 }} aria-label="Call to action">
       {/* SHIFT wordmark watermark — official brand asset (Horizontal Lockup White)
           positioned to bleed off the bottom of the section at ~140% width and low opacity,
           matching Figma node 3039:319 visual intent. */}

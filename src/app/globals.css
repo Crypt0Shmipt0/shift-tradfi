@@ -5,9 +5,10 @@
   --foreground: #021c24;
   --gray-text: #6b7280;
   --off-white: #edeeee;
-  --dark-bg: #0a0a0a;
+  --dark-bg: #0e0e10;
   --dark-card: #151515;
   --dark-card-alt: #111820;
+  --mint-deep: #19332e;
   --mint: #26c8b8;
   --danger: #ef4444;
 }
@@ -21,6 +22,7 @@
   --color-dark-card: var(--dark-card);
   --color-dark-card-alt: var(--dark-card-alt);
   --color-mint: var(--mint);
+  --color-mint-deep: var(--mint-deep);
   --color-danger: var(--danger);
   --font-sans: var(--font-grotesk);
   --font-body: var(--font-inter);

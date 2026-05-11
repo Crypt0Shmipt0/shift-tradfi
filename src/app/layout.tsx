@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-background text-foreground antialiased">
+      <body className="min-h-[100dvh] flex flex-col bg-background text-foreground antialiased">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-16YK1Q7QHD"
           strategy="afterInteractive"

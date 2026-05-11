@@ -26,14 +26,14 @@ export function HowItWorks() {
 
         {/* Partners + App mockups row */}
         <div className="flex flex-col lg:flex-row items-center justify-between w-full px-0 lg:px-[80px] gap-12">
-          {/* Left -- partner logo cards */}
+          {/* Left -- partner logo cards: light surface (#edeeee) inside light section, black logos */}
           <div className="flex flex-col gap-[40px] items-center justify-center shrink-0">
             <div
-              className="flex items-center justify-center rounded-[12px] bg-[#1a1a1a] border border-white/[0.06] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)] w-[250px] h-[80px]"
+              className="flex items-center justify-center rounded-[12px] bg-[#edeeee] border border-black/[0.04] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.6)] w-[250px] h-[80px]"
             >
               <div
-                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
-                style={{ filter: "brightness(0) invert(1)" }}
+                className="flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-200"
+                style={{ filter: "brightness(0)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -45,11 +45,11 @@ export function HowItWorks() {
               </div>
             </div>
             <div
-              className="flex items-center justify-center rounded-[12px] bg-[#1a1a1a] border border-white/[0.06] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)] w-[250px] h-[80px]"
+              className="flex items-center justify-center rounded-[12px] bg-[#edeeee] border border-black/[0.04] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.6)] w-[250px] h-[80px]"
             >
               <div
-                className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
-                style={{ filter: "brightness(0) invert(1)" }}
+                className="flex items-center justify-center opacity-80 hover:opacity-100 transition-opacity duration-200"
+                style={{ filter: "brightness(0)" }}
               >
                 <Image
                   src="/partners/dekabank.png"

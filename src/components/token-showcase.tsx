@@ -20,7 +20,7 @@ const TOKENS_ROW_2 = [
 
 export function TokenShowcase() {
   return (
-    <section id="tokens" className="bg-[#0a0a0a] overflow-hidden flex flex-col items-center" aria-label="Available tokenized stocks">
+    <section id="tokens" className="bg-dark-bg overflow-hidden flex flex-col items-center" aria-label="Available tokenized stocks">
       {/* Row 1 */}
       <div className="inline-grid grid-cols-6 gap-0 mb-[-40px]">
         {TOKENS_ROW_1.map((t) => (
@@ -39,8 +39,8 @@ export function TokenShowcase() {
           </div>
         ))}
       </div>
-      {/* Row 2 - offset */}
-      <div className="inline-grid grid-cols-6 gap-0 pl-[60px] md:pl-[100px] lg:pl-[121px]">
+      {/* Row 2 - offset = half cell width (255/2 = 127.5px at lg) for proper hex stagger */}
+      <div className="inline-grid grid-cols-6 gap-0 pl-[70px] md:pl-[100px] lg:pl-[127px]">
         {TOKENS_ROW_2.map((t) => (
           <div
             key={t.name}

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Session-local tooling output (Claude Code, Playwright MCP, QA evidence)
+/.qa-evidence/
+/.playwright-mcp/
+/.claude/
+*.bak

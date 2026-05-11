@@ -33,10 +33,10 @@ export function ApiSection() {
             <article
               className="relative rounded-xl overflow-hidden w-full"
               style={{
-                boxShadow: "0px 4px 2px rgba(0,0,0,0.25), 0px 4px 2px rgba(0,0,0,0.25)",
+                boxShadow: "0px 4px 12px rgba(0,0,0,0.18)",
               }}
             >
-              <div className="relative bg-[#0a0a0a] rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
+              <div className="relative bg-dark-bg rounded-xl px-10 py-[80px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
                   src="/visuals/chart-globe.webp"
@@ -55,7 +55,7 @@ export function ApiSection() {
                 </div>
                 <div className="relative z-10 w-full flex justify-center">
                   <p className="font-[var(--font-inter)] font-normal text-[#edeeee] text-[16px] md:text-[18px] tracking-[-0.36px] leading-normal text-center max-w-[337px]">
-                    Seamless issuance and redemption of tokenized equities via API,
+                    Programmatic issuance and redemption of tokenized equities via API,
                     with deterministic flows aligned to underlying asset settlement.
                   </p>
                 </div>
@@ -66,10 +66,10 @@ export function ApiSection() {
             <article
               className="relative rounded-xl overflow-hidden w-full"
               style={{
-                boxShadow: "0px 4px 2px rgba(0,0,0,0.25), 0px 4px 2px rgba(0,0,0,0.25)",
+                boxShadow: "0px 4px 12px rgba(0,0,0,0.18)",
               }}
             >
-              <div className="relative bg-[#0a0a0a] rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
+              <div className="relative bg-dark-bg rounded-xl px-10 py-[80px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
                   src="/visuals/api-rfq-bg.webp"

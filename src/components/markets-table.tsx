@@ -41,11 +41,11 @@ export function MarketsTable() {
               <div className="flex items-center w-full py-[12px] text-[#8d8d8d] text-[18px] font-[var(--font-inter)] font-medium leading-[20px]" role="row">
                 <div className="w-[140px] shrink-0 px-[10px] capitalize" role="columnheader">Token</div>
                 <div className="flex-1 px-[10px] capitalize" role="columnheader">Token Name</div>
-                <div className="w-[140px] shrink-0 px-[10px] font-normal" role="columnheader">Price</div>
-                <div className="w-[140px] shrink-0 px-[10px] font-normal" role="columnheader">24h change</div>
+                <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">Price</div>
+                <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">24h change</div>
                 <div className="w-[108px] shrink-0" role="columnheader" aria-label="Actions" />
               </div>
-              <div className="w-full h-px bg-[#e5e5e5]" />
+              <div className="w-full h-px bg-[#ececec]" />
             </div>
 
             {/* Rows */}
@@ -74,7 +74,7 @@ export function MarketsTable() {
                         )}
                       </div>
                     </div>
-                    <div className="w-full h-px bg-[#e5e5e5] mt-[20px]" />
+                    <div className="w-full h-px bg-[#ececec] mt-[20px]" />
                   </div>
                 );
               })}

@@ -5,7 +5,7 @@ export function ProblemCta() {
   return (
     <section
       id="problem"
-      className="bg-[#151515]"
+      className="bg-mint-deep"
       aria-label="Problem statement"
     >
       <div
@@ -31,12 +31,12 @@ export function ProblemCta() {
               </p>
             </div>
 
-            {/* CTA button */}
+            {/* CTA button — dark pill on mint-tinted card (Figma) */}
             <a
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-white text-[#021c24] font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] rounded-full transition-colors duration-200 hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-[#151515]"
+              className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] rounded-full transition-colors duration-200 hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-mint-deep"
               style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
             >
               Trade Now

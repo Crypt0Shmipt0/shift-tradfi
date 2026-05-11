@@ -27,7 +27,7 @@ const PARTNERS: Partner[] = [
 
 export function Partners() {
   return (
-    <section id="partners" className="bg-[#0a0a0a] overflow-hidden" aria-label="Partners and integrations">
+    <section id="partners" className="bg-dark-bg overflow-hidden" aria-label="Partners and integrations">
       {/* Decorative banner image — object-position top clips half-tokens cleanly at bottom edge */}
       <div className="relative w-full overflow-hidden" style={{ height: "clamp(200px, 24.93vw, 359px)" }}>
         <Image
@@ -72,10 +72,16 @@ export function Partners() {
                 key={p.name}
                 className="relative flex items-center justify-center rounded-[12px] w-[250px] h-[80px]"
               >
-                {/* Card bg */}
-                <div className="absolute inset-0 bg-[#444] rounded-[12px]" aria-hidden="true" />
-                {/* Inner shadow */}
-                <div className="absolute inset-0 rounded-[12px] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.25)]" aria-hidden="true" />
+                {/* Card bg — deep near-black with subtle gradient + inner highlight, per Figma */}
+                <div
+                  className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-[#1f1f1f] to-[#161616] border border-white/[0.06]"
+                  aria-hidden="true"
+                />
+                {/* Inner top highlight (1px) — simulates material edge refraction */}
+                <div
+                  className="absolute inset-0 rounded-[12px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)]"
+                  aria-hidden="true"
+                />
 
                 {/* Logo — uniform 48px max-height for optical balance across natural ratios */}
                 <div className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200" style={{ filter: "brightness(0) invert(1)" }}>

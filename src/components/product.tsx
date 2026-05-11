@@ -3,15 +3,15 @@ import { LIVE_TOKENS } from "@/data/tokens";
 
 export function Product() {
   return (
-    <section id="product" className="bg-[#0a0a0a] text-white" aria-label="Product overview">
+    <section id="product" className="bg-dark-bg text-white" aria-label="Product overview">
       <div className="flex flex-col gap-[80px] items-center py-[120px] mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         {/* Chain pill + chain logos */}
         <div className="flex flex-col gap-[40px] items-center">
           {/* Pill */}
           <div className="flex items-start">
             <span
-              className="inline-flex items-center gap-[18px] font-[var(--font-inter)] font-medium text-[#26c8b8] text-base md:text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full border border-[#26c8b8]"
-              style={{ backgroundColor: "rgba(38,200,184,0.35)" }}
+              className="inline-flex items-center gap-[18px] font-[var(--font-inter)] font-medium text-[#26c8b8] text-base md:text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full border border-[#26c8b8]/40"
+              style={{ backgroundColor: "rgba(38,200,184,0.12)" }}
             >
               <span className="w-[14px] h-[14px] rounded-full bg-[#26c8b8] shrink-0" />
               Live Across Top Tier Blockchains
@@ -93,7 +93,7 @@ export function Product() {
           >
             {/* Background layers */}
             <div aria-hidden="true" className="absolute inset-0 pointer-events-none rounded-[12px] overflow-hidden">
-              <div className="absolute bg-[#111] inset-0 rounded-[12px]" />
+              <div className="absolute bg-[#151515] inset-0 rounded-[12px]" />
               <div className="absolute inset-0 opacity-50 overflow-hidden rounded-[12px]">
                 <Image
                   src="/visuals/arrow-up.png"

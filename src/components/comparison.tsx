@@ -10,7 +10,7 @@ interface ComparisonRow {
 
 const ROWS: ComparisonRow[] = [
   { feature: "24/7 Trading Availability", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Leveraged Trading", shift: "up to x3", tokenized: "no", perps: "Unlimited", tradfi: "up to x300" },
+  { feature: "Leveraged Trading", shift: "up to ×3", tokenized: "no", perps: "Unlimited", tradfi: "up to ×300" },
   { feature: "Permissionless Tokens", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Self Custody", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Transferrable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
@@ -34,7 +34,7 @@ function CellContent({ value }: { value: CellValue }) {
       </div>
     );
   return (
-    <span className="font-[var(--font-inter)] font-medium text-[#edeeee] text-[18px] text-center">
+    <span className="font-[var(--font-inter)] font-medium text-[#edeeee] text-[18px] text-center whitespace-nowrap">
       {value}
     </span>
   );
@@ -42,7 +42,7 @@ function CellContent({ value }: { value: CellValue }) {
 
 export function Comparison() {
   return (
-    <section id="comparison" className="bg-[#0a0a0a] text-white py-[120px]" aria-label="Feature comparison">
+    <section id="comparison" className="bg-dark-bg text-white py-[120px]" aria-label="Feature comparison">
       <div className="mx-auto px-6 md:px-16 lg:px-[120px]" style={{ maxWidth: 1440 }}>
         {/* Header */}
         <div className="flex flex-col gap-[18px] items-center text-center mb-[80px]">
@@ -51,51 +51,52 @@ export function Comparison() {
           >
             Why SHIFT Wins
           </h2>
-          <p className="font-[var(--font-grotesk)] font-medium text-[#8d8d8d] leading-[1.04] tracking-[-0.64px] lowercase text-[20px] md:text-[32px]">
-            trade all your favorite stocks, and eliminate risks of margin and liquidation
+          <p className="font-[var(--font-grotesk)] font-medium text-[#8d8d8d] leading-[1.04] tracking-[-0.64px] lowercase text-[20px] md:text-[32px] max-w-[820px]">
+            How SHIFT compares to perps, brokers, and other tokenized issuers.
           </p>
         </div>
 
         {/* ───────────────────  Desktop / tablet table  ─────────────────── */}
-        <div className="hidden md:flex flex-col gap-3 overflow-x-auto" tabIndex={0} role="region" aria-label="Scrollable comparison table">
-          <div style={{ minWidth: 900 }}>
+        <div
+          className="hidden md:block overflow-x-auto"
+          tabIndex={0}
+          role="region"
+          aria-label="Scrollable comparison table"
+        >
+          <div
+            className="grid gap-3"
+            style={{
+              minWidth: 900,
+              gridTemplateColumns: "1.6fr 1.2fr 1fr 1fr 1fr",
+            }}
+          >
             {/* Column headers */}
-            <div className="flex gap-5 items-end mb-3">
-              <div className="flex-1 p-5 rounded-xl" />
-              <div className="flex flex-1 gap-5">
-                {COLUMNS.slice(0, 2).map((col) => (
-                  <div key={col} className="flex-1 bg-[#151515] rounded-xl p-5">
-                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">{col}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-1 gap-5">
-                {COLUMNS.slice(2).map((col) => (
-                  <div key={col} className="flex-1 bg-[#151515] rounded-xl p-5">
-                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">{col}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <div aria-hidden="true" />
+            {COLUMNS.map((col) => {
+              const isShift = col === "SHIFT";
+              return (
+                <div
+                  key={col}
+                  className={`rounded-xl p-5 text-center ${
+                    isShift
+                      ? "bg-[#152724] border border-[#26c8b8]/40"
+                      : "bg-[#151515]"
+                  }`}
+                >
+                  <p
+                    className={`font-[var(--font-inter)] font-medium text-[18px] capitalize ${
+                      isShift ? "text-[#26c8b8]" : "text-white"
+                    }`}
+                  >
+                    {col}
+                  </p>
+                </div>
+              );
+            })}
 
             {/* Data rows */}
             {ROWS.map((r) => (
-              <div key={r.feature} className="flex gap-5 mb-3">
-                <div className="flex-1 bg-[#151515] rounded-xl p-5">
-                  <div className="flex gap-[18px] items-center">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 shrink-0" aria-hidden="true"><path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z" fill="#26c8b8" opacity="0.6"/></svg>
-                    <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">{r.feature}</span>
-                  </div>
-                </div>
-                <div className="flex flex-1 gap-5">
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.shift} /></div>
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.tokenized} /></div>
-                </div>
-                <div className="flex flex-1 gap-5">
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.perps} /></div>
-                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center"><CellContent value={r.tradfi} /></div>
-                </div>
-              </div>
+              <Row key={r.feature} row={r} />
             ))}
           </div>
         </div>
@@ -138,5 +139,32 @@ export function Comparison() {
         </ul>
       </div>
     </section>
+  );
+}
+
+function Row({ row }: { row: ComparisonRow }) {
+  return (
+    <>
+      <div className="bg-[#151515] rounded-xl p-5 flex gap-[18px] items-center">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 shrink-0" aria-hidden="true">
+          <path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z" fill="#26c8b8" opacity="0.6" />
+        </svg>
+        <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">
+          {row.feature}
+        </span>
+      </div>
+      <div className="bg-[#152724] border border-[#26c8b8]/30 rounded-xl p-5 flex items-center justify-center">
+        <CellContent value={row.shift} />
+      </div>
+      <div className="bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+        <CellContent value={row.tokenized} />
+      </div>
+      <div className="bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+        <CellContent value={row.perps} />
+      </div>
+      <div className="bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+        <CellContent value={row.tradfi} />
+      </div>
+    </>
   );
 }

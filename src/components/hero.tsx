@@ -14,7 +14,7 @@ export function Hero() {
       className="relative w-full min-h-[720px] overflow-hidden bg-white"
       aria-label="Hero"
     >
-      {/* Layer A — video background */}
+      {/* Layer A — video background at 60% opacity per Tomer's spec (readable headline) */}
       <video
         ref={videoRef}
         autoPlay
@@ -24,13 +24,13 @@ export function Hero() {
         preload="metadata"
         poster="/visuals/hero-poster.jpg"
         aria-label="Abstract financial data visualization background"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-60"
       >
         <source src="/visuals/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Layer B — gradient scrim for WCAG AA contrast on headline */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/75 via-white/55 to-white/45" aria-hidden="true" />
+      {/* Layer B — subtle white wash for headline contrast (lets video breathe through) */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/45 via-white/35 to-white/25" aria-hidden="true" />
 
       {/* Layer C — text content */}
       <div
@@ -51,7 +51,7 @@ export function Hero() {
             className="font-[var(--font-inter)] font-normal leading-[1.1] text-[#021c24] tracking-[2px] uppercase"
             style={{ fontSize: "clamp(14px, 1.39vw, 20px)" }}
           >
-            All the leverage of perps, without the RISKs of LIQUIDATIONs
+            All the leverage of perps, without the risks of liquidations
           </p>
         </div>
 
