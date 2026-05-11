@@ -87,11 +87,10 @@ export function Hero() {
           </a>
         </div>
 
-        {/* Stat trio — stacks vertically <640px (each stat gets own row),
-            3-up at sm+. Laurels sized SHORTER than content stack so they
-            bracket cleanly without dominating or merging across stats. */}
+        {/* Stat trio — 3-in-a-row at ALL viewports. Mobile portrait sizes
+            scaled ~30% down from tablet+ so the line stays tight at 375px. */}
         <div
-          className="flex flex-col lg:grid lg:grid-cols-3 items-center justify-items-center gap-y-[20px] gap-x-[80px] xl:gap-x-[100px] pt-[12px] md:pt-[24px] w-full max-w-[920px]"
+          className="grid grid-cols-3 items-center justify-items-center gap-x-[clamp(6px,2vw,80px)] xl:gap-x-[100px] pt-[12px] md:pt-[24px] w-full max-w-[920px]"
           role="list"
           aria-label="Key milestones"
         >
@@ -99,44 +98,44 @@ export function Hero() {
             <div
               key={s.label}
               role="listitem"
-              className="flex items-center justify-center gap-[6px] md:gap-[10px]"
+              className="flex items-center justify-center gap-[3px] sm:gap-[5px] md:gap-[10px]"
             >
-              {/* Left laurel — shorter than stat content so it brackets cleanly */}
-              <div className="relative w-[26px] h-[60px] md:w-[32px] md:h-[72px] shrink-0">
+              {/* Left laurel — mobile portrait 30% smaller than tablet */}
+              <div className="relative w-[18px] h-[42px] sm:w-[26px] sm:h-[60px] md:w-[32px] md:h-[72px] shrink-0">
                 <Image
                   src="/visuals/laurel.png"
                   alt=""
                   fill
-                  sizes="(max-width: 768px) 26px, 32px"
+                  sizes="(max-width: 640px) 18px, (max-width: 768px) 26px, 32px"
                   className="object-contain"
                   style={{ filter: "brightness(0)" }}
                   aria-hidden="true"
                 />
               </div>
 
-              {/* Stat content — bold per Tomer */}
-              <div className="flex flex-col items-center justify-center text-[#021c24] whitespace-nowrap px-1">
+              {/* Stat content — bold; mobile portrait 30% smaller */}
+              <div className="flex flex-col items-center justify-center text-[#021c24] whitespace-nowrap px-0.5">
                 <div className="font-[var(--font-inter)] font-bold leading-none tracking-tight">
-                  <span className="text-[20px] md:text-[24px]">{s.prefix}</span>
-                  <span className="text-[32px] md:text-[40px]">{s.value}</span>
+                  <span className="text-[14px] sm:text-[20px] md:text-[24px]">{s.prefix}</span>
+                  <span className="text-[22px] sm:text-[32px] md:text-[40px]">{s.value}</span>
                 </div>
-                <div className="font-[var(--font-inter)] font-semibold text-[13px] md:text-[15px] text-[#021c24] leading-[1.35] mt-1.5">
+                <div className="font-[var(--font-inter)] font-semibold text-[10px] sm:text-[13px] md:text-[15px] text-[#021c24] leading-[1.35] mt-1">
                   {s.label}
                 </div>
                 {s.sub && (
-                  <div className="font-[var(--font-inter)] font-medium text-[11px] md:text-[12px] text-[#6b7280] leading-[1.35]">
+                  <div className="font-[var(--font-inter)] font-medium text-[9px] sm:text-[11px] md:text-[12px] text-[#6b7280] leading-[1.35]">
                     {s.sub}
                   </div>
                 )}
               </div>
 
               {/* Right laurel (mirrored) */}
-              <div className="relative w-[26px] h-[60px] md:w-[32px] md:h-[72px] shrink-0 -scale-x-100">
+              <div className="relative w-[18px] h-[42px] sm:w-[26px] sm:h-[60px] md:w-[32px] md:h-[72px] shrink-0 -scale-x-100">
                 <Image
                   src="/visuals/laurel.png"
                   alt=""
                   fill
-                  sizes="(max-width: 768px) 26px, 32px"
+                  sizes="(max-width: 640px) 18px, (max-width: 768px) 26px, 32px"
                   className="object-contain"
                   style={{ filter: "brightness(0)" }}
                   aria-hidden="true"
