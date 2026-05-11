@@ -15,7 +15,7 @@ const PLACEHOLDER_PRICES: Record<string, { price: string; change: string; positi
 
 export function MarketsTable() {
   return (
-    <section id="markets" className="py-[80px] md:py-[120px] px-4 md:px-[80px]" aria-label="Markets" style={{ background: "white" }}>
+    <section id="markets" className="py-[80px] md:py-[100px] lg:py-[120px] px-4 md:px-[80px]" aria-label="Markets" style={{ background: "white" }}>
       <div className="mx-auto flex flex-col gap-[48px] md:gap-[80px] items-center" style={{ maxWidth: 1440 }}>
         {/* Header */}
         <div className="flex flex-col gap-[18px] items-center text-center w-full">
@@ -26,10 +26,10 @@ export function MarketsTable() {
             Shift Markets
           </h2>
           <p
-            className="font-[var(--font-grotesk)] font-medium lowercase text-[#8d8d8d] tracking-[-0.64px] leading-[1.04] w-full"
-            style={{ fontSize: "clamp(20px, 3.5vw, 32px)" }}
+            className="font-[var(--font-inter)] font-medium lowercase text-[#6b7280] tracking-[-0.36px] leading-normal w-full max-w-[680px]"
+            style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
           >
-            Trade all your favorite stocks, and eliminate risks of margin and liquidation
+            live tickers, real backing, instant on-chain settlement.
           </p>
         </div>
 
@@ -38,9 +38,9 @@ export function MarketsTable() {
           <div className="flex flex-col gap-[12px] items-center w-full">
             {/* Table header */}
             <div className="flex flex-col gap-[18px] items-start w-full">
-              <div className="flex items-center w-full py-[12px] text-[#8d8d8d] text-[18px] font-[var(--font-inter)] font-medium leading-[20px]" role="row">
-                <div className="w-[140px] shrink-0 px-[10px] capitalize" role="columnheader">Token</div>
-                <div className="flex-1 px-[10px] capitalize" role="columnheader">Token Name</div>
+              <div className="flex items-center w-full py-[12px] text-[#8d8d8d] text-[13px] font-[var(--font-inter)] font-medium uppercase tracking-[1px] leading-[1.4]" role="row">
+                <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">Token</div>
+                <div className="flex-1 px-[10px]" role="columnheader">Token Name</div>
                 <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">Price</div>
                 <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">24h change</div>
                 <div className="w-[108px] shrink-0" role="columnheader" aria-label="Actions" />
@@ -66,11 +66,11 @@ export function MarketsTable() {
                       <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-inter)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.change ?? "---%")}</span>
                       <div className="w-[108px] shrink-0 flex justify-end" role="cell">
                         {!t.comingSoon ? (
-                          <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[16px] tracking-[0.32px] capitalize px-[24px] py-[6px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
+                          <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[15px] tracking-[0.3px] capitalize px-[22px] py-[9px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
                             Explore
                           </a>
                         ) : (
-                          <span className="font-[var(--font-inter)] text-[#8d8d8d] text-[16px] px-[24px] py-[6px]">Soon</span>
+                          <span className="font-[var(--font-inter)] text-[#8d8d8d] text-[15px] px-[22px] py-[9px]">Soon</span>
                         )}
                       </div>
                     </div>
@@ -128,9 +128,9 @@ export function MarketsTable() {
           href={APP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] capitalize px-[32px] py-[14px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2"
         >
-          Explore Markets
+          Open all Markets
         </a>
       </div>
     </section>

@@ -29,7 +29,7 @@ export function Partners() {
   return (
     <section id="partners" className="bg-dark-bg overflow-hidden" aria-label="Partners and integrations">
       {/* Decorative banner image — object-position top clips half-tokens cleanly at bottom edge */}
-      <div className="relative w-full overflow-hidden" style={{ height: "clamp(200px, 24.93vw, 359px)" }}>
+      <div className="relative w-full overflow-hidden" style={{ height: "clamp(240px, 28vw, 400px)" }}>
         <Image
           src="/visuals/partners-bg.webp"
           alt=""
@@ -43,7 +43,7 @@ export function Partners() {
 
       {/* Partners content */}
       <div
-        className="mx-auto px-6 md:px-16 lg:px-[80px] py-[120px]"
+        className="mx-auto px-6 md:px-16 lg:px-[80px] py-[80px] md:py-[100px] lg:py-[120px]"
         style={{ maxWidth: 1440 }}
       >
         {/* Text block: 40px gap between title and subtitle */}
@@ -52,7 +52,7 @@ export function Partners() {
             className="font-[var(--font-grotesk)] font-medium text-center text-white leading-[1.1] tracking-[-0.96px]"
             style={{ fontSize: "clamp(28px, 3.33vw, 48px)" }}
           >
-            Built for the Next Financial EcoSystem
+            Built for the next financial system
           </h2>
 
           <p
@@ -62,15 +62,15 @@ export function Partners() {
           </p>
         </div>
 
-        {/* Logo grid: 4 columns, 40px gap, 250px wide cards, 80px tall */}
-        <div className="flex flex-wrap items-start justify-center gap-[40px]">
+        {/* Logo grid: 2-up mobile, 3-up tablet, 4-up desktop */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-[16px] md:gap-[24px] lg:gap-[40px] justify-items-center w-full">
           {PARTNERS.map((p, i) => {
             // First 8 partner logos render above-the-fold once section enters viewport — eager-load.
             const loadingMode = i < 8 ? "eager" : "lazy";
             return (
               <div
                 key={p.name}
-                className="relative flex items-center justify-center rounded-[12px] w-[250px] h-[80px]"
+                className="relative flex items-center justify-center rounded-[12px] w-full max-w-[250px] h-[72px] md:h-[80px]"
               >
                 {/* Card bg — deep near-black with subtle gradient + inner highlight, per Figma */}
                 <div

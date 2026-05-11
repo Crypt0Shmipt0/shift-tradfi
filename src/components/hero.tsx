@@ -1,8 +1,17 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { APP_URL } from "@/lib/constants";
 import { useVideoResume } from "@/lib/use-video-resume";
+
+// Stats embedded in hero per Figma node 3036:1403 — they were factored
+// into a standalone Milestones section by mistake; restore to the Hero.
+const STATS: { prefix: string; value: string; label: string; sub?: string }[] = [
+  { prefix: "+$", value: "37m", label: "TVL (AUM)" },
+  { prefix: "#", value: "3", label: "RWA Issuer", sub: "for retail" },
+  { prefix: "", value: "+120", label: "Investors", sub: "Private Sale" },
+];
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -11,10 +20,10 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[720px] overflow-hidden bg-white"
+      className="relative w-full min-h-[640px] md:min-h-[780px] overflow-hidden bg-white"
       aria-label="Hero"
     >
-      {/* Layer A — video background at 60% opacity per Tomer's spec (readable headline) */}
+      {/* Layer A — video background at 60% opacity per Tomer's spec */}
       <video
         ref={videoRef}
         autoPlay
@@ -29,50 +38,108 @@ export function Hero() {
         <source src="/visuals/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Layer B — subtle white wash for headline contrast (lets video breathe through) */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/45 via-white/35 to-white/25" aria-hidden="true" />
-
-      {/* Layer C — text content */}
+      {/* Layer B — subtle white wash for headline contrast */}
       <div
-        className="relative z-20 mx-auto flex flex-col items-center gap-[48px] py-[120px] px-6 md:px-16 lg:px-[60px]"
+        className="absolute inset-0 z-10 bg-gradient-to-b from-white/45 via-white/35 to-white/25"
+        aria-hidden="true"
+      />
+
+      {/* Layer C — text content. pt-[140px] clears the fixed 124px nav. */}
+      <div
+        className="relative z-20 mx-auto flex flex-col items-center gap-[32px] md:gap-[44px] pt-[140px] pb-[60px] md:pt-[160px] md:pb-[80px] lg:pt-[180px] lg:pb-[100px] px-6 md:px-16 lg:px-[60px]"
         style={{ maxWidth: 1440 }}
       >
-        {/* Text group: 40px gap between heading and subtitle */}
-        <div className="flex flex-col items-center gap-[40px] w-full text-center">
+        {/* Heading + subtitle */}
+        <div className="flex flex-col items-center gap-[20px] md:gap-[32px] w-full text-center">
           <h1
-            className="flex flex-col items-center font-[var(--font-grotesk)] font-medium leading-[1.04] tracking-[-1.92px] text-center max-w-[900px] mx-auto"
-            style={{ fontSize: "clamp(36px, 6.67vw, 96px)" }}
+            className="flex flex-col items-center font-[var(--font-grotesk)] font-medium leading-[1.04] tracking-[-0.04em] text-center max-w-[900px] mx-auto"
+            style={{ fontSize: "clamp(28px, 6.2vw, 88px)" }}
           >
             <span className="text-[#8d8d8d]">The home of tokenized</span>
             <span className="text-[#021c24]">Leveraged Stocks</span>
           </h1>
 
           <p
-            className="font-[var(--font-inter)] font-normal leading-[1.1] text-[#021c24] tracking-[2px] uppercase"
-            style={{ fontSize: "clamp(14px, 1.39vw, 20px)" }}
+            className="font-[var(--font-inter)] font-normal leading-[1.4] text-[#021c24] tracking-[0.12em] md:tracking-[2px] uppercase max-w-[640px]"
+            style={{ fontSize: "clamp(11px, 1.25vw, 18px)" }}
           >
-            All the leverage of perps, without the risks of liquidations
+            Leverage without liquidation. Equities without market hours.
           </p>
         </div>
 
-        {/* Action buttons: 20px gap */}
-        <div className="flex items-center justify-center gap-[20px] flex-wrap">
+        {/* CTAs */}
+        <div className="flex items-center justify-center gap-[16px] md:gap-[20px] flex-wrap">
           <a
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[16px] md:text-[18px] tracking-[0.36px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
             style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
           >
             Launch App
           </a>
           <a
             href="#how-it-works"
-            className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors hover:bg-[#e0e1e1] focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium text-[16px] md:text-[18px] tracking-[0.36px] rounded-full transition-colors hover:bg-[#e0e1e1] focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
             style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
           >
             Learn More
           </a>
+        </div>
+
+        {/* Stat trio — laurel-flanked stats per Figma node 3036:1403 */}
+        <div
+          className="grid grid-cols-3 items-center justify-items-center gap-x-[clamp(8px,3vw,56px)] gap-y-[20px] pt-[12px] md:pt-[24px] w-full max-w-[860px]"
+          role="list"
+          aria-label="Key milestones"
+        >
+          {STATS.map((s) => (
+            <div
+              key={s.label}
+              role="listitem"
+              className="flex items-center justify-center gap-[4px] md:gap-[6px]"
+            >
+              {/* Left laurel */}
+              <div className="relative w-[34px] h-[88px] md:w-[44px] md:h-[108px] shrink-0">
+                <Image
+                  src="/visuals/laurel.png"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 34px, 44px"
+                  className="object-contain"
+                  aria-hidden="true"
+                />
+              </div>
+
+              {/* Stat content */}
+              <div className="flex flex-col items-center justify-center text-[#021c24] whitespace-nowrap px-1">
+                <div className="font-[var(--font-inter)] font-light leading-none tracking-tight">
+                  <span className="text-[18px] md:text-[24px]">{s.prefix}</span>
+                  <span className="text-[28px] md:text-[40px]">{s.value}</span>
+                </div>
+                <div className="font-[var(--font-inter)] font-normal text-[12px] md:text-[15px] text-[#6b7280] leading-[1.35] mt-1.5">
+                  {s.label}
+                </div>
+                {s.sub && (
+                  <div className="font-[var(--font-inter)] font-normal text-[10px] md:text-[12px] text-[#6b7280] leading-[1.35]">
+                    {s.sub}
+                  </div>
+                )}
+              </div>
+
+              {/* Right laurel (mirrored) */}
+              <div className="relative w-[34px] h-[88px] md:w-[44px] md:h-[108px] shrink-0 -scale-x-100">
+                <Image
+                  src="/visuals/laurel.png"
+                  alt=""
+                  fill
+                  sizes="(max-width: 768px) 34px, 44px"
+                  className="object-contain"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

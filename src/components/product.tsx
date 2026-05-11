@@ -4,17 +4,17 @@ import { LIVE_TOKENS } from "@/data/tokens";
 export function Product() {
   return (
     <section id="product" className="bg-dark-bg text-white" aria-label="Product overview">
-      <div className="flex flex-col gap-[80px] items-center py-[120px] mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
+      <div className="flex flex-col gap-[80px] items-center py-[80px] md:py-[100px] lg:py-[120px] mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         {/* Chain pill + chain logos */}
         <div className="flex flex-col gap-[40px] items-center">
           {/* Pill */}
           <div className="flex items-start">
             <span
-              className="inline-flex items-center gap-[18px] font-[var(--font-inter)] font-medium text-[#26c8b8] text-base md:text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full border border-[#26c8b8]/40"
+              className="inline-flex items-center gap-[12px] font-[var(--font-inter)] font-medium text-[#26c8b8] text-[14px] md:text-[18px] tracking-[0.36px] px-[24px] py-[10px] rounded-full border border-[#26c8b8]/40"
               style={{ backgroundColor: "rgba(38,200,184,0.12)" }}
             >
-              <span className="w-[14px] h-[14px] rounded-full bg-[#26c8b8] shrink-0" />
-              Live Across Top Tier Blockchains
+              <span className="w-[10px] h-[10px] rounded-full bg-[#26c8b8] shrink-0" />
+              Live on Solana &amp; BNB Chain
             </span>
           </div>
 
@@ -46,35 +46,35 @@ export function Product() {
             Trade like Perps, Never Liquidated
           </h2>
           <p
-            className="font-[var(--font-grotesk)] font-medium lowercase text-[#ededed] tracking-[-0.64px] leading-[1.04] w-full"
-            style={{ fontSize: "clamp(20px, 3.5vw, 32px)" }}
+            className="font-[var(--font-inter)] font-medium text-[#ededed] tracking-[-0.36px] leading-normal w-full max-w-[760px]"
+            style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
           >
-            Trade all your favorite stocks, and eliminate risks of margin and liquidation
+            Spot-style execution. Perp-style leverage. No funding, no margin calls.
           </p>
         </div>
 
-        {/* Token strip */}
+        {/* Token strip — 2-col mobile, 3-col tablet, 6-up desktop */}
         <div
-          className="flex flex-wrap items-start justify-center gap-x-[60px] gap-y-[40px] w-full"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-[24px] gap-y-[28px] w-full justify-items-start"
           role="region"
           aria-label="Available tokens"
         >
           {LIVE_TOKENS.map((t) => (
-            <div key={t.ticker} className="flex items-center gap-[15px] shrink-0">
+            <div key={t.ticker} className="flex items-center gap-[12px] w-full">
               <Image
                 src={t.image}
                 alt={t.ticker}
                 width={100}
                 height={100}
-                sizes="100px"
-                className="w-[100px] h-[100px] rounded-[16px] bg-[#2a2b2b] object-cover"
+                sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 100px"
+                className="w-[64px] h-[64px] md:w-[80px] md:h-[80px] lg:w-[100px] lg:h-[100px] rounded-[16px] bg-[#2a2b2b] object-cover shrink-0"
                 loading="lazy"
               />
-              <div className="flex flex-col gap-[8px] justify-center">
-                <span className="font-[var(--font-inter)] font-semibold text-white text-[28px] leading-normal">
+              <div className="flex flex-col gap-[4px] justify-center min-w-0">
+                <span className="font-[var(--font-inter)] font-semibold text-white text-[18px] md:text-[22px] lg:text-[24px] leading-tight">
                   {t.ticker}
                 </span>
-                <span className="font-[var(--font-inter)] font-normal text-[#edeeee] text-[18px] leading-normal">
+                <span className="font-[var(--font-inter)] font-normal text-[#edeeee] text-[12px] md:text-[14px] leading-tight truncate">
                   {t.name}
                 </span>
               </div>
@@ -117,7 +117,7 @@ export function Product() {
             </div>
             <div className="relative z-10 flex flex-col items-start w-full">
               <p
-                className="font-[var(--font-inter)] font-normal text-[#8d8d8d] text-[18px] capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
+                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[18px] capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
               >
                 Capture amplified upside on your thesis. Up to 3x leveraged exposure
                 to major equities without margin accounts or funding fees.
@@ -158,7 +158,7 @@ export function Product() {
             </div>
             <div className="relative z-10 flex flex-col items-end w-full">
               <p
-                className="font-[var(--font-inter)] font-normal text-[#8d8d8d] text-[18px] text-right capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
+                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[18px] text-right capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
               >
                 Take the other side without borrowing or shorting on margin.
                 Inverse exposure on the same underlyings, up to 3x leverage.

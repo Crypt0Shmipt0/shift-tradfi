@@ -3,7 +3,7 @@ import { APP_URL } from "@/lib/constants";
 
 export function FinalCta() {
   return (
-    <section id="cta" className="relative bg-dark-bg text-white overflow-hidden flex flex-col items-center justify-center" style={{ minHeight: 560 }} aria-label="Call to action">
+    <section id="cta" className="relative bg-dark-bg text-white overflow-hidden flex flex-col items-center justify-center py-[80px] md:py-[100px]" style={{ minHeight: "clamp(420px, 50vh, 560px)" }} aria-label="Call to action">
       {/* SHIFT wordmark watermark — official brand asset (Horizontal Lockup White)
           positioned to bleed off the bottom of the section at ~140% width and low opacity,
           matching Figma node 3039:319 visual intent. */}
@@ -29,16 +29,17 @@ export function FinalCta() {
             Start trading now
           </h2>
           <p
-            className="font-[var(--font-inter)] font-medium text-[#8d8d8d] leading-normal lowercase tracking-[-0.64px] text-[20px] md:text-[32px] w-full"
+            className="font-[var(--font-inter)] font-medium text-[#a8a8a8] leading-normal lowercase tracking-[-0.36px] w-full"
+            style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
           >
-            Access tokenized stocks with 24/7 markets, transparency, and capital efficiency.
+            tokenized equities. 24/7 markets. zero liquidations.
           </p>
         </div>
         <a
           href={APP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-white text-[#021c24] font-[var(--font-inter)] font-medium text-[20px] md:text-[24px] capitalize tracking-[0.48px] px-8 py-[14px] rounded-full transition-colors duration-200 hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+          className="inline-flex items-center justify-center bg-white text-[#021c24] font-[var(--font-inter)] font-medium text-[18px] capitalize tracking-[0.36px] px-8 py-[14px] rounded-full transition-colors duration-200 hover:bg-white/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-black"
         >
           Trade Now
         </a>

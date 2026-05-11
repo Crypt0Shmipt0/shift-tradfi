@@ -3,7 +3,7 @@ import { APP_URL } from "@/lib/constants";
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-white py-[120px]" aria-label="How it works">
+    <section id="how-it-works" className="bg-white py-[80px] md:py-[100px] lg:py-[120px]" aria-label="How it works">
       <div
         className="mx-auto px-6 md:px-16 lg:px-[128px] flex flex-col gap-[80px] items-center"
         style={{ maxWidth: 1440 }}
@@ -17,8 +17,8 @@ export function HowItWorks() {
             From prime brokers, to your Web3 wallet
           </h2>
           <p
-            className="font-[var(--font-grotesk)] font-medium lowercase text-[#8d8d8d] tracking-[-0.64px] leading-[1.04] w-full"
-            style={{ fontSize: "clamp(20px, 3.5vw, 32px)" }}
+            className="font-[var(--font-inter)] font-medium lowercase text-[#6b7280] tracking-[-0.36px] leading-normal w-full"
+            style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
           >
             Your assets are fully segregated, bankruptcy remote
           </p>
@@ -66,7 +66,7 @@ export function HowItWorks() {
 
           {/* Right -- app mockups */}
           <div className="flex items-end shrink-0">
-            <div className="relative w-[600px] lg:w-[955px] h-[340px] lg:h-[540px] mr-[-100px] lg:mr-[-224px]">
+            <div className="relative w-[600px] lg:w-[955px] h-[340px] lg:h-[540px] mr-0 lg:mr-[-120px] xl:mr-[-224px]">
               <Image
                 src="/visuals/app-desktop.webp"
                 alt="SHIFT trading app on desktop"
@@ -95,7 +95,7 @@ export function HowItWorks() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] px-[32px] py-[14px] rounded-full capitalize transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] px-[32px] py-[14px] rounded-full capitalize transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
           >
             Trade Now
           </a>

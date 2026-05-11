@@ -34,7 +34,7 @@ function CellContent({ value }: { value: CellValue }) {
       </div>
     );
   return (
-    <span className="font-[var(--font-inter)] font-medium text-[#edeeee] text-[18px] text-center whitespace-nowrap">
+    <span className="font-[var(--font-inter)] font-medium text-[#edeeee] text-[16px] text-center whitespace-nowrap">
       {value}
     </span>
   );
@@ -42,17 +42,21 @@ function CellContent({ value }: { value: CellValue }) {
 
 export function Comparison() {
   return (
-    <section id="comparison" className="bg-dark-bg text-white py-[120px]" aria-label="Feature comparison">
+    <section id="comparison" className="bg-dark-bg text-white py-[80px] md:py-[100px] lg:py-[120px]" aria-label="Feature comparison">
       <div className="mx-auto px-6 md:px-16 lg:px-[120px]" style={{ maxWidth: 1440 }}>
         {/* Header */}
-        <div className="flex flex-col gap-[18px] items-center text-center mb-[80px]">
+        <div className="flex flex-col gap-[18px] items-center text-center mb-[48px] md:mb-[64px]">
           <h2
-            className="font-[var(--font-grotesk)] font-medium text-white leading-[1.1] tracking-[-0.96px] text-[32px] md:text-[48px]"
+            className="font-[var(--font-grotesk)] font-medium text-white leading-[1.1] tracking-[-0.96px]"
+            style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
           >
-            Why SHIFT Wins
+            How SHIFT compares
           </h2>
-          <p className="font-[var(--font-grotesk)] font-medium text-[#8d8d8d] leading-[1.04] tracking-[-0.64px] lowercase text-[20px] md:text-[32px] max-w-[820px]">
-            How SHIFT compares to perps, brokers, and other tokenized issuers.
+          <p
+            className="font-[var(--font-inter)] font-medium text-[#a8a8a8] leading-normal tracking-[-0.36px] lowercase max-w-[680px]"
+            style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
+          >
+            perps, brokers, and other tokenized issuers — side by side.
           </p>
         </div>
 
@@ -84,8 +88,8 @@ export function Comparison() {
                   }`}
                 >
                   <p
-                    className={`font-[var(--font-inter)] font-medium text-[18px] capitalize ${
-                      isShift ? "text-[#26c8b8]" : "text-white"
+                    className={`font-[var(--font-inter)] font-medium text-[13px] uppercase tracking-[1px] ${
+                      isShift ? "text-[#26c8b8]" : "text-[#a8a8a8]"
                     }`}
                   >
                     {col}
@@ -149,7 +153,7 @@ function Row({ row }: { row: ComparisonRow }) {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="w-6 h-6 shrink-0" aria-hidden="true">
           <path d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z" fill="#26c8b8" opacity="0.6" />
         </svg>
-        <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">
+        <span className="font-[var(--font-inter)] font-medium text-white text-[16px] md:text-[17px] capitalize whitespace-nowrap">
           {row.feature}
         </span>
       </div>

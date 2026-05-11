@@ -32,7 +32,7 @@ export function Advantages() {
   return (
     <section
       id="advantages"
-      className="bg-dark-bg text-white py-[120px] px-6 md:px-16 lg:px-[120px]"
+      className="bg-dark-bg text-white py-[80px] md:py-[100px] lg:py-[120px] px-6 md:px-16 lg:px-[120px]"
       aria-label="Platform advantages"
     >
       <div className="mx-auto flex flex-col gap-[80px] items-center" style={{ maxWidth: 1440 }}>
@@ -45,10 +45,10 @@ export function Advantages() {
             Equities redesigned for Web3
           </h2>
           <p
-            className="font-[var(--font-grotesk)] font-medium lowercase text-[#8d8d8d] tracking-[-0.64px] leading-normal w-full"
-            style={{ fontSize: "clamp(20px, 3.5vw, 32px)" }}
+            className="font-[var(--font-inter)] font-medium text-[#a8a8a8] tracking-[-0.36px] leading-normal w-full max-w-[680px]"
+            style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
           >
-            Institutional-grade equity exposure with onchain transparency, built for continuous markets and capital efficiency.
+            Institutional rails. Onchain transparency. Built for continuous markets.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export function Advantages() {
           {CARDS.map((c) => (
             <article
               key={c.title}
-              className="bg-[#151515] border border-white/[0.04] flex flex-col gap-[18px] items-start px-[40px] py-[60px] rounded-[12px] transition-colors duration-200 hover:bg-[#1a1a1a]"
+              className="bg-[#151515] border border-white/[0.04] flex flex-col gap-[18px] items-start px-[24px] py-[36px] md:px-[32px] md:py-[40px] rounded-[12px] transition-colors duration-200 hover:bg-[#1a1a1a]"
             >
               <div className="flex items-center gap-[14px] w-full">
                 <SparkIcon />
@@ -69,7 +69,7 @@ export function Advantages() {
                 </h3>
               </div>
               <p
-                className="font-[var(--font-inter)] font-normal text-[#8d8d8d] text-[18px] leading-normal tracking-[-0.36px] max-w-[420px]"
+                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[16px] md:text-[18px] leading-normal tracking-[-0.36px] max-w-[420px]"
               >
                 {c.desc}
               </p>
@@ -82,9 +82,9 @@ export function Advantages() {
           href="https://dune.com/shiftrwa/shift-rwa"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full transition-colors duration-200 hover:bg-[#edeeee]/80 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
+          className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] capitalize px-[32px] py-[14px] rounded-full transition-colors duration-200 hover:bg-[#edeeee]/80 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2 focus-visible:ring-offset-dark-bg"
         >
-          View Analytics
+          Open Dune Dashboard
         </a>
       </div>
     </section>

@@ -8,9 +8,9 @@ import { APP_URL } from "@/lib/constants";
 const LINKS: { href: string; label: string; active?: boolean; external?: boolean }[] = [
   { href: "#", label: "Home", active: true },
   { href: "#markets", label: "Markets" },
-  { href: "https://dune.com/shiftrwa/shift-rwa", label: "Blockchain Stats", external: true },
+  { href: "https://dune.com/shiftrwa/shift-rwa", label: "Onchain Stats", external: true },
   { href: "#how-it-works", label: "Learn" },
-  { href: "#api", label: "Resources" },
+  { href: "#api", label: "Developers" },
 ];
 
 export function TopNav() {
