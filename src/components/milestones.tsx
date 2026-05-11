@@ -1,9 +1,11 @@
 import Image from "next/image";
 
+// Figma 3015:1275: TVL and RWA Issuer use mixed prefix (24px) + value (32px);
+// Investors renders "+120" as uniform 32px (no smaller prefix glyph).
 const STATS: { prefix: string; value: string; label: string; sub?: string }[] = [
   { prefix: "+$", value: "37m", label: "TVL (AUM)" },
   { prefix: "#", value: "3", label: "RWA Issuer", sub: "for retail" },
-  { prefix: "+", value: "120", label: "Investors", sub: "Private Sale" },
+  { prefix: "", value: "+120", label: "Investors", sub: "Private Sale" },
 ];
 
 export function Milestones() {
