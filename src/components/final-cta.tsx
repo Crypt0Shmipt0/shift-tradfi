@@ -1,18 +1,23 @@
+import Image from "next/image";
 import { APP_URL } from "@/lib/constants";
 
 export function FinalCta() {
   return (
     <section id="cta" className="relative bg-black text-white overflow-hidden flex flex-col items-center justify-center" style={{ minHeight: 560 }} aria-label="Call to action">
-      {/* SHIFT wordmark watermark — CSS-rendered to match Figma node 3039:319 bg layer.
-          Figma's exported image asset comes back empty from the MCP, so we render the wordmark
-          directly as oversized text positioned to bleed off the bottom. */}
-      <div className="absolute inset-x-0 bottom-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        <span
-          className="block font-[var(--font-grotesk)] font-bold text-white/[0.08] tracking-[-0.04em] whitespace-nowrap text-center"
-          style={{ fontSize: "clamp(220px, 32vw, 460px)", lineHeight: "0.78", transform: "translateY(15%)" }}
-        >
-          SHIFT
-        </span>
+      {/* SHIFT wordmark watermark — official brand asset (Horizontal Lockup White)
+          positioned to bleed off the bottom of the section at ~140% width and low opacity,
+          matching Figma node 3039:319 visual intent. */}
+      <div className="absolute inset-x-0 bottom-0 pointer-events-none overflow-hidden flex items-end justify-center" aria-hidden="true">
+        <Image
+          src="/visuals/cta-wordmark.png"
+          alt=""
+          width={3407}
+          height={1120}
+          sizes="(min-width: 1440px) 1800px, 125vw"
+          className="w-[125%] max-w-none h-auto opacity-[0.18]"
+          style={{ transform: "translateY(18%)" }}
+          loading="lazy"
+        />
       </div>
 
       {/* Content */}
