@@ -61,14 +61,14 @@ export function Hero() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full hover:bg-black/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
             style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
           >
             Launch App
           </a>
           <a
             href="#how-it-works"
-            className="inline-flex items-center justify-center bg-[#edeeee] text-black font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full hover:bg-[#e0e1e1] focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center bg-[#edeeee] text-[#021c24] font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors hover:bg-[#e0e1e1] focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
             style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
           >
             Learn More

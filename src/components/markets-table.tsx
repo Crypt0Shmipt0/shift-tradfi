@@ -66,7 +66,7 @@ export function MarketsTable() {
                       <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-inter)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.change ?? "---%")}</span>
                       <div className="w-[108px] shrink-0 flex justify-end" role="cell">
                         {!t.comingSoon ? (
-                          <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[16px] tracking-[0.32px] capitalize px-[24px] py-[6px] rounded-full hover:bg-black/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
+                          <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[16px] tracking-[0.32px] capitalize px-[24px] py-[6px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
                             Explore
                           </a>
                         ) : (
@@ -98,7 +98,7 @@ export function MarketsTable() {
                     <span className="font-[var(--font-inter)] font-normal text-[#6b7280] text-[13px] leading-tight truncate">{t.name.toUpperCase()}</span>
                   </div>
                   {!t.comingSoon ? (
-                    <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[14px] tracking-[0.28px] capitalize px-4 py-2 rounded-full shrink-0 transition-colors hover:bg-black/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
+                    <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[14px] tracking-[0.28px] capitalize px-4 py-2 rounded-full shrink-0 transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
                       Explore
                     </a>
                   ) : (
@@ -128,7 +128,7 @@ export function MarketsTable() {
           href={APP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full transition-all duration-200 hover:bg-black/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2"
+          className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] capitalize px-[32px] py-[14px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2"
         >
           Explore Markets
         </a>

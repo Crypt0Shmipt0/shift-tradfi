@@ -95,7 +95,7 @@ export function HowItWorks() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-black text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] px-[32px] py-[14px] rounded-full capitalize transition-all duration-200 hover:bg-black/90 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[24px] tracking-[0.48px] px-[32px] py-[14px] rounded-full capitalize transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
           >
             Trade Now
           </a>
