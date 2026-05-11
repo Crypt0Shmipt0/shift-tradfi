@@ -15,15 +15,6 @@ const LINKS: { href: string; label: string; active?: boolean; external?: boolean
 
 export function TopNav() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  // Track scroll for transparent-to-solid nav transition
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -39,48 +30,46 @@ export function TopNav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-sm" : "bg-black/20 backdrop-blur-sm"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white"
       role="banner"
     >
       <nav
-        className="mx-auto flex items-center justify-between px-6 md:px-16 lg:px-[128px]"
-        style={{ maxWidth: 1440, paddingTop: 20, paddingBottom: 20 }}
+        className="mx-auto flex items-center justify-between px-6 md:px-16 lg:px-[32px]"
+        style={{ maxWidth: 1440, paddingTop: 37, paddingBottom: 37 }}
         aria-label="Main navigation"
       >
-        <a href="#" aria-label="SHIFT home">
-          <Image
-            src="/shift-logo.png"
-            alt="SHIFT"
-            width={125}
-            height={28}
-            className={`h-7 w-auto transition-all duration-300 ${scrolled ? "" : "brightness-0 invert"}`}
-            priority
-          />
-        </a>
+        {/* Left: logo + links */}
+        <div className="flex items-center gap-[48px]">
+          <a href="#" aria-label="SHIFT home">
+            <Image
+              src="/shift-logo.png"
+              alt="SHIFT"
+              width={125}
+              height={28}
+              className="h-7 w-auto"
+              priority
+            />
+          </a>
 
-        {/* Desktop links */}
-        <div className="hidden lg:flex items-center gap-8">
-          {LINKS.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.external ? "_blank" : undefined}
-              rel={l.external ? "noopener noreferrer" : undefined}
-              aria-current={l.active ? "page" : undefined}
-              className={`font-[var(--font-inter)] font-medium tracking-[0.18px] transition-colors duration-200 hover:opacity-80 ${
-                scrolled ? "text-[#021c24]" : "text-white"
-              } ${
-                l.active
-                  ? "underline underline-offset-4 decoration-mint"
-                  : ""
-              }`}
-              style={{ fontSize: 16 }}
-            >
-              {l.label}
-            </a>
-          ))}
+          {/* Desktop links */}
+          <div className="hidden lg:flex items-center gap-[32px]">
+            {LINKS.map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
+                aria-current={l.active ? "page" : undefined}
+                className={`font-[var(--font-inter)] font-medium leading-[20px] text-[18px] tracking-[0.18px] transition-colors duration-200 hover:opacity-80 text-[#021c24] ${
+                  l.active
+                    ? "underline underline-offset-4 decoration-[#021c24]"
+                    : ""
+                }`}
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Desktop CTA */}
@@ -88,12 +77,8 @@ export function TopNav() {
           href={APP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className={`hidden lg:inline-flex items-center justify-center font-[var(--font-inter)] font-medium tracking-[0.36px] rounded-full transition-all duration-300 ${
-            scrolled
-              ? "bg-[#021c24] text-white hover:bg-[#021c24]/90"
-              : "bg-white text-[#021c24] hover:bg-white/90"
-          }`}
-          style={{ fontSize: 16, paddingLeft: 28, paddingRight: 28, paddingTop: 12, paddingBottom: 12 }}
+          className="hidden lg:inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-all duration-300 hover:bg-[#021c24]/90"
+          style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
         >
           Launch App
         </a>
@@ -101,9 +86,7 @@ export function TopNav() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className={`lg:hidden p-2 transition-colors duration-200 rounded-md ${
-            scrolled ? "text-[#021c24]" : "text-white"
-          }`}
+          className="lg:hidden p-2 transition-colors duration-200 rounded-md text-[#021c24]"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"

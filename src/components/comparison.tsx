@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type CellValue = "yes" | "no" | string;
 
 interface ComparisonRow {
@@ -18,31 +20,23 @@ const ROWS: ComparisonRow[] = [
   { feature: "Asset Holder Protection", shift: "yes", tokenized: "yes", perps: "no", tradfi: "yes" },
 ];
 
-function DiamondIcon({ color }: { color: string }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M8 1L15 8L8 15L1 8L8 1Z" fill={color} />
-    </svg>
-  );
-}
+const COLUMNS = ["SHIFT", "Other Tokenized", "Perps", "TradFi Brokers"] as const;
 
 function CellContent({ value }: { value: CellValue }) {
   if (value === "yes")
     return (
-      <span role="img" className="inline-flex items-center justify-center" aria-label="Yes">
-        <DiamondIcon color="#26c8b8" />
-      </span>
+      <div className="flex items-center justify-center">
+        <Image src="/diamond-teal.png" alt="Yes" width={24} height={24} className="w-6 h-6" />
+      </div>
     );
   if (value === "no")
     return (
-      <span role="img" className="inline-flex items-center justify-center" aria-label="No">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M2 2L12 12M12 2L2 12" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" />
-        </svg>
-      </span>
+      <div className="flex items-center justify-center">
+        <Image src="/x-red.png" alt="No" width={16} height={16} className="w-4 h-4" />
+      </div>
     );
   return (
-    <span className="font-[var(--font-inter)] text-white/70 text-sm">
+    <span className="font-[var(--font-inter)] font-medium text-[#edeeee] text-[18px] text-center">
       {value}
     </span>
   );
@@ -50,101 +44,81 @@ function CellContent({ value }: { value: CellValue }) {
 
 export function Comparison() {
   return (
-    <section id="comparison" className="relative bg-black text-white overflow-hidden py-16 md:py-20" aria-label="Feature comparison">
-      {/* Subtle teal gradient background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        aria-hidden="true"
-        style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(38,200,184,0.06) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative z-10 mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
-        <div className="text-center mb-12">
+    <section id="comparison" className="bg-black text-white py-[120px]" aria-label="Feature comparison">
+      <div className="mx-auto px-6 md:px-16 lg:px-[120px]" style={{ maxWidth: 1440 }}>
+        {/* Header */}
+        <div className="flex flex-col gap-[18px] items-center text-center mb-[80px]">
           <h2
-            className="font-[var(--font-grotesk)] font-medium text-white tracking-[-0.96px]"
-            style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
+            className="font-[var(--font-grotesk)] font-medium text-white leading-[1.1] tracking-[-0.96px] text-[32px] md:text-[48px]"
           >
             Why SHIFT Wins
           </h2>
+          <p className="font-[var(--font-grotesk)] font-medium text-[#8d8d8d] leading-[1.04] tracking-[-0.64px] lowercase text-[20px] md:text-[32px]">
+            trade all your favorite stocks, and eliminate risks of margin and liquidation
+          </p>
         </div>
 
-        <div className="overflow-x-auto -mx-6 px-6" tabIndex={0} role="region" aria-label="Scrollable comparison table">
-          <table className="w-full" style={{ minWidth: 750 }}>
-            <thead>
-              <tr>
-                <th scope="col" className="text-left py-4 px-5 w-[280px]">
-                  <span className="sr-only">Feature</span>
-                </th>
-                <th scope="col" className="py-4 px-5 text-center">
-                  <div
-                    className="inline-block rounded-lg font-[var(--font-inter)] font-semibold text-white text-sm px-5 py-2.5"
-                    style={{ backgroundColor: "rgba(38,200,184,0.15)", border: "1px solid rgba(38,200,184,0.4)" }}
-                  >
-                    SHIFT
+        {/* Table grid */}
+        <div className="flex flex-col gap-3 overflow-x-auto" tabIndex={0} role="region" aria-label="Scrollable comparison table">
+          <div style={{ minWidth: 900 }}>
+            {/* Column headers */}
+            <div className="flex gap-5 items-end mb-3">
+              {/* Feature column - empty header */}
+              <div className="flex-1 p-5 rounded-xl" />
+              {/* Data columns */}
+              <div className="flex flex-1 gap-5">
+                {COLUMNS.slice(0, 2).map((col) => (
+                  <div key={col} className="flex-1 bg-[#151515] rounded-xl p-5">
+                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">
+                      {col}
+                    </p>
                   </div>
-                </th>
-                <th scope="col" className="py-4 px-5 text-center">
-                  <div
-                    className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white/70 text-sm px-5 py-2.5"
-                  >
-                    Other Tokenized
+                ))}
+              </div>
+              <div className="flex flex-1 gap-5">
+                {COLUMNS.slice(2).map((col) => (
+                  <div key={col} className="flex-1 bg-[#151515] rounded-xl p-5">
+                    <p className="font-[var(--font-inter)] font-medium text-white text-[18px] text-center capitalize">
+                      {col}
+                    </p>
                   </div>
-                </th>
-                <th scope="col" className="py-4 px-5 text-center">
-                  <div
-                    className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white/70 text-sm px-5 py-2.5"
-                  >
-                    Perps
+                ))}
+              </div>
+            </div>
+
+            {/* Data rows */}
+            {ROWS.map((r) => (
+              <div key={r.feature} className="flex gap-5 mb-3">
+                {/* Feature label */}
+                <div className="flex-1 bg-[#151515] rounded-xl p-5">
+                  <div className="flex gap-[18px] items-center">
+                    <Image src="/diamond-teal.png" alt="" width={24} height={24} className="w-6 h-6 shrink-0" aria-hidden="true" />
+                    <span className="font-[var(--font-inter)] font-medium text-white text-[18px] capitalize whitespace-nowrap">
+                      {r.feature}
+                    </span>
                   </div>
-                </th>
-                <th scope="col" className="py-4 px-5 text-center">
-                  <div
-                    className="inline-block rounded-lg bg-white/5 border border-white/10 font-[var(--font-inter)] font-semibold text-white/70 text-sm px-5 py-2.5"
-                  >
-                    TradFi Brokers
+                </div>
+                {/* SHIFT + Other Tokenized */}
+                <div className="flex flex-1 gap-5">
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+                    <CellContent value={r.shift} />
                   </div>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {ROWS.map((r) => (
-                <tr key={r.feature} className="border-b border-white/5 transition-colors duration-150 hover:bg-white/[0.02]">
-                  <td className="py-4 px-5">
-                    <div className="flex items-center gap-3">
-                      <DiamondIcon color="rgba(38,200,184,0.5)" />
-                      <span
-                        className="font-[var(--font-inter)] font-medium text-white text-sm"
-                      >
-                        {r.feature}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="py-4 px-5 text-center border-x" style={{ backgroundColor: "rgba(38,200,184,0.04)", borderColor: "rgba(38,200,184,0.15)" }}>
-                    <div className="inline-flex items-center justify-center rounded-lg px-4 py-3" style={{ backgroundColor: "rgba(38,200,184,0.08)" }}>
-                      <CellContent value={r.shift} />
-                    </div>
-                  </td>
-                  <td className="py-4 px-5 text-center">
-                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
-                      <CellContent value={r.tokenized} />
-                    </div>
-                  </td>
-                  <td className="py-4 px-5 text-center">
-                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
-                      <CellContent value={r.perps} />
-                    </div>
-                  </td>
-                  <td className="py-4 px-5 text-center">
-                    <div className="inline-flex items-center justify-center bg-[#1a1a1a] rounded-lg px-4 py-3">
-                      <CellContent value={r.tradfi} />
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+                    <CellContent value={r.tokenized} />
+                  </div>
+                </div>
+                {/* Perps + TradFi */}
+                <div className="flex flex-1 gap-5">
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+                    <CellContent value={r.perps} />
+                  </div>
+                  <div className="flex-1 bg-[#151515] rounded-xl p-5 flex items-center justify-center">
+                    <CellContent value={r.tradfi} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
