@@ -10,7 +10,7 @@ interface ComparisonRow {
 
 const ROWS: ComparisonRow[] = [
   { feature: "24/7 Trading Availability", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Leveraged Trading", shift: "up to x5", tokenized: "no", perps: "Unlimited", tradfi: "up to x300" },
+  { feature: "Leveraged Trading", shift: "up to x3", tokenized: "no", perps: "Unlimited", tradfi: "up to x300" },
   { feature: "Permissionless Tokens", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Self Custody", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Transferrable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },

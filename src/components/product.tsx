@@ -109,14 +109,14 @@ export function Product() {
                 className="font-[var(--font-grotesk)] font-medium text-white capitalize tracking-[-0.64px] leading-[1.04]"
                 style={{ fontSize: "clamp(24px, 3.5vw, 32px)" }}
               >
-                Long 5X
+                Long 3X
               </h3>
             </div>
             <div className="relative z-10 flex flex-col items-start w-full">
               <p
                 className="font-[var(--font-inter)] font-normal text-[#8d8d8d] text-[18px] capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
               >
-                Capture amplified upside on your thesis. Up to 5x leveraged exposure
+                Capture amplified upside on your thesis. Up to 3x leveraged exposure
                 to major equities without margin accounts or funding fees.
               </p>
             </div>

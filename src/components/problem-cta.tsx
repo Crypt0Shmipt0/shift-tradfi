@@ -27,7 +27,7 @@ export function ProblemCta() {
                 className="font-[var(--font-inter)] font-medium leading-normal text-[#edeeee] tracking-[-0.64px] w-full"
                 style={{ fontSize: "clamp(20px, 2.22vw, 32px)" }}
               >
-                Explore our leveraged stocks tokens, designed for price integrity and low liquidation risk, with up to 500% Leverage.
+                Explore our leveraged stocks tokens, designed for price integrity and low liquidation risk, with up to 300% Leverage.
               </p>
             </div>
 
