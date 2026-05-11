@@ -10,6 +10,7 @@ import { Advantages } from "@/components/advantages";
 import { MarketsTable } from "@/components/markets-table";
 import { ApiSection } from "@/components/api-section";
 import { Comparison } from "@/components/comparison";
+import { Media } from "@/components/media";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 
@@ -29,6 +30,7 @@ export default function Home() {
         <MarketsTable />
         <ApiSection />
         <Comparison />
+        <Media />
         <FinalCta />
       </main>
       <Footer />
