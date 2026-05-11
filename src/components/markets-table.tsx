@@ -43,7 +43,7 @@ export function MarketsTable() {
                 <div className="flex-1 px-[10px] capitalize" role="columnheader">Token Name</div>
                 <div className="w-[140px] shrink-0 px-[10px] font-normal" role="columnheader">Price</div>
                 <div className="w-[140px] shrink-0 px-[10px] font-normal" role="columnheader">24h change</div>
-                <div className="w-[108px] shrink-0" aria-hidden="true" />
+                <div className="w-[108px] shrink-0" role="columnheader" aria-label="Actions" />
               </div>
               <div className="w-full h-px bg-[#e5e5e5]" />
             </div>
