@@ -1,21 +1,21 @@
 import Image from "next/image";
 
 const TOKENS_ROW_1 = [
-  { name: "Tesla", src: "/tokens/3d/tesla-large.png" },
-  { name: "Nvidia", src: "/tokens/3d/nvidia.png" },
-  { name: "Coinbase", src: "/tokens/3d/coinbase.png" },
-  { name: "Spotify", src: "/tokens/3d/spotify.png" },
-  { name: "Apple", src: "/tokens/3d/apple.png" },
-  { name: "Meta", src: "/tokens/3d/meta.png" },
+  { name: "Tesla", src: "/tokens/3d/tesla-large.webp" },
+  { name: "Nvidia", src: "/tokens/3d/nvidia.webp" },
+  { name: "Coinbase", src: "/tokens/3d/coinbase.webp" },
+  { name: "Spotify", src: "/tokens/3d/spotify.webp" },
+  { name: "Apple", src: "/tokens/3d/apple.webp" },
+  { name: "Meta", src: "/tokens/3d/meta.webp" },
 ] as const;
 
 const TOKENS_ROW_2 = [
-  { name: "Intel", src: "/tokens/3d/intel.png" },
-  { name: "Amazon", src: "/tokens/3d/amazon.png" },
-  { name: "Netflix", src: "/tokens/3d/netflix.png" },
-  { name: "PayPal", src: "/tokens/3d/paypal.png" },
-  { name: "MasterCard", src: "/tokens/3d/mastercard.png" },
-  { name: "Robinhood", src: "/tokens/3d/robinhood.png" },
+  { name: "Intel", src: "/tokens/3d/intel.webp" },
+  { name: "Amazon", src: "/tokens/3d/amazon.webp" },
+  { name: "Netflix", src: "/tokens/3d/netflix.webp" },
+  { name: "PayPal", src: "/tokens/3d/paypal.webp" },
+  { name: "MasterCard", src: "/tokens/3d/mastercard.webp" },
+  { name: "Robinhood", src: "/tokens/3d/robinhood.webp" },
 ] as const;
 
 export function TokenShowcase() {
