@@ -29,8 +29,8 @@ export function Hero() {
         <source src="/visuals/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Layer B — 50% white scrim for text legibility */}
-      <div className="absolute inset-0 z-10 bg-white/50" aria-hidden="true" />
+      {/* Layer B — gradient scrim for WCAG AA contrast on headline */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-white/75 via-white/55 to-white/45" aria-hidden="true" />
 
       {/* Layer C — text content */}
       <div
@@ -43,7 +43,7 @@ export function Hero() {
             className="font-[var(--font-grotesk)] font-medium leading-[1.04] tracking-[-1.92px] w-full"
             style={{ fontSize: "clamp(36px, 6.67vw, 96px)" }}
           >
-            <span className="text-[#8d8d8d]">The home of tokenized</span>
+            <span className="text-[#5d5d5d]">The home of tokenized</span>
             <br />
             <span className="text-[#021c24]">Leveraged Stocks</span>
           </h1>
