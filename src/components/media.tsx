@@ -54,10 +54,10 @@ export function Media() {
               Stay informed
             </h2>
             <p
-              className="font-[var(--font-grotesk)] font-medium lowercase text-[#8d8d8d] leading-[1.04] tracking-[-0.64px]"
-              style={{ fontSize: "clamp(18px, 1.94vw, 28px)" }}
+              className="font-[var(--font-inter)] font-medium text-[#a8a8a8] leading-normal tracking-[-0.36px]"
+              style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
             >
-              Announcements, deep-dive articles, and explainer videos from the SHIFT team
+              Announcements, deep-dive articles, and explainer videos from the SHIFT team.
             </p>
           </div>
           <a

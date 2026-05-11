@@ -18,13 +18,51 @@ export function Product() {
             </span>
           </div>
 
-          {/* Chain — Solana only (BNB not yet live) */}
-          <div className="flex items-center justify-center gap-[18px] h-[80px]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/partners/solana.svg" alt="Solana" className="max-h-[48px] w-auto object-contain" loading="lazy" />
-            <span className="font-[var(--font-inter)] font-semibold text-white text-[24px] md:text-[28px] whitespace-nowrap">
-              Solana
-            </span>
+          {/* Chain — official Solana logo (gradient mark + wordmark), color, no extra text */}
+          <div className="flex items-center justify-center h-[80px]" aria-label="Live on Solana">
+            <svg
+              viewBox="0 0 397 60"
+              role="img"
+              aria-hidden="true"
+              className="h-[40px] md:h-[48px] w-auto"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="solanaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#9945FF" />
+                  <stop offset="50%" stopColor="#19FB9B" />
+                  <stop offset="100%" stopColor="#14F195" />
+                </linearGradient>
+              </defs>
+              {/* Three parallelogram stripes (Solana brand mark) */}
+              <path
+                d="M9.5 9 L78.5 9 L67 21 L-2 21 Z"
+                transform="translate(8,0)"
+                fill="url(#solanaGrad)"
+              />
+              <path
+                d="M-2 23 L67 23 L78.5 35 L9.5 35 Z"
+                transform="translate(8,0)"
+                fill="url(#solanaGrad)"
+              />
+              <path
+                d="M9.5 37 L78.5 37 L67 49 L-2 49 Z"
+                transform="translate(8,0)"
+                fill="url(#solanaGrad)"
+              />
+              {/* "Solana" wordmark — Inter-style geometric */}
+              <text
+                x="110"
+                y="42"
+                fontFamily="var(--font-grotesk), system-ui, sans-serif"
+                fontWeight="600"
+                fontSize="38"
+                fill="#FFFFFF"
+                letterSpacing="-0.5"
+              >
+                Solana
+              </text>
+            </svg>
           </div>
         </div>
 
@@ -34,7 +72,7 @@ export function Product() {
             className="font-[var(--font-grotesk)] font-medium text-white tracking-[-0.96px] leading-[1.1] w-full"
             style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
           >
-            Trade like Perps, Never Liquidated
+            Trade like perps. Never liquidated.
           </h2>
           <p
             className="font-[var(--font-inter)] font-medium text-[#ededed] tracking-[-0.36px] leading-normal w-full max-w-[760px]"
@@ -100,17 +138,17 @@ export function Product() {
             </div>
             <div className="relative z-10 flex flex-col items-start w-full">
               <h3
-                className="font-[var(--font-grotesk)] font-medium text-white capitalize tracking-[-0.64px] leading-[1.04]"
+                className="font-[var(--font-grotesk)] font-medium text-white tracking-[-0.64px] leading-[1.04]"
                 style={{ fontSize: "clamp(24px, 3.5vw, 32px)" }}
               >
-                Long 3X
+                Long ×3
               </h3>
             </div>
             <div className="relative z-10 flex flex-col items-start w-full">
               <p
-                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[18px] capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
+                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[18px] leading-normal tracking-[-0.36px] max-w-[337px]"
               >
-                Capture amplified upside on your thesis. Up to 3x leveraged exposure
+                Capture amplified upside on your thesis. Up to ×3 leveraged exposure
                 to major equities without margin accounts or funding fees.
               </p>
             </div>
@@ -141,18 +179,18 @@ export function Product() {
             </div>
             <div className="relative z-10 flex flex-col items-end w-full">
               <h3
-                className="font-[var(--font-grotesk)] font-medium text-white capitalize text-right tracking-[-0.64px] leading-[1.04]"
+                className="font-[var(--font-grotesk)] font-medium text-white text-right tracking-[-0.64px] leading-[1.04]"
                 style={{ fontSize: "clamp(24px, 3.5vw, 32px)" }}
               >
-                Short 3X
+                Short ×3
               </h3>
             </div>
             <div className="relative z-10 flex flex-col items-end w-full">
               <p
-                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[18px] text-right capitalize leading-normal tracking-[-0.36px] max-w-[337px]"
+                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[18px] text-right leading-normal tracking-[-0.36px] max-w-[337px]"
               >
                 Take the other side without borrowing or shorting on margin.
-                Inverse exposure on the same underlyings, up to 3x leverage.
+                Inverse exposure on the same underlyings, up to ×3 leverage.
               </p>
             </div>
           </article>

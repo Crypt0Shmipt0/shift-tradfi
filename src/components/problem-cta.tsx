@@ -27,7 +27,7 @@ export function ProblemCta() {
                 className="font-[var(--font-inter)] font-medium leading-normal text-[#021c24]/70 tracking-[-0.36px] w-full max-w-[680px]"
                 style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
               >
-                Explore our leveraged stocks tokens, designed for price integrity and low liquidation risk, with up to 300% Leverage.
+                Explore our leveraged stock tokens, designed for price integrity and low liquidation risk, with up to 300% leverage.
               </p>
             </div>
 
@@ -43,11 +43,11 @@ export function ProblemCta() {
             </a>
           </div>
 
-          {/* Right visual: jar with downward chart + warning — semantic match for "broken price feed" */}
+          {/* Right visual: transparent glass-dome chart — reads cleanly on the off-white card */}
           <div className="shrink-0 w-[280px] h-[280px] md:w-[420px] md:h-[420px]">
             <Image
-              src="/visuals/broken-feed-warning.webp"
-              alt="Liquidation warning — broken price feed visualization"
+              src="/visuals/chart-dome.webp"
+              alt="Protected price feed visualization"
               width={420}
               height={420}
               sizes="(max-width: 768px) 280px, 420px"

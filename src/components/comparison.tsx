@@ -13,7 +13,7 @@ const ROWS: ComparisonRow[] = [
   { feature: "Leveraged Trading", shift: "up to ×3", tokenized: "no", perps: "Unlimited", tradfi: "up to ×300" },
   { feature: "Permissionless Tokens", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Self Custody", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Transferrable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
+  { feature: "Transferable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "DeFi Compatible", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Asset Holder Protection", shift: "yes", tokenized: "yes", perps: "no", tradfi: "yes" },
 ];

@@ -23,7 +23,7 @@ export function MarketsTable() {
             className="font-[var(--font-grotesk)] font-medium text-black tracking-[-0.96px] leading-[1.1] w-full"
             style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
           >
-            Shift Markets
+            SHIFT Markets
           </h2>
           <p
             className="font-[var(--font-inter)] font-medium lowercase text-[#6b7280] tracking-[-0.36px] leading-normal w-full max-w-[680px]"
