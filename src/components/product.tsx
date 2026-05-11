@@ -18,51 +18,19 @@ export function Product() {
             </span>
           </div>
 
-          {/* Chain — official Solana logo (gradient mark + wordmark), color, no extra text */}
+          {/* Chain — official Solana logo (color) on a clean light pill for proper contrast */}
           <div className="flex items-center justify-center h-[80px]" aria-label="Live on Solana">
-            <svg
-              viewBox="0 0 397 60"
-              role="img"
-              aria-hidden="true"
-              className="h-[40px] md:h-[48px] w-auto"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <defs>
-                <linearGradient id="solanaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#9945FF" />
-                  <stop offset="50%" stopColor="#19FB9B" />
-                  <stop offset="100%" stopColor="#14F195" />
-                </linearGradient>
-              </defs>
-              {/* Three parallelogram stripes (Solana brand mark) */}
-              <path
-                d="M9.5 9 L78.5 9 L67 21 L-2 21 Z"
-                transform="translate(8,0)"
-                fill="url(#solanaGrad)"
+            <div className="inline-flex items-center bg-white rounded-full px-6 py-3 md:px-7 md:py-3.5 shadow-[0_4px_24px_rgba(0,0,0,0.25)]">
+              <Image
+                src="/partners/solana-color.png"
+                alt="Solana"
+                width={1000}
+                height={187}
+                sizes="(max-width: 768px) 160px, 200px"
+                className="h-[28px] md:h-[36px] w-auto"
+                loading="lazy"
               />
-              <path
-                d="M-2 23 L67 23 L78.5 35 L9.5 35 Z"
-                transform="translate(8,0)"
-                fill="url(#solanaGrad)"
-              />
-              <path
-                d="M9.5 37 L78.5 37 L67 49 L-2 49 Z"
-                transform="translate(8,0)"
-                fill="url(#solanaGrad)"
-              />
-              {/* "Solana" wordmark — Inter-style geometric */}
-              <text
-                x="110"
-                y="42"
-                fontFamily="var(--font-grotesk), system-ui, sans-serif"
-                fontWeight="600"
-                fontSize="38"
-                fill="#FFFFFF"
-                letterSpacing="-0.5"
-              >
-                Solana
-              </text>
-            </svg>
+            </div>
           </div>
         </div>
 
@@ -82,28 +50,28 @@ export function Product() {
           </p>
         </div>
 
-        {/* Token strip — 2-col mobile, 3-col tablet, 6-up desktop */}
+        {/* Token strip — 2-col mobile, 3-col tablet+ desktop (bigger tiles, no name truncation) */}
         <div
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-[24px] gap-y-[28px] w-full justify-items-start"
+          className="grid grid-cols-2 sm:grid-cols-3 gap-x-[24px] md:gap-x-[40px] gap-y-[28px] md:gap-y-[36px] w-full justify-items-start"
           role="region"
           aria-label="Available tokens"
         >
           {LIVE_TOKENS.map((t) => (
-            <div key={t.ticker} className="flex items-center gap-[12px] w-full">
+            <div key={t.ticker} className="flex items-center gap-[14px] w-full">
               <Image
                 src={t.image}
                 alt={t.ticker}
                 width={100}
                 height={100}
-                sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 100px"
-                className="w-[64px] h-[64px] md:w-[80px] md:h-[80px] lg:w-[100px] lg:h-[100px] rounded-[16px] bg-[#2a2b2b] object-cover shrink-0"
+                sizes="(max-width: 768px) 64px, (max-width: 1024px) 80px, 96px"
+                className="w-[64px] h-[64px] md:w-[80px] md:h-[80px] lg:w-[96px] lg:h-[96px] rounded-[16px] bg-[#2a2b2b] object-cover shrink-0"
                 loading="lazy"
               />
               <div className="flex flex-col gap-[4px] justify-center min-w-0">
-                <span className="font-[var(--font-inter)] font-semibold text-white text-[18px] md:text-[22px] lg:text-[24px] leading-tight">
+                <span className="font-[var(--font-inter)] font-semibold text-white text-[20px] md:text-[24px] lg:text-[26px] leading-tight">
                   {t.ticker}
                 </span>
-                <span className="font-[var(--font-inter)] font-normal text-[#edeeee] text-[12px] md:text-[14px] leading-tight truncate">
+                <span className="font-[var(--font-inter)] font-normal text-[#edeeee] text-[13px] md:text-[15px] leading-tight">
                   {t.name}
                 </span>
               </div>

@@ -55,7 +55,7 @@ export function Hero() {
             className="flex flex-col items-center font-[var(--font-grotesk)] font-medium leading-[1.04] tracking-[-0.04em] text-center max-w-[900px] mx-auto"
             style={{ fontSize: "clamp(28px, 6.2vw, 88px)" }}
           >
-            <span className="text-[#8d8d8d]">The home of tokenized</span>
+            <span className="text-[#8d8d8d]">The Home of Tokenized</span>
             <span className="text-[#021c24]">Leveraged Stocks</span>
           </h1>
 

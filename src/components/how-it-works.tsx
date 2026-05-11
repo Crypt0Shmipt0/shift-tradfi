@@ -66,7 +66,7 @@ export function HowItWorks() {
 
           {/* Right -- app mockups */}
           <div className="flex items-end shrink-0">
-            <div className="relative w-[600px] lg:w-[955px] h-[340px] lg:h-[540px] mr-0 lg:mr-[-120px] xl:mr-[-224px]">
+            <div className="relative w-[600px] lg:w-[820px] xl:w-[955px] h-[340px] lg:h-[460px] xl:h-[540px] mr-0 lg:mr-[-60px] xl:mr-[-160px]">
               <Image
                 src="/visuals/app-desktop.webp"
                 alt="SHIFT trading app on desktop"
