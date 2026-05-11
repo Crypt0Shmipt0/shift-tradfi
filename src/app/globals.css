@@ -33,6 +33,19 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+/* Tailwind v4 doesn't auto-generate utilities for `font-[var(...)]` arbitrary
+   values — it's ambiguous with font-size/weight. Explicit selectors map the
+   existing component classes to the correct font-family. */
+.font-\[var\(--font-grotesk\)\] {
+  font-family: var(--font-grotesk), system-ui, sans-serif;
+}
+.font-\[var\(--font-inter\)\] {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+.font-\[var\(--font-mono\)\] {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
 html {
   scroll-behavior: smooth;
 }
