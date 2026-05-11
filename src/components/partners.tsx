@@ -1,18 +1,28 @@
 import Image from "next/image";
 
-const PARTNERS: { name: string; logo: string; isPng?: boolean }[] = [
-  { name: "Alpaca", logo: "/partners/alpaca.svg" },
-  { name: "Jupiter", logo: "/partners/jupiter.svg" },
-  { name: "Solana", logo: "/partners/solana.svg" },
-  { name: "BNB Chain", logo: "/partners/bnb.svg" },
-  { name: "Wallet", logo: "/partners/wallet.svg" },
-  { name: "Chainlink", logo: "/partners/chainlink.svg" },
-  { name: "Orca", logo: "/partners/orca.svg" },
-  { name: "Birdeye", logo: "/partners/birdeye.png", isPng: true },
-  { name: "Cointelegraph", logo: "/partners/cointelegraph.svg" },
-  { name: "Kamino", logo: "/partners/kamino.svg" },
-  { name: "SNZ Holdings", logo: "/partners/snz.png", isPng: true },
-  { name: "PRIM3", logo: "/partners/prim3.svg" },
+type Partner = {
+  name: string;
+  logo: string;
+  isPng?: boolean;
+  /** Max display width in px */
+  w: number;
+  /** Max display height in px */
+  h: number;
+};
+
+const PARTNERS: Partner[] = [
+  { name: "Alpaca", logo: "/partners/alpaca.svg", w: 160, h: 46 },
+  { name: "Jupiter", logo: "/partners/jupiter.svg", w: 155, h: 48 },
+  { name: "Solana", logo: "/partners/solana.svg", w: 250, h: 80 },
+  { name: "BNB Chain", logo: "/partners/bnb.svg", w: 137, h: 48 },
+  { name: "Wallet", logo: "/partners/wallet.svg", w: 250, h: 80 },
+  { name: "Chainlink", logo: "/partners/chainlink.png", isPng: true, w: 188, h: 48 },
+  { name: "Orca", logo: "/partners/orca.svg", w: 163, h: 42 },
+  { name: "Birdeye", logo: "/partners/birdeye.png", isPng: true, w: 154, h: 48 },
+  { name: "Cointelegraph", logo: "/partners/cointelegraph.svg", w: 189, h: 48 },
+  { name: "Kamino", logo: "/partners/kamino.svg", w: 154, h: 48 },
+  { name: "SNZ Holdings", logo: "/partners/snz.png", isPng: true, w: 250, h: 80 },
+  { name: "PRIM3", logo: "/partners/prim3.svg", w: 250, h: 80 },
 ];
 
 export function Partners() {
@@ -57,7 +67,7 @@ export function Partners() {
           {PARTNERS.map((p) => (
             <div
               key={p.name}
-              className="relative flex items-center justify-center rounded-[12px] w-[250px] h-[80px] transition-all duration-200 hover:brightness-110"
+              className="relative flex items-center justify-center rounded-[12px] w-[250px] h-[80px]"
             >
               {/* Card bg */}
               <div className="absolute inset-0 bg-[#444] rounded-[12px]" aria-hidden="true" />
@@ -65,15 +75,16 @@ export function Partners() {
               <div className="absolute inset-0 rounded-[12px] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.25)]" aria-hidden="true" />
 
               {/* Logo */}
-              <div className="relative z-10">
+              <div className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200" style={{ filter: "brightness(0) invert(1)" }}>
                 {p.isPng ? (
                   <Image
                     src={p.logo}
                     alt={p.name}
-                    width={154}
-                    height={48}
-                    sizes="154px"
-                    className="h-[48px] w-auto object-contain"
+                    width={p.w}
+                    height={p.h}
+                    sizes={`${p.w}px`}
+                    className="object-contain"
+                    style={{ width: p.w, height: p.h, maxWidth: p.w, maxHeight: p.h }}
                     loading="lazy"
                   />
                 ) : (
@@ -81,7 +92,8 @@ export function Partners() {
                   <img
                     src={p.logo}
                     alt={p.name}
-                    className="h-[48px] w-auto object-contain max-w-[160px]"
+                    className="object-contain"
+                    style={{ width: p.w, height: p.h, maxWidth: p.w, maxHeight: p.h }}
                     loading="lazy"
                   />
                 )}
