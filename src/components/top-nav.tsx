@@ -44,8 +44,9 @@ export function TopNav() {
             <Image
               src="/shift-logo.png"
               alt="SHIFT"
-              width={125}
-              height={28}
+              width={4992}
+              height={1120}
+              sizes="125px"
               className="h-7 w-auto"
               priority
             />

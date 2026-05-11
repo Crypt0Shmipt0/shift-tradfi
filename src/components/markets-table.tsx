@@ -24,12 +24,12 @@ export function MarketsTable() {
             style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
           >
             <Image
-              src="/shift-logo.png"
+              src="/shift-logo-color.png"
               alt="SHIFT"
-              width={125}
-              height={28}
-              sizes="(max-width: 768px) 96px, 160px"
-              className="h-[0.66em] w-auto"
+              width={4992}
+              height={1120}
+              sizes="(max-width: 768px) 120px, 200px"
+              className="h-[0.7em] w-auto"
               priority={false}
             />
             <span>Markets</span>
