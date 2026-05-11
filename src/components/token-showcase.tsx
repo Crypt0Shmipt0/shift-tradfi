@@ -26,7 +26,7 @@ export function TokenShowcase() {
         {TOKENS_ROW_1.map((t) => (
           <div
             key={t.name}
-            className="relative w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-[255px] lg:h-[255px] transition-transform duration-300 hover:scale-105"
+            className="relative w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-[255px] lg:h-[255px]"
           >
             <Image
               src={t.src}
@@ -44,7 +44,7 @@ export function TokenShowcase() {
         {TOKENS_ROW_2.map((t) => (
           <div
             key={t.name}
-            className="relative w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-[255px] lg:h-[255px] transition-transform duration-300 hover:scale-105"
+            className="relative w-[140px] h-[140px] md:w-[200px] md:h-[200px] lg:w-[255px] lg:h-[255px]"
           >
             <Image
               src={t.src}

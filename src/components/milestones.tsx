@@ -10,9 +10,9 @@ const STATS: { prefix: string; value: string; label: string; sub?: string }[] = 
 
 export function Milestones() {
   return (
-    <section id="milestones" className="bg-white" aria-label="Key milestones">
+    <section id="milestones" className="relative bg-white overflow-hidden" aria-label="Key milestones">
       <div
-        className="mx-auto px-6 md:px-16 lg:px-[60px]"
+        className="mx-auto px-6 md:px-16 lg:px-[60px] py-[80px]"
         style={{ maxWidth: 1440 }}
       >
         <div className="flex items-center justify-center flex-wrap gap-[40px]">
