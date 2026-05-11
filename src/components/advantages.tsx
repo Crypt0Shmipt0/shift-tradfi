@@ -22,7 +22,7 @@ function FlameIcon() {
 
 export function Advantages() {
   return (
-    <section id="advantages" className="bg-black text-white py-[120px] px-6 md:px-16 lg:px-[120px]" aria-label="Platform advantages">
+    <section id="advantages" className="bg-[#0a0a0a] text-white py-[120px] px-6 md:px-16 lg:px-[120px]" aria-label="Platform advantages">
       <div className="mx-auto flex flex-col gap-[80px] items-center" style={{ maxWidth: 1440 }}>
         {/* Header */}
         <div className="flex flex-col gap-[18px] items-center text-center w-full">

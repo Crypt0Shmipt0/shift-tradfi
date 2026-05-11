@@ -36,7 +36,7 @@ export function ApiSection() {
                 boxShadow: "0px 4px 2px rgba(0,0,0,0.25), 0px 4px 2px rgba(0,0,0,0.25)",
               }}
             >
-              <div className="relative bg-black rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
+              <div className="relative bg-[#0a0a0a] rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
                   src="/visuals/chart-globe.webp"
@@ -69,7 +69,7 @@ export function ApiSection() {
                 boxShadow: "0px 4px 2px rgba(0,0,0,0.25), 0px 4px 2px rgba(0,0,0,0.25)",
               }}
             >
-              <div className="relative bg-black rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
+              <div className="relative bg-[#0a0a0a] rounded-xl px-10 py-[120px] flex flex-col items-center gap-[10px]">
                 {/* Background image */}
                 <Image
                   src="/visuals/api-rfq-bg.webp"

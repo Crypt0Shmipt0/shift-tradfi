@@ -39,7 +39,7 @@ export function Media() {
   return (
     <section
       id="media"
-      className="bg-black text-white py-[80px] md:py-[120px]"
+      className="bg-[#0a0a0a] text-white py-[80px] md:py-[120px]"
       aria-labelledby="media-heading"
     >
       <div className="mx-auto px-6 md:px-16 lg:px-[80px]" style={{ maxWidth: 1440 }}>

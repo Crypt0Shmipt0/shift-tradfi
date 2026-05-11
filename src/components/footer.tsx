@@ -54,7 +54,7 @@ function FooterCol({ title, links }: { title: string; links: ReadonlyArray<{ lab
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white border-t border-white/10" role="contentinfo">
+    <footer className="bg-[#0a0a0a] text-white border-t border-white/10" role="contentinfo">
       <nav
         className="mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 px-6 md:px-16 lg:px-[120px] py-16"
         style={{ maxWidth: 1440 }}

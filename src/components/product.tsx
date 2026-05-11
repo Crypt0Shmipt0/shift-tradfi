@@ -3,7 +3,7 @@ import { LIVE_TOKENS } from "@/data/tokens";
 
 export function Product() {
   return (
-    <section id="product" className="bg-black text-white" aria-label="Product overview">
+    <section id="product" className="bg-[#0a0a0a] text-white" aria-label="Product overview">
       <div className="flex flex-col gap-[80px] items-center py-[120px] mx-auto px-6 md:px-16 lg:px-[128px]" style={{ maxWidth: 1440 }}>
         {/* Chain pill + chain logos */}
         <div className="flex flex-col gap-[40px] items-center">

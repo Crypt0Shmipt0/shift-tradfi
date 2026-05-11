@@ -20,7 +20,7 @@ const TOKENS_ROW_2 = [
 
 export function TokenShowcase() {
   return (
-    <section id="tokens" className="bg-black overflow-hidden flex flex-col items-center" aria-label="Available tokenized stocks">
+    <section id="tokens" className="bg-[#0a0a0a] overflow-hidden flex flex-col items-center" aria-label="Available tokenized stocks">
       {/* Row 1 */}
       <div className="inline-grid grid-cols-6 gap-0 mb-[-40px]">
         {TOKENS_ROW_1.map((t) => (

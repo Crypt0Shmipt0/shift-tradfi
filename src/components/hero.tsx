@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden" aria-label="Hero">
       {/* Video background section - dark with video at 50% opacity */}
-      <div className="relative bg-black">
+      <div className="relative bg-[#0a0a0a]">
         <video
           ref={videoRef}
           autoPlay

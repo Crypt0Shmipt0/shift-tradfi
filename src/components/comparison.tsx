@@ -42,7 +42,7 @@ function CellContent({ value }: { value: CellValue }) {
 
 export function Comparison() {
   return (
-    <section id="comparison" className="bg-black text-white py-[120px]" aria-label="Feature comparison">
+    <section id="comparison" className="bg-[#0a0a0a] text-white py-[120px]" aria-label="Feature comparison">
       <div className="mx-auto px-6 md:px-16 lg:px-[120px]" style={{ maxWidth: 1440 }}>
         {/* Header */}
         <div className="flex flex-col gap-[18px] items-center text-center mb-[80px]">

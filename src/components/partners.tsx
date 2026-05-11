@@ -17,7 +17,7 @@ const PARTNERS: { name: string; logo: string; isPng?: boolean }[] = [
 
 export function Partners() {
   return (
-    <section id="partners" className="bg-black" aria-label="Partners and integrations">
+    <section id="partners" className="bg-[#0a0a0a]" aria-label="Partners and integrations">
       {/* Decorative banner image */}
       <div className="relative w-full overflow-hidden" style={{ height: "clamp(200px, 24.93vw, 359px)" }}>
         <Image
