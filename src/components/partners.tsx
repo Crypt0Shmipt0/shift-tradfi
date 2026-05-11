@@ -74,7 +74,7 @@ export function Partners() {
               {/* Inner shadow */}
               <div className="absolute inset-0 rounded-[12px] shadow-[inset_0px_4px_4px_0px_rgba(0,0,0,0.25)]" aria-hidden="true" />
 
-              {/* Logo */}
+              {/* Logo — uniform 48px max-height for optical balance across natural ratios */}
               <div className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200" style={{ filter: "brightness(0) invert(1)" }}>
                 {p.isPng ? (
                   <Image
@@ -83,8 +83,7 @@ export function Partners() {
                     width={p.w}
                     height={p.h}
                     sizes={`${p.w}px`}
-                    className="object-contain"
-                    style={{ width: p.w, height: p.h, maxWidth: p.w, maxHeight: p.h }}
+                    className="max-h-[48px] w-auto object-contain"
                     loading="lazy"
                   />
                 ) : (
@@ -92,8 +91,7 @@ export function Partners() {
                   <img
                     src={p.logo}
                     alt={p.name}
-                    className="object-contain"
-                    style={{ width: p.w, height: p.h, maxWidth: p.w, maxHeight: p.h }}
+                    className="max-h-[48px] w-auto object-contain"
                     loading="lazy"
                   />
                 )}
