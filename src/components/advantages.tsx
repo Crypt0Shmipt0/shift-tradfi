@@ -65,15 +65,20 @@ export function Advantages() {
               <RevealItem
                 key={c.title}
                 as="article"
-                className={`bg-[#151515] border border-white/[0.04] flex flex-col gap-[18px] items-start px-[24px] py-[36px] md:px-[32px] md:py-[40px] rounded-[12px] transition-colors duration-200 hover:bg-[#1a1a1a] ${
-                  isPremium ? "border-t-2 border-t-gold" : ""
+                className={`group bg-[#151515] border border-white/[0.04] flex flex-col gap-[18px] items-start px-[24px] py-[36px] md:px-[32px] md:py-[40px] rounded-[12px] transition-[background-color,box-shadow] duration-300 hover:bg-[#1a1a1a] ${
+                  isPremium
+                    ? "shadow-[inset_0_2px_0_0_#C9A961]"
+                    : "hover:shadow-[inset_0_2px_0_0_#C9A961]"
                 }`}
               >
-                {isPremium && (
-                  <span className="text-gold font-mono uppercase text-[10px] tracking-[0.2em]">
-                    Premium
-                  </span>
-                )}
+                <span
+                  className={`text-gold font-mono uppercase text-[10px] tracking-[0.2em] transition-opacity duration-300 ${
+                    isPremium ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                  }`}
+                  aria-hidden={!isPremium ? "true" : undefined}
+                >
+                  {isPremium ? "Premium" : " "}
+                </span>
                 <div className="flex items-center gap-[14px] w-full">
                   <SparkIcon />
                   <h3
