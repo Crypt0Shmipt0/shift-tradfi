@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { APP_URL } from "@/lib/constants";
+import { APP_URL, BOOK_CALL_URL } from "@/lib/constants";
 
 const LINKS: { href: string; label: string; active?: boolean; external?: boolean }[] = [
   { href: "#", label: "Home", active: true },
@@ -73,16 +73,27 @@ export function TopNav() {
           </div>
         </div>
 
-        {/* Desktop CTA */}
-        <a
-          href={APP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden lg:inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors duration-200 hover:bg-[#021c24]/90"
-          style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
-        >
-          Launch App
-        </a>
+        {/* Desktop CTAs */}
+        <div className="hidden lg:flex items-center gap-[10px] lg:gap-[12px]">
+          <a
+            href={BOOK_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-cyan text-white hover:bg-cyan-deep font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors duration-200"
+            style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
+          >
+            Book a Call
+          </a>
+          <a
+            href={APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors duration-200 hover:bg-[#021c24]/90"
+            style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
+          >
+            Launch App
+          </a>
+        </div>
 
         {/* Mobile hamburger */}
         <button
@@ -100,11 +111,20 @@ export function TopNav() {
       <div
         id="mobile-menu"
         className={`lg:hidden bg-white border-t border-gray-100 px-8 overflow-hidden transition-[max-height,opacity,padding] duration-300 ease-in-out ${
-          open ? "max-h-[400px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
+          open ? "max-h-[500px] py-6 opacity-100" : "max-h-0 py-0 opacity-0"
         }`}
         aria-hidden={!open}
       >
         <div className="space-y-1">
+          <a
+            href={BOOK_CALL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-center bg-cyan text-white font-[var(--font-inter)] font-medium text-lg px-8 py-3.5 rounded-full mb-4 transition-colors duration-200 hover:bg-cyan-deep focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2"
+            tabIndex={open ? 0 : -1}
+          >
+            Book a Call
+          </a>
           {LINKS.map((l) => (
             <a
               key={l.label}

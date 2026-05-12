@@ -11,6 +11,15 @@
   --mint-deep: #19332e;
   --mint: #26c8b8;
   --danger: #ef4444;
+  --cyan: #0BB4D4;          /* institutional cyan — Stripe/Plaid family */
+  --cyan-deep: #077B95;     /* text-safe cyan for body */
+  --cyan-tint: #E5F8FC;     /* very light cyan wash for hover/highlight */
+  --gold: #C9A961;          /* antique-finance gold — rare premium accent */
+  --gold-deep: #9A7A3C;     /* text-safe gold */
+  --ink: #021C24;           /* primary deep brand ink (alias of --foreground) */
+  --ink-soft: #1a2b30;      /* slightly softer ink for muted dark */
+  --hairline: rgba(2, 28, 36, 0.08);        /* 1px borders on light */
+  --hairline-dark: rgba(255, 255, 255, 0.06); /* 1px borders on dark */
 }
 
 @theme inline {
@@ -24,6 +33,13 @@
   --color-mint: var(--mint);
   --color-mint-deep: var(--mint-deep);
   --color-danger: var(--danger);
+  --color-cyan: var(--cyan);
+  --color-cyan-deep: var(--cyan-deep);
+  --color-cyan-tint: var(--cyan-tint);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
   --font-sans: var(--font-grotesk);
   --font-body: var(--font-inter);
   --font-mono: var(--font-mono);

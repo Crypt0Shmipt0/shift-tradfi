@@ -1,3 +1,5 @@
+import { Reveal, RevealStagger, RevealItem } from "@/lib/motion";
+
 const CARDS = [
   { title: "24/7 Market Access", desc: "Trade equities anytime, without market-hour constraints." },
   { title: "Fully Backed Exposure", desc: "1:1 asset-backed tokens with real underlying exposure." },
@@ -21,8 +23,8 @@ function SparkIcon() {
     >
       <path
         d="M12 0L15 9L24 12L15 15L12 24L9 15L0 12L9 9L12 0Z"
-        fill="#26c8b8"
-        opacity="0.85"
+        fill="#0BB4D4"
+        opacity="0.9"
       />
     </svg>
   );
@@ -37,7 +39,7 @@ export function Advantages() {
     >
       <div className="mx-auto flex flex-col gap-[80px] items-center" style={{ maxWidth: 1440 }}>
         {/* Header */}
-        <div className="flex flex-col gap-[18px] items-center text-center w-full">
+        <Reveal className="flex flex-col gap-[18px] items-center text-center w-full">
           <h2
             className="font-[var(--font-grotesk)] font-medium text-white tracking-[-0.96px] leading-[1.1] w-full"
             style={{ fontSize: "clamp(28px, 5vw, 48px)" }}
@@ -50,32 +52,44 @@ export function Advantages() {
           >
             Institutional rails. Onchain transparency. Built for continuous markets.
           </p>
-        </div>
+        </Reveal>
 
         {/* 2-col card grid, left-aligned content per Figma */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[18px] w-full">
-          {CARDS.map((c) => (
-            <article
-              key={c.title}
-              className="bg-[#151515] border border-white/[0.04] flex flex-col gap-[18px] items-start px-[24px] py-[36px] md:px-[32px] md:py-[40px] rounded-[12px] transition-colors duration-200 hover:bg-[#1a1a1a]"
-            >
-              <div className="flex items-center gap-[14px] w-full">
-                <SparkIcon />
-                <h3
-                  className="font-[var(--font-grotesk)] font-medium text-white capitalize tracking-[-0.64px] leading-[1.04]"
-                  style={{ fontSize: "clamp(20px, 3vw, 28px)" }}
-                >
-                  {c.title}
-                </h3>
-              </div>
-              <p
-                className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[16px] md:text-[18px] leading-normal tracking-[-0.36px] max-w-[420px]"
+        <RevealStagger
+          staggerChildren={0.08}
+          className="grid grid-cols-1 md:grid-cols-2 gap-[18px] w-full"
+        >
+          {CARDS.map((c) => {
+            const isPremium = c.title === "Institutional-Grade Security";
+            return (
+              <RevealItem
+                key={c.title}
+                as="article"
+                className={`bg-[#151515] border border-white/[0.04] flex flex-col gap-[18px] items-start px-[24px] py-[36px] md:px-[32px] md:py-[40px] rounded-[12px] transition-colors duration-200 hover:bg-[#1a1a1a] ${
+                  isPremium ? "border-t-2 border-t-gold" : ""
+                }`}
               >
-                {c.desc}
-              </p>
-            </article>
-          ))}
-        </div>
+                {isPremium && (
+                  <span className="text-gold font-mono uppercase text-[10px] tracking-[0.2em]">
+                    Premium
+                  </span>
+                )}
+                <div className="flex items-center gap-[14px] w-full">
+                  <SparkIcon />
+                  <h3
+                    className="font-[var(--font-grotesk)] font-medium text-white capitalize tracking-[-0.64px] leading-[1.04]"
+                    style={{ fontSize: "clamp(20px, 3vw, 28px)" }}
+                  >
+                    {c.title}
+                  </h3>
+                </div>
+                <p className="font-[var(--font-inter)] font-normal text-[#a8a8a8] text-[16px] md:text-[18px] leading-normal tracking-[-0.36px] max-w-[420px]">
+                  {c.desc}
+                </p>
+              </RevealItem>
+            );
+          })}
+        </RevealStagger>
 
         {/* CTA */}
         <a

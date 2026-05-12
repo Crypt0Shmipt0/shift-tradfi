@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { APP_URL } from "@/lib/constants";
+import { Reveal } from "@/lib/motion";
 
 export function ProblemCta() {
   return (
@@ -14,37 +14,37 @@ export function ProblemCta() {
       >
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 xl:gap-20 w-full">
           {/* Left copy */}
-          <div className="flex flex-col gap-[40px] items-start max-w-[772px]">
+          <Reveal className="flex flex-col gap-[40px] items-start max-w-[772px]">
             {/* Text block: 18px gap */}
             <div className="flex flex-col gap-[18px] items-start w-full">
               <h2
                 className="font-[var(--font-grotesk)] font-medium text-[#021c24] leading-[1.1] tracking-[-0.96px] w-full"
                 style={{ fontSize: "clamp(28px, 3.33vw, 48px)" }}
               >
-                Liquidated by a broken price feed?
+                Why the next leverage cycle will be tokenized.
               </h2>
               <p
                 className="font-[var(--font-inter)] font-medium leading-normal text-[#021c24]/70 tracking-[-0.36px] w-full max-w-[680px]"
                 style={{ fontSize: "clamp(16px, 1.4vw, 20px)" }}
               >
-                Explore our leveraged stock tokens, designed for price integrity and low liquidation risk, with up to 300% leverage.
+                Onchain settlement, broker-dealer custody, and Chainlink-attested reserves — built so leveraged equity exposure can finally live in a wallet without the fragility of perp DEX architecture.
               </p>
             </div>
 
             {/* CTA button — dark pill on light card */}
             <a
-              href={APP_URL}
+              href="https://shiftrwa.xyz/learn"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[18px] tracking-[0.36px] rounded-full transition-colors duration-200 hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-mint focus-visible:ring-offset-2 focus-visible:ring-offset-off-white"
               style={{ paddingLeft: 32, paddingRight: 32, paddingTop: 14, paddingBottom: 14 }}
             >
-              Trade Now
+              Read the brief
             </a>
-          </div>
+          </Reveal>
 
           {/* Right visual: framed jar with broken chart + warning — thematically matches headline */}
-          <div className="shrink-0 w-[280px] h-[280px] md:w-[420px] md:h-[420px] rounded-2xl overflow-hidden">
+          <Reveal delay={0.15} className="shrink-0 w-[280px] h-[280px] md:w-[420px] md:h-[420px] rounded-2xl overflow-hidden">
             <Image
               src="/visuals/broken-feed-warning.webp"
               alt="Liquidation warning — broken price feed visualization"
@@ -54,7 +54,7 @@ export function ProblemCta() {
               className="w-full h-full object-cover"
               loading="lazy"
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

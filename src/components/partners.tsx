@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Reveal, RevealStagger, RevealItem } from "@/lib/motion";
 
 type Partner = {
   name: string;
@@ -13,20 +14,71 @@ type Partner = {
   displayH: number;
 };
 
-const PARTNERS: Partner[] = [
-  { name: "Alpaca",        logo: "/partners/alpaca.svg",        w: 160, h: 46,  displayH: 28 },
-  { name: "Jupiter",       logo: "/partners/jupiter.svg",       w: 155, h: 48,  displayH: 28 },
-  { name: "Solana",        logo: "/partners/solana.svg",        w: 250, h: 80,  displayH: 24 },
-  { name: "BNB Chain",     logo: "/partners/bnb.svg",           w: 137, h: 48,  displayH: 28 },
-  { name: "Wallet",        logo: "/partners/wallet.svg",        w: 250, h: 80,  displayH: 26 },
-  { name: "Chainlink",     logo: "/partners/chainlink.svg",     w: 248, h: 63,  displayH: 28 },
-  { name: "Orca",          logo: "/partners/orca.svg",          w: 163, h: 42,  displayH: 28 },
-  { name: "Birdeye",       logo: "/partners/birdeye.png",       w: 154, h: 48,  displayH: 38, isPng: true },
-  { name: "Cointelegraph", logo: "/partners/cointelegraph.svg", w: 189, h: 48,  displayH: 32 },
-  { name: "Kamino",        logo: "/partners/kamino.svg",        w: 154, h: 48,  displayH: 28 },
-  { name: "SNZ Holdings",  logo: "/partners/snz.png",           w: 250, h: 80,  displayH: 44, isPng: true },
-  { name: "PRIM3",         logo: "/partners/prim3.svg",         w: 250, h: 80,  displayH: 28 },
+const ISSUANCE_INFRA: Partner[] = [
+  { name: "Alpaca",    logo: "/partners/alpaca.svg",    w: 160, h: 46, displayH: 28 },
+  { name: "Chainlink", logo: "/partners/chainlink.svg", w: 248, h: 63, displayH: 28 },
+  { name: "Solana",    logo: "/partners/solana.svg",    w: 250, h: 80, displayH: 24 },
+  { name: "BNB Chain", logo: "/partners/bnb.svg",       w: 137, h: 48, displayH: 28 },
+  { name: "Wallet",    logo: "/partners/wallet.svg",    w: 250, h: 80, displayH: 26 },
+  { name: "PRIM3",     logo: "/partners/prim3.svg",     w: 250, h: 80, displayH: 28 },
 ];
+
+const ECOSYSTEM_LIQUIDITY: Partner[] = [
+  { name: "Jupiter",       logo: "/partners/jupiter.svg",       w: 155, h: 48, displayH: 28 },
+  { name: "Orca",          logo: "/partners/orca.svg",          w: 163, h: 42, displayH: 28 },
+  { name: "Birdeye",       logo: "/partners/birdeye.png",       w: 154, h: 48, displayH: 38, isPng: true },
+  { name: "Kamino",        logo: "/partners/kamino.svg",        w: 154, h: 48, displayH: 28 },
+  { name: "Cointelegraph", logo: "/partners/cointelegraph.svg", w: 189, h: 48, displayH: 32 },
+  { name: "SNZ Holdings",  logo: "/partners/snz.png",           w: 250, h: 80, displayH: 44, isPng: true },
+];
+
+function PartnerCard({ p, loadingMode }: { p: Partner; loadingMode: "eager" | "lazy" }) {
+  // Compute scaled width to preserve aspect ratio at the target visual height
+  const renderedWidth = Math.round((p.w / p.h) * p.displayH);
+  return (
+    <div
+      className="relative flex items-center justify-center rounded-[12px] w-full max-w-[250px] h-[72px] md:h-[80px]"
+    >
+      {/* Card bg — deep near-black with subtle gradient + inner highlight */}
+      <div
+        className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-[#1f1f1f] to-[#161616] border border-white/[0.06]"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 rounded-[12px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)]"
+        aria-hidden="true"
+      />
+
+      {/* Logo — per-partner target height (uniform optical weight) */}
+      <div
+        className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
+        style={{ filter: "brightness(0) invert(1)" }}
+      >
+        {p.isPng ? (
+          <Image
+            src={p.logo}
+            alt={p.name}
+            width={renderedWidth}
+            height={p.displayH}
+            sizes={`${renderedWidth}px`}
+            style={{ height: `${p.displayH}px`, width: "auto" }}
+            className="object-contain"
+            loading={loadingMode}
+          />
+        ) : (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={p.logo}
+            alt={p.name}
+            style={{ height: `${p.displayH}px`, width: "auto" }}
+            className="object-contain"
+            loading={loadingMode}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function Partners() {
   return (
@@ -50,73 +102,57 @@ export function Partners() {
         style={{ maxWidth: 1440 }}
       >
         {/* Text block: 40px gap between title and subtitle */}
-        <div className="flex flex-col items-center gap-[40px] mb-[40px]">
-          <h2
-            className="font-[var(--font-grotesk)] font-medium text-center text-white leading-[1.1] tracking-[-0.96px]"
-            style={{ fontSize: "clamp(28px, 3.33vw, 48px)" }}
-          >
-            Built for the next financial system
-          </h2>
+        <Reveal>
+          <div className="flex flex-col items-center gap-[40px] mb-[40px]">
+            <h2
+              className="font-[var(--font-grotesk)] font-medium text-center text-white leading-[1.1] tracking-[-0.96px]"
+              style={{ fontSize: "clamp(28px, 3.33vw, 48px)" }}
+            >
+              Built for the next financial system
+            </h2>
 
-          <p
-            className="font-[var(--font-inter)] font-normal text-center text-[#edeeee] text-[18px] leading-normal tracking-[-0.36px] max-w-[900px]"
-          >
-            Backed by leading infrastructure providers, exchanges, and institutional investors across DeFi and traditional finance.
-          </p>
-        </div>
+            <p
+              className="font-[var(--font-inter)] font-normal text-center text-[#edeeee] text-[18px] leading-normal tracking-[-0.36px] max-w-[900px]"
+            >
+              Backed by leading infrastructure providers, exchanges, and institutional investors across DeFi and traditional finance.
+            </p>
+          </div>
+        </Reveal>
 
-        {/* Logo grid: 2-up mobile, 3-up tablet, 4-up desktop */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-[16px] md:gap-[24px] lg:gap-[40px] justify-items-center w-full">
-          {PARTNERS.map((p, i) => {
-            const loadingMode = i < 8 ? "eager" : "lazy";
-            // Compute scaled width to preserve aspect ratio at the target visual height
-            const renderedWidth = Math.round((p.w / p.h) * p.displayH);
-            return (
-              <div
-                key={p.name}
-                className="relative flex items-center justify-center rounded-[12px] w-full max-w-[250px] h-[72px] md:h-[80px]"
-              >
-                {/* Card bg — deep near-black with subtle gradient + inner highlight */}
-                <div
-                  className="absolute inset-0 rounded-[12px] bg-gradient-to-b from-[#1f1f1f] to-[#161616] border border-white/[0.06]"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute inset-0 rounded-[12px] shadow-[inset_0px_1px_0px_rgba(255,255,255,0.05)]"
-                  aria-hidden="true"
-                />
+        {/* Two categorized rows */}
+        <RevealStagger staggerChildren={0.05}>
+          {/* Group 1: Issuance & Infrastructure */}
+          <div className="flex flex-col gap-[20px] mb-[48px] md:mb-[64px]">
+            <RevealItem>
+              <p className="font-[var(--font-mono)] uppercase text-[11px] tracking-[0.2em] text-cyan text-center">
+                Issuance &amp; Infrastructure
+              </p>
+            </RevealItem>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[16px] md:gap-[24px] justify-items-center">
+              {ISSUANCE_INFRA.map((p) => (
+                <RevealItem key={p.name}>
+                  <PartnerCard p={p} loadingMode="eager" />
+                </RevealItem>
+              ))}
+            </div>
+          </div>
 
-                {/* Logo — per-partner target height (uniform optical weight) */}
-                <div
-                  className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                >
-                  {p.isPng ? (
-                    <Image
-                      src={p.logo}
-                      alt={p.name}
-                      width={renderedWidth}
-                      height={p.displayH}
-                      sizes={`${renderedWidth}px`}
-                      style={{ height: `${p.displayH}px`, width: "auto" }}
-                      className="object-contain"
-                      loading={loadingMode}
-                    />
-                  ) : (
-                    /* eslint-disable-next-line @next/next/no-img-element */
-                    <img
-                      src={p.logo}
-                      alt={p.name}
-                      style={{ height: `${p.displayH}px`, width: "auto" }}
-                      className="object-contain"
-                      loading={loadingMode}
-                    />
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+          {/* Group 2: Ecosystem & Liquidity */}
+          <div className="flex flex-col gap-[20px]">
+            <RevealItem>
+              <p className="font-[var(--font-mono)] uppercase text-[11px] tracking-[0.2em] text-cyan text-center">
+                Ecosystem &amp; Liquidity
+              </p>
+            </RevealItem>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[16px] md:gap-[24px] justify-items-center">
+              {ECOSYSTEM_LIQUIDITY.map((p) => (
+                <RevealItem key={p.name}>
+                  <PartnerCard p={p} loadingMode="lazy" />
+                </RevealItem>
+              ))}
+            </div>
+          </div>
+        </RevealStagger>
       </div>
     </section>
   );

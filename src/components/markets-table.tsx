@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { TOKENS } from "@/data/tokens";
 import { APP_URL } from "@/lib/constants";
+import { getSparkline, type Sparkpoint } from "@/lib/market-data/mock";
+import { RevealStagger, RevealItem } from "@/lib/motion";
 
 /* Static placeholder prices — differentiated per token */
 const PLACEHOLDER_PRICES: Record<string, { price: string; change: string; positive: boolean }> = {
@@ -12,6 +14,45 @@ const PLACEHOLDER_PRICES: Record<string, { price: string; change: string; positi
   SOX3S: { price: "$ 38.45", change: "-2.87%", positive: false },
   URA2L: { price: "$ 28.94", change: "+1.62%", positive: true },
 };
+
+/* Inline SVG sparkline — handrolled, no dependencies */
+function Sparkline({
+  data,
+  positive,
+  width = 60,
+  height = 24,
+}: {
+  data: Sparkpoint[];
+  positive: boolean;
+  width?: number;
+  height?: number;
+}) {
+  if (!data || data.length === 0) return <svg width={width} height={height} aria-hidden="true" />;
+  const pad = 2;
+  const prices = data.map((d) => d.price);
+  const min = Math.min(...prices);
+  const max = Math.max(...prices);
+  const range = max - min || 1;
+  const stepX = (width - pad * 2) / Math.max(data.length - 1, 1);
+  const points = data
+    .map(
+      (d, i) =>
+        `${pad + i * stepX},${height - pad - ((d.price - min) / range) * (height - pad * 2)}`,
+    )
+    .join(" L ");
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} aria-hidden="true">
+      <path
+        d={`M ${points}`}
+        stroke={positive ? "#01b95a" : "#c4162f"}
+        strokeWidth={1.5}
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export function MarketsTable() {
   return (
@@ -43,7 +84,7 @@ export function MarketsTable() {
         </div>
 
         {/* ───────────────────  Desktop / tablet table  ─────────────────── */}
-        <div className="hidden md:block bg-white rounded-[32px] p-[40px] w-full" role="table" aria-label="Token markets">
+        <div className="hidden md:block bg-white border border-black/[0.06] shadow-[0_4px_24px_rgba(2,28,36,0.04)] rounded-[32px] p-[40px] w-full" role="table" aria-label="Token markets">
           <div className="flex flex-col gap-[12px] items-center w-full">
             {/* Table header */}
             <div className="flex flex-col gap-[18px] items-start w-full">
@@ -52,27 +93,36 @@ export function MarketsTable() {
                 <div className="flex-1 px-[10px]" role="columnheader">Token Name</div>
                 <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">Price</div>
                 <div className="w-[140px] shrink-0 px-[10px]" role="columnheader">24h change</div>
+                <div className="w-[80px] shrink-0" aria-hidden="true" />
                 <div className="w-[108px] shrink-0" role="columnheader" aria-label="Actions" />
               </div>
               <div className="w-full h-px bg-[#ececec]" />
             </div>
 
             {/* Rows */}
-            <div className="flex flex-col gap-[20px] items-stretch w-full">
+            <RevealStagger staggerChildren={0.04} className="flex flex-col gap-[20px] items-stretch w-full">
               {TOKENS.map((t) => {
                 const priceData = PLACEHOLDER_PRICES[t.ticker];
                 const isPositive = priceData?.positive ?? true;
                 const priceColor = isPositive ? "text-[#01b95a]" : "text-[#c4162f]";
+                const sparkData = t.comingSoon ? [] : getSparkline(t.ticker, 12);
                 return (
-                  <div key={t.ticker} className="w-full">
+                  <RevealItem key={t.ticker} className="w-full">
                     <div className="flex items-center w-full" role="row">
                       <div className="w-[140px] shrink-0 px-[10px] flex items-center gap-[12px]" role="cell">
                         <Image src={t.image} alt={t.ticker} width={36} height={36} sizes="36px" className="w-[36px] h-[36px] rounded-full object-cover shrink-0" loading="lazy" />
                         <span className="font-[var(--font-inter)] font-medium text-black text-[18px] capitalize leading-normal whitespace-nowrap">{t.ticker}</span>
                       </div>
                       <span className="flex-1 px-[10px] font-[var(--font-inter)] font-medium text-black text-[18px] uppercase leading-normal" role="cell">{t.name}</span>
-                      <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-inter)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.price ?? "$ ---")}</span>
-                      <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-inter)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.change ?? "---%")}</span>
+                      <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-mono)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.price ?? "$ ---")}</span>
+                      <span className={`w-[140px] shrink-0 px-[10px] font-[var(--font-mono)] font-normal text-[18px] leading-[20px] ${priceColor}`} role="cell">{t.comingSoon ? "---" : (priceData?.change ?? "---%")}</span>
+                      <div className="w-[80px] shrink-0 px-[10px] flex items-center" role="cell">
+                        {t.comingSoon ? (
+                          <svg width={60} height={24} aria-hidden="true" />
+                        ) : (
+                          <Sparkline data={sparkData} positive={isPositive} />
+                        )}
+                      </div>
                       <div className="w-[108px] shrink-0 flex justify-end" role="cell">
                         {!t.comingSoon ? (
                           <a href={APP_URL} target="_blank" rel="noopener noreferrer" aria-label={`Explore ${t.ticker} - ${t.name}`} className="inline-flex items-center justify-center bg-[#021c24] text-white font-[var(--font-inter)] font-medium text-[15px] tracking-[0.3px] capitalize px-[22px] py-[9px] rounded-full transition-colors hover:bg-[#021c24]/90 focus-visible:ring-2 focus-visible:ring-[#26c8b8] focus-visible:ring-offset-2">
@@ -84,21 +134,22 @@ export function MarketsTable() {
                       </div>
                     </div>
                     <div className="w-full h-px bg-[#ececec] mt-[20px]" />
-                  </div>
+                  </RevealItem>
                 );
               })}
-            </div>
+            </RevealStagger>
           </div>
         </div>
 
         {/* ───────────────────  Mobile cards  ─────────────────── */}
-        <ul className="md:hidden flex flex-col gap-3 w-full" role="list" aria-label="Token markets (mobile)">
+        <RevealStagger as="ul" staggerChildren={0.04} className="md:hidden flex flex-col gap-3 w-full">
           {TOKENS.map((t) => {
             const priceData = PLACEHOLDER_PRICES[t.ticker];
             const isPositive = priceData?.positive ?? true;
             const priceColor = isPositive ? "text-[#01b95a]" : "text-[#c4162f]";
+            const sparkData = t.comingSoon ? [] : getSparkline(t.ticker, 12);
             return (
-              <li key={t.ticker} className="bg-white rounded-[20px] border border-[#ececec] p-4 flex flex-col gap-3">
+              <RevealItem as="li" key={t.ticker} className="bg-white rounded-[20px] border border-[#ececec] p-4 flex flex-col gap-3">
                 {/* Top row: icon + ticker/name + button */}
                 <div className="flex items-center gap-3">
                   <Image src={t.image} alt={t.ticker} width={44} height={44} sizes="44px" className="w-11 h-11 rounded-full object-cover shrink-0" loading="lazy" />
@@ -116,21 +167,29 @@ export function MarketsTable() {
                 </div>
                 {/* Divider */}
                 <div className="h-px bg-[#f3f3f3]" />
-                {/* Bottom row: price + change */}
-                <div className="flex items-baseline justify-between">
+                {/* Bottom row: price + change + mini sparkline */}
+                <div className="flex items-baseline justify-between gap-3">
                   <div className="flex flex-col gap-0.5">
                     <span className="font-[var(--font-inter)] text-[#8d8d8d] text-[11px] uppercase tracking-wide">Price</span>
-                    <span className={`font-[var(--font-inter)] font-medium text-[16px] ${priceColor}`}>{t.comingSoon ? "—" : (priceData?.price ?? "$ —")}</span>
+                    <span className={`font-[var(--font-mono)] font-medium text-[16px] ${priceColor}`}>{t.comingSoon ? "—" : (priceData?.price ?? "$ —")}</span>
+                  </div>
+                  <div className="flex flex-col gap-0.5 items-center">
+                    <span className="font-[var(--font-inter)] text-[#8d8d8d] text-[11px] uppercase tracking-wide sr-only">Trend</span>
+                    {t.comingSoon ? (
+                      <svg width={50} height={20} aria-hidden="true" />
+                    ) : (
+                      <Sparkline data={sparkData} positive={isPositive} width={50} height={20} />
+                    )}
                   </div>
                   <div className="flex flex-col gap-0.5 items-end">
                     <span className="font-[var(--font-inter)] text-[#8d8d8d] text-[11px] uppercase tracking-wide">24h</span>
-                    <span className={`font-[var(--font-inter)] font-medium text-[16px] ${priceColor}`}>{t.comingSoon ? "—" : (priceData?.change ?? "—")}</span>
+                    <span className={`font-[var(--font-mono)] font-medium text-[16px] ${priceColor}`}>{t.comingSoon ? "—" : (priceData?.change ?? "—")}</span>
                   </div>
                 </div>
-              </li>
+              </RevealItem>
             );
           })}
-        </ul>
+        </RevealStagger>
 
         {/* CTA */}
         <a
