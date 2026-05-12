@@ -26,17 +26,14 @@ const STATS: {
 const GOLD_FILTER =
   "brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(515%) hue-rotate(7deg) brightness(96%) contrast(86%)";
 
-// "Backed by" microstrip — uses existing partner logos as backers.
-// EY is rendered as styled inline text (no public SVG available).
-const BACKERS: Array<
-  | { kind: "img"; src: string; alt: string; isPng: boolean; h: number; w?: number }
-  | { kind: "text"; label: string; h: number }
-> = [
-  { kind: "img", src: "/partners/alpaca.svg", alt: "Alpaca", isPng: false, h: 22 },
-  { kind: "img", src: "/partners/chainlink.svg", alt: "Chainlink", isPng: false, h: 22 },
-  { kind: "img", src: "/partners/dekabank.png", alt: "DekaBank", isPng: true, h: 18, w: 130 },
-  { kind: "img", src: "/partners/snz.png", alt: "SNZ Holdings", isPng: true, h: 30, w: 100 },
-  { kind: "text", label: "EY", h: 22 },
+// "Backed by" microstrip — partner logos rendered in monochrome via
+// `filter: brightness(0)` for consistency across the strip.
+const BACKERS: { src: string; alt: string; isPng: boolean; h: number; w?: number }[] = [
+  { src: "/partners/alpaca.svg", alt: "Alpaca", isPng: false, h: 22 },
+  { src: "/partners/chainlink.svg", alt: "Chainlink", isPng: false, h: 22 },
+  { src: "/partners/dekabank.png", alt: "DekaBank", isPng: true, h: 18, w: 130 },
+  { src: "/partners/snz.png", alt: "SNZ Holdings", isPng: true, h: 30, w: 100 },
+  { src: "/partners/ey.webp", alt: "EY", isPng: true, h: 26, w: 31 },
 ];
 
 export function Hero() {
@@ -147,23 +144,8 @@ export function Hero() {
             Backed by
           </span>
           <div className="flex items-center justify-center gap-[clamp(20px,4vw,48px)] opacity-60 flex-wrap">
-            {BACKERS.map((b) => {
-              if (b.kind === "text") {
-                return (
-                  <span
-                    key={b.label}
-                    className="font-[var(--font-grotesk)] font-bold leading-none tracking-tight"
-                    style={{
-                      fontSize: `${b.h}px`,
-                      letterSpacing: "-0.05em",
-                      color: "#021c24",
-                    }}
-                  >
-                    {b.label}
-                  </span>
-                );
-              }
-              return b.isPng ? (
+            {BACKERS.map((b) =>
+              b.isPng ? (
                 <Image
                   key={b.alt}
                   src={b.src}
@@ -180,8 +162,8 @@ export function Hero() {
                   alt={b.alt}
                   style={{ height: `${b.h}px`, width: "auto", filter: "brightness(0)" }}
                 />
-              );
-            })}
+              )
+            )}
           </div>
         </div>
 
