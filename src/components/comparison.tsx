@@ -70,59 +70,54 @@ export function Comparison() {
           role="region"
           aria-label="Scrollable comparison table"
         >
-          <div style={{ minWidth: 900 }}>
-            {/* Column headers — grid */}
-            <div
-              className="grid gap-3"
-              style={{ gridTemplateColumns: "1.6fr 1.2fr 1fr 1fr 1fr" }}
-            >
-              <div aria-hidden="true" />
-              {COLUMNS.map((col) => {
-                const isShift = col === "SHIFT";
-                return (
-                  <div
-                    key={col}
-                    className={`rounded-xl p-5 text-center ${
-                      isShift
-                        ? "bg-[#0a2530] border border-[#0BB4D4]/50"
-                        : "bg-[#151515]"
+          {/* ONE grid for the entire table — header cells + data rows share
+              column widths so columns align across every row globally. */}
+          <RevealStagger
+            staggerChildren={0.04}
+            className="grid gap-3 grid-cols-[1.6fr_1.2fr_1fr_1fr_1fr]"
+            style={{ minWidth: 900 }}
+          >
+            {/* Header cells — static, no stagger variant attached so they
+                render immediately without animation. */}
+            <div aria-hidden="true" />
+            {COLUMNS.map((col) => {
+              const isShift = col === "SHIFT";
+              return (
+                <div
+                  key={col}
+                  className={`rounded-xl p-5 text-center ${
+                    isShift
+                      ? "bg-[#0a2530] border border-[#0BB4D4]/50"
+                      : "bg-[#151515]"
+                  }`}
+                >
+                  <p
+                    className={`font-[var(--font-inter)] font-medium text-[13px] uppercase tracking-[1px] inline-flex items-center justify-center ${
+                      isShift ? "text-[#0BB4D4]" : "text-[#a8a8a8]"
                     }`}
                   >
-                    <p
-                      className={`font-[var(--font-inter)] font-medium text-[13px] uppercase tracking-[1px] inline-flex items-center justify-center ${
-                        isShift ? "text-[#0BB4D4]" : "text-[#a8a8a8]"
-                      }`}
-                    >
-                      {isShift && (
-                        <span
-                          className="inline-block w-[6px] h-[6px] rounded-full bg-gold mr-2"
-                          aria-hidden="true"
-                        />
-                      )}
-                      {col}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Data rows — staggered reveal. Single parent grid defines the
-                column widths globally; each row participates via subgrid so
-                cells align across rows regardless of feature-label length. */}
-            <RevealStagger
-              staggerChildren={0.04}
-              className="grid gap-3 mt-3 grid-cols-[1.6fr_1.2fr_1fr_1fr_1fr]"
-            >
-              {ROWS.map((r) => (
-                <RevealItem
-                  key={r.feature}
-                  className="grid col-span-5 gap-3 grid-cols-subgrid"
-                >
-                  <Row row={r} />
-                </RevealItem>
-              ))}
-            </RevealStagger>
-          </div>
+                    {isShift && (
+                      <span
+                        className="inline-block w-[6px] h-[6px] rounded-full bg-gold mr-2"
+                        aria-hidden="true"
+                      />
+                    )}
+                    {col}
+                  </p>
+                </div>
+              );
+            })}
+            {/* Data rows — each is a subgrid spanning 5 columns so cells
+                inherit column widths from the parent grid. */}
+            {ROWS.map((r) => (
+              <RevealItem
+                key={r.feature}
+                className="grid col-span-5 gap-3 grid-cols-subgrid"
+              >
+                <Row row={r} />
+              </RevealItem>
+            ))}
+          </RevealStagger>
         </div>
 
         {/* ───────────────────  Mobile cards  ─────────────────── */}
