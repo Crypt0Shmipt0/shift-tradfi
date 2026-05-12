@@ -106,12 +106,17 @@ export function Comparison() {
               })}
             </div>
 
-            {/* Data rows — staggered reveal */}
-            <RevealStagger staggerChildren={0.04} className="flex flex-col gap-3 mt-3">
+            {/* Data rows — staggered reveal. Single parent grid defines the
+                column widths globally; each row participates via subgrid so
+                cells align across rows regardless of feature-label length. */}
+            <RevealStagger
+              staggerChildren={0.04}
+              className="grid gap-3 mt-3 grid-cols-[1.6fr_1.2fr_1fr_1fr_1fr]"
+            >
               {ROWS.map((r) => (
                 <RevealItem
                   key={r.feature}
-                  className="grid gap-3 grid-cols-[1.6fr_1.2fr_1fr_1fr_1fr]"
+                  className="grid col-span-5 gap-3 grid-cols-subgrid"
                 >
                   <Row row={r} />
                 </RevealItem>
