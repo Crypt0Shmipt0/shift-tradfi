@@ -46,8 +46,8 @@ export function ProblemCta() {
           {/* Right visual: framed jar with broken chart + warning — thematically matches headline */}
           <Reveal delay={0.15} className="shrink-0 w-[280px] h-[280px] md:w-[420px] md:h-[420px] rounded-2xl overflow-hidden">
             <Image
-              src="/visuals/broken-feed-warning.webp"
-              alt="Liquidation warning — broken price feed visualization"
+              src="/visuals/speedometer-warning.webp"
+              alt="Price-feed monitor — broken-feed warning"
               width={420}
               height={420}
               sizes="(max-width: 768px) 280px, 420px"

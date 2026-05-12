@@ -134,11 +134,11 @@ export function Product() {
               <div className="absolute bg-[#151515] inset-0 rounded-[12px]" />
               <div className="absolute inset-0 opacity-50 overflow-hidden rounded-[12px]">
                 <Image
-                  src="/visuals/arrow-down.png"
+                  src="/visuals/arrow-down-crystal.webp"
                   alt=""
-                  width={760}
-                  height={760}
-                  sizes="(max-width: 768px) 100vw, 512px"
+                  width={1600}
+                  height={1600}
+                  sizes="(max-width: 768px) 100vw, 760px"
                   className="absolute max-w-none"
                   style={{ left: "-65.38%", top: "-36.86%", width: "148.56%", height: "148.56%" }}
                   loading="lazy"

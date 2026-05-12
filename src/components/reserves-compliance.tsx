@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal, RevealStagger, RevealItem } from "@/lib/motion";
 
 /**
@@ -33,6 +34,20 @@ export function ReservesCompliance() {
               custody, on-chain reserve proofs, and a regulatory framework built for
               cross-border issuance.
             </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.1}>
+          <div className="flex justify-center pt-[40px] md:pt-[48px] pb-[8px]">
+            <Image
+              src="/visuals/equilibrium-scale.webp"
+              alt="1:1 asset-backed reserves visualization"
+              width={1400}
+              height={1400}
+              sizes="(max-width: 768px) 240px, 320px"
+              className="w-[240px] h-[240px] md:w-[320px] md:h-[320px] object-contain"
+              loading="lazy"
+            />
           </div>
         </Reveal>
 

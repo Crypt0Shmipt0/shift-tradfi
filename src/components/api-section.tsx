@@ -68,14 +68,13 @@ export function ApiSection() {
             >
               <div className="relative rounded-xl px-8 py-[40px] md:py-[48px] flex items-center gap-6">
                 <Image
-                  src="/visuals/chart-dome.webp"
-                  alt=""
+                  src="/visuals/data-hex-chart.webp"
+                  alt="Trading RFQ data visualization"
                   width={160}
                   height={160}
                   sizes="(max-width: 768px) 120px, 160px"
-                  className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] object-contain shrink-0 -scale-x-100"
+                  className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] object-contain shrink-0"
                   loading="lazy"
-                  aria-hidden="true"
                 />
                 <div className="flex flex-col gap-[10px] min-w-0">
                   <h3 className="font-[var(--font-grotesk)] font-medium text-[#021c24] text-[20px] md:text-[24px] tracking-[-0.5px] capitalize leading-[1.1]">
