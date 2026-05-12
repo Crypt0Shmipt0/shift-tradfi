@@ -15,8 +15,10 @@ export function ReservesCompliance() {
       className="bg-white py-[80px] md:py-[100px] lg:py-[120px]"
     >
       <div className="mx-auto w-full max-w-[1200px] px-6 md:px-8 lg:px-10">
-        <Reveal>
-          <div className="flex flex-col items-start gap-4">
+        {/* Hero row: text left, vault right (stacks on mobile with vault first
+            so the visual anchors above the headline at small viewports) */}
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-12">
+          <Reveal className="flex flex-col items-start gap-4 max-w-[640px] flex-1">
             <span className="font-mono text-[12px] uppercase tracking-wider text-cyan">
               Reserves · Custody · Compliance
             </span>
@@ -27,29 +29,27 @@ export function ReservesCompliance() {
               Every token, verifiably backed
             </h2>
             <p
-              className="max-w-[680px] text-[#6b7280]"
+              className="text-[#6b7280]"
               style={{ fontSize: "clamp(16px, 1.6vw, 20px)", lineHeight: 1.5 }}
             >
               Institutional-grade infrastructure under every SHIFT token: independent
               custody, on-chain reserve proofs, and a regulatory framework built for
               cross-border issuance.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        <Reveal delay={0.1}>
-          <div className="flex justify-center pt-[40px] md:pt-[48px] pb-[8px]">
+          <Reveal delay={0.1} className="shrink-0">
             <Image
               src="/visuals/reserves-vault.webp"
               alt="Crystalline reserve vault — verifiably backed tokens visualization"
-              width={1400}
-              height={1400}
-              sizes="(max-width: 768px) 280px, 360px"
-              className="w-[280px] h-[280px] md:w-[360px] md:h-[360px] object-contain"
+              width={1024}
+              height={1024}
+              sizes="(max-width: 768px) 240px, (max-width: 1024px) 280px, 340px"
+              className="w-[240px] h-[240px] md:w-[280px] md:h-[280px] lg:w-[340px] lg:h-[340px] object-contain"
               loading="lazy"
             />
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
         <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-[64px]">
           {/* Column 1 — Chainlink PoR */}
