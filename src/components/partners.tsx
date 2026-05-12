@@ -5,39 +5,41 @@ type Partner = {
   name: string;
   logo: string;
   isPng?: boolean;
-  /** Source intrinsic width (used by next/image) */
+  /** Source intrinsic width */
   w: number;
-  /** Source intrinsic height (used by next/image) */
+  /** Source intrinsic height */
   h: number;
-  /** TARGET visual height in px — tuned per-logo for consistent optical weight.
-   *  Default ~28-32px; SNZ + Birdeye bumped per Tomer's feedback. */
-  displayH: number;
 };
 
+/** Uniform visual height for every partner logo (px) — overrides per-logo tuning
+ *  so cards + logos read as a perfectly aligned row. */
+const PARTNER_LOGO_H = 28;
+const PARTNER_LOGO_H_MD = 32;
+
 const ISSUANCE_INFRA: Partner[] = [
-  { name: "Alpaca",    logo: "/partners/alpaca.svg",    w: 160, h: 46, displayH: 28 },
-  { name: "Chainlink", logo: "/partners/chainlink.svg", w: 248, h: 63, displayH: 28 },
-  { name: "Solana",    logo: "/partners/solana.svg",    w: 250, h: 80, displayH: 24 },
-  { name: "BNB Chain", logo: "/partners/bnb.svg",       w: 137, h: 48, displayH: 28 },
-  { name: "Wallet",    logo: "/partners/wallet.svg",    w: 250, h: 80, displayH: 26 },
-  { name: "PRIM3",     logo: "/partners/prim3.svg",     w: 250, h: 80, displayH: 28 },
+  { name: "Alpaca",    logo: "/partners/alpaca.svg",    w: 160, h: 46 },
+  { name: "Chainlink", logo: "/partners/chainlink.svg", w: 248, h: 63 },
+  { name: "Solana",    logo: "/partners/solana.svg",    w: 250, h: 80 },
+  { name: "BNB Chain", logo: "/partners/bnb.svg",       w: 137, h: 48 },
+  { name: "Wallet",    logo: "/partners/wallet.svg",    w: 250, h: 80 },
+  { name: "PRIM3",     logo: "/partners/prim3.svg",     w: 250, h: 80 },
 ];
 
 const ECOSYSTEM_LIQUIDITY: Partner[] = [
-  { name: "Jupiter",       logo: "/partners/jupiter.svg",       w: 155, h: 48, displayH: 28 },
-  { name: "Orca",          logo: "/partners/orca.svg",          w: 163, h: 42, displayH: 28 },
-  { name: "Birdeye",       logo: "/partners/birdeye.png",       w: 154, h: 48, displayH: 38, isPng: true },
-  { name: "Kamino",        logo: "/partners/kamino.svg",        w: 154, h: 48, displayH: 28 },
-  { name: "Cointelegraph", logo: "/partners/cointelegraph.svg", w: 189, h: 48, displayH: 32 },
-  { name: "SNZ Holdings",  logo: "/partners/snz.png",           w: 250, h: 80, displayH: 44, isPng: true },
+  { name: "Jupiter",       logo: "/partners/jupiter.svg",       w: 155, h: 48 },
+  { name: "Orca",          logo: "/partners/orca.svg",          w: 163, h: 42 },
+  { name: "Birdeye",       logo: "/partners/birdeye.png",       w: 154, h: 48, isPng: true },
+  { name: "Kamino",        logo: "/partners/kamino.svg",        w: 154, h: 48 },
+  { name: "Cointelegraph", logo: "/partners/cointelegraph.svg", w: 189, h: 48 },
+  { name: "SNZ Holdings",  logo: "/partners/snz.png",           w: 250, h: 80, isPng: true },
 ];
 
 function PartnerCard({ p, loadingMode }: { p: Partner; loadingMode: "eager" | "lazy" }) {
-  // Compute scaled width to preserve aspect ratio at the target visual height
-  const renderedWidth = Math.round((p.w / p.h) * p.displayH);
+  // Width derived from uniform logo height + source aspect ratio (md viewport).
+  const renderedWidth = Math.round((p.w / p.h) * PARTNER_LOGO_H_MD);
   return (
     <div
-      className="relative flex items-center justify-center rounded-[12px] w-full max-w-[250px] h-[72px] md:h-[80px]"
+      className="relative flex items-center justify-center rounded-[12px] w-full h-[80px]"
     >
       {/* Card bg — deep near-black with subtle gradient + inner highlight */}
       <div
@@ -49,9 +51,9 @@ function PartnerCard({ p, loadingMode }: { p: Partner; loadingMode: "eager" | "l
         aria-hidden="true"
       />
 
-      {/* Logo — per-partner target height (uniform optical weight) */}
+      {/* Logo — UNIFORM height across every partner so the row reads aligned. */}
       <div
-        className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200"
+        className="relative z-10 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-200 partner-logo-uniform"
         style={{ filter: "brightness(0) invert(1)" }}
       >
         {p.isPng ? (
@@ -59,10 +61,9 @@ function PartnerCard({ p, loadingMode }: { p: Partner; loadingMode: "eager" | "l
             src={p.logo}
             alt={p.name}
             width={renderedWidth}
-            height={p.displayH}
+            height={PARTNER_LOGO_H_MD}
             sizes={`${renderedWidth}px`}
-            style={{ height: `${p.displayH}px`, width: "auto" }}
-            className="object-contain"
+            className="w-auto object-contain h-[var(--partner-logo-h)] md:h-[var(--partner-logo-h-md)]"
             loading={loadingMode}
           />
         ) : (
@@ -70,8 +71,7 @@ function PartnerCard({ p, loadingMode }: { p: Partner; loadingMode: "eager" | "l
           <img
             src={p.logo}
             alt={p.name}
-            style={{ height: `${p.displayH}px`, width: "auto" }}
-            className="object-contain"
+            className="w-auto object-contain h-[var(--partner-logo-h)] md:h-[var(--partner-logo-h-md)]"
             loading={loadingMode}
           />
         )}
@@ -82,7 +82,17 @@ function PartnerCard({ p, loadingMode }: { p: Partner; loadingMode: "eager" | "l
 
 export function Partners() {
   return (
-    <section id="partners" className="bg-dark-bg overflow-hidden" aria-label="Partners and integrations">
+    <section
+      id="partners"
+      className="bg-dark-bg overflow-hidden"
+      style={
+        {
+          "--partner-logo-h": `${PARTNER_LOGO_H}px`,
+          "--partner-logo-h-md": `${PARTNER_LOGO_H_MD}px`,
+        } as React.CSSProperties
+      }
+      aria-label="Partners and integrations"
+    >
       {/* Decorative banner image — object-position top clips half-tokens cleanly at bottom edge */}
       <div className="relative w-full overflow-hidden" style={{ height: "clamp(240px, 28vw, 400px)" }}>
         <Image
