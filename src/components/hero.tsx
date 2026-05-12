@@ -61,21 +61,6 @@ export function Hero() {
         <source src="/visuals/hero-video.mp4" type="video/mp4" />
       </video>
 
-      {/* Layer B+ — subtle Wall Street city silhouette behind stat trio (decorative) */}
-      <div
-        className="absolute inset-x-0 bottom-0 z-[5] h-[50%] opacity-[0.15] pointer-events-none"
-        aria-hidden="true"
-      >
-        <Image
-          src="/visuals/city-skyline.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover object-bottom"
-          priority={false}
-        />
-      </div>
-
       {/* Layer B — subtle white wash for headline contrast */}
       <div
         className="absolute inset-0 z-10 bg-gradient-to-b from-white/45 via-white/35 to-white/25"
