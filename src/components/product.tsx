@@ -140,7 +140,14 @@ export function Product() {
                   height={1600}
                   sizes="(max-width: 768px) 100vw, 760px"
                   className="absolute max-w-none"
-                  style={{ left: "-65.38%", top: "-36.86%", width: "148.56%", height: "148.56%" }}
+                  style={{
+                    left: "17.52%",
+                    top: "7.78%",
+                    width: "148.56%",
+                    height: "148.56%",
+                    transform: "rotate(45deg)",
+                    transformOrigin: "center",
+                  }}
                   loading="lazy"
                 />
               </div>
