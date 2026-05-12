@@ -8,29 +8,38 @@ type TeamMember = {
 
 const TEAM: TeamMember[] = [
   {
-    name: "Michael Bar Zeev",
+    name: "Att. Daniel Liven",
     role: "CEO",
-    pedigree: "Ex-Titan, Fireblocks",
+    pedigree:
+      "European commercial & antitrust lawyer, former COO at Zaisan, Web3 regulatory specialist",
+  },
+  {
+    name: "Michael Bar Zeev",
+    role: "CBDO",
+    pedigree:
+      "Serial fintech & Web3 founder with 3 exits, former CEO of Titan (acquired by Fireblocks)",
   },
   {
     name: "Thomas Wolff",
-    role: "CTO",
-    pedigree: "Ex-Flow Traders",
+    role: "Technology Director",
+    pedigree: "Former CTO of Flow Traders",
   },
   {
-    name: "Shoham Ben Rubi",
-    role: "CLO",
-    pedigree: "Ex-Israel Securities Authority",
+    name: "Att. Shoham Ben Rubi",
+    role: "Legal Counsel",
+    pedigree:
+      "Former Head of International Department at Israel Securities Authority, ex-Deloitte, ex-TASE",
   },
   {
-    name: "Daniel Liven",
+    name: "Bar Elkis",
     role: "COO",
-    pedigree: "Operator background",
+    pedigree: "Co-Founder of PayBase, 10+ years in fintech & Web3",
   },
 ];
 
 function getInitials(name: string): string {
-  const parts = name.trim().split(/\s+/);
+  const cleaned = name.replace(/^Att\.\s+/i, "").trim();
+  const parts = cleaned.split(/\s+/);
   if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
@@ -66,7 +75,7 @@ export function TeamBackers() {
 
         <RevealStagger
           staggerChildren={0.1}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] md:gap-[24px] pt-[64px]"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-[16px] md:gap-[24px] pt-[64px]"
         >
           {TEAM.map((member) => (
             <RevealItem key={member.name}>

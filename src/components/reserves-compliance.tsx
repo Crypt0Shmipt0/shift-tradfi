@@ -32,9 +32,8 @@ export function ReservesCompliance() {
               className="text-[#6b7280]"
               style={{ fontSize: "clamp(16px, 1.6vw, 20px)", lineHeight: 1.5 }}
             >
-              Institutional-grade infrastructure under every SHIFT token: independent
-              custody, on-chain reserve proofs, and a regulatory framework built for
-              cross-border issuance.
+              Big-Four auditor sign-off, independent custody, on-chain reserve proofs,
+              and a regulatory framework built for cross-border issuance.
             </p>
           </Reveal>
 
@@ -51,7 +50,13 @@ export function ReservesCompliance() {
           </Reveal>
         </div>
 
-        <RevealStagger className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-[64px]">
+        <Reveal delay={0.15}>
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan text-center pt-[48px] pb-[24px]">
+            Institutional-grade infrastructure stack
+          </p>
+        </Reveal>
+
+        <RevealStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Column 1 — Chainlink PoR */}
           <RevealItem>
             <article className="flex flex-col items-start gap-3 rounded-2xl border border-black/[0.06] bg-white px-7 py-8 md:px-8 md:py-10 transition-colors hover:bg-[#f9fafb] h-full">
@@ -90,9 +95,44 @@ export function ReservesCompliance() {
             </article>
           </RevealItem>
 
-          {/* Column 2 — Alpaca (premium partner, gold top border) */}
+          {/* Column 2 — EY (Cyprus) Independent Audit (premium gold top border) */}
           <RevealItem>
             <article className="flex flex-col items-start gap-3 rounded-2xl border border-black/[0.06] border-t-2 border-t-gold bg-white px-7 py-8 md:px-8 md:py-10 transition-colors hover:bg-[#f9fafb] h-full">
+              <div
+                aria-hidden="true"
+                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-tint"
+              >
+                {/* Audit seal — checkmark inside ribbon shield */}
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0BB4D4"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  role="img"
+                  aria-label="Audit seal"
+                >
+                  <path d="M12 2 4.5 5v6c0 4.6 3.2 8.6 7.5 9.9 4.3-1.3 7.5-5.3 7.5-9.9V5L12 2Z" />
+                  <path d="m8.5 12 2.5 2.5L15.5 10" />
+                </svg>
+              </div>
+              <h3 className="font-grotesk text-[20px] font-medium text-[#021c24]">
+                EY (Cyprus) — Independent Audit
+              </h3>
+              <p className="text-[15px] leading-[1.55] text-[#6b7280]">
+                Reserve attestations and protocol financials are audited by EY (Cyprus)
+                — pairing on-chain Chainlink proofs with a Big-Four sign-off for
+                institutional counterparties.
+              </p>
+            </article>
+          </RevealItem>
+
+          {/* Column 3 — Alpaca (Broker-Dealer) */}
+          <RevealItem>
+            <article className="flex flex-col items-start gap-3 rounded-2xl border border-black/[0.06] bg-white px-7 py-8 md:px-8 md:py-10 transition-colors hover:bg-[#f9fafb] h-full">
               <div
                 aria-hidden="true"
                 className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-tint"
@@ -126,7 +166,7 @@ export function ReservesCompliance() {
             </article>
           </RevealItem>
 
-          {/* Column 3 — Marshall Islands ART */}
+          {/* Column 4 — Marshall Islands LLC · MiCAR ART (DekaBank custody) */}
           <RevealItem>
             <article className="flex flex-col items-start gap-3 rounded-2xl border border-black/[0.06] bg-white px-7 py-8 md:px-8 md:py-10 transition-colors hover:bg-[#f9fafb] h-full">
               <div
@@ -154,12 +194,13 @@ export function ReservesCompliance() {
                 </svg>
               </div>
               <h3 className="font-grotesk text-[20px] font-medium text-[#021c24]">
-                Marshall Islands ART Framework
+                Marshall Islands LLC · MiCAR ART
               </h3>
               <p className="text-[15px] leading-[1.55] text-[#6b7280]">
-                Tokens are issued under the Marshall Islands asset-referenced token
-                regime — a regulated, transparent legal wrapper purpose-built for
-                tokenized exposure.
+                Live leveraged series tokens issued as Marshall Islands LLC membership
+                interests; spot pipeline (DekaBank custody) issued under the EU MiCAR
+                Asset-Referenced Tokens framework — a regulated, transparent wrapper
+                purpose-built for tokenized exposure.
               </p>
             </article>
           </RevealItem>
