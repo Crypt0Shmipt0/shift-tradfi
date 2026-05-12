@@ -40,12 +40,12 @@ export function ReservesCompliance() {
         <Reveal delay={0.1}>
           <div className="flex justify-center pt-[40px] md:pt-[48px] pb-[8px]">
             <Image
-              src="/visuals/equilibrium-scale.webp"
-              alt="1:1 asset-backed reserves visualization"
+              src="/visuals/reserves-vault.webp"
+              alt="Crystalline reserve vault — verifiably backed tokens visualization"
               width={1400}
               height={1400}
-              sizes="(max-width: 768px) 240px, 320px"
-              className="w-[240px] h-[240px] md:w-[320px] md:h-[320px] object-contain"
+              sizes="(max-width: 768px) 280px, 360px"
+              className="w-[280px] h-[280px] md:w-[360px] md:h-[360px] object-contain"
               loading="lazy"
             />
           </div>
