@@ -145,7 +145,7 @@ export function Product() {
                     top: "7.78%",
                     width: "148.56%",
                     height: "148.56%",
-                    transform: "rotate(45deg)",
+                    transform: "rotate(-45deg)",
                     transformOrigin: "center",
                   }}
                   loading="lazy"
