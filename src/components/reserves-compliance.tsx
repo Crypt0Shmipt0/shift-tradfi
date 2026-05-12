@@ -102,12 +102,14 @@ export function ReservesCompliance() {
                 aria-hidden="true"
                 className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#021c24]"
               >
-                <span
-                  className="font-[var(--font-grotesk)] font-bold text-[#FFE600] text-[20px] leading-none tracking-tight"
-                  style={{ letterSpacing: "-0.05em" }}
-                >
-                  EY
-                </span>
+                <Image
+                  src="/partners/ey.webp"
+                  alt="EY"
+                  width={600}
+                  height={502}
+                  className="h-7 w-auto"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
               </div>
               <h3 className="font-grotesk text-[20px] font-medium text-[#021c24]">
                 EY (Cyprus) — Independent Audit
