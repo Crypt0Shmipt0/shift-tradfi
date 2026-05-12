@@ -102,9 +102,61 @@ export function TeamBackers() {
             </RevealItem>
           ))}
         </RevealStagger>
+
+        <Reveal delay={0.2}>
+          <div className="pt-[64px] md:pt-[80px]">
+            <div className="flex flex-col md:flex-row gap-12 md:gap-20">
+              <div className="flex flex-col gap-3 items-start flex-1">
+                <span className="font-mono uppercase tracking-wider text-cyan text-[12px]">
+                  Backed by
+                </span>
+                <p className="text-[16px] md:text-[17px] leading-relaxed">
+                  {BACKERS.map((name, i) => (
+                    <span key={name}>
+                      <span className="font-medium text-[#021c24]">{name}</span>
+                      {i < BACKERS.length - 1 && (
+                        <span className="text-[#9ca3af]"> · </span>
+                      )}
+                    </span>
+                  ))}
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-3 items-start md:max-w-[280px]">
+                <span className="font-mono uppercase tracking-wider text-cyan text-[12px]">
+                  Incubated by
+                </span>
+                <div className="flex flex-col gap-2">
+                  {INCUBATORS.map((name) => (
+                    <span
+                      key={name}
+                      className="font-medium text-[#021c24] text-[16px] md:text-[17px]"
+                    >
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
 }
+
+const BACKERS = [
+  "SNZ Holding",
+  "Chainlink BUILD",
+  "PRIM3 VC",
+  "DekaBank",
+  "GMX (Founder)",
+  "dAppRadar (Founder)",
+  "Hello Labs (Founder)",
+  "CVEX (Founder)",
+  "Kraken (US CEO)",
+];
+
+const INCUBATORS = ["Chainlink BUILD", "Cointelegraph Accelerator"];
 
 export default TeamBackers;

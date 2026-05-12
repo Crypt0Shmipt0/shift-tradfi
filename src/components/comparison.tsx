@@ -17,7 +17,8 @@ const ROWS: ComparisonRow[] = [
   { feature: "Self Custody", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "Transferable", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
   { feature: "DeFi Compatible", shift: "yes", tokenized: "yes", perps: "no", tradfi: "no" },
-  { feature: "Asset Holder Protection", shift: "yes", tokenized: "yes", perps: "no", tradfi: "yes" },
+  { feature: "Independent Reserves Attestation", shift: "yes", tokenized: "no", perps: "no", tradfi: "yes" },
+  { feature: "Big-Four Auditor", shift: "yes", tokenized: "no", perps: "no", tradfi: "yes" },
 ];
 
 const COLUMNS = ["SHIFT", "Other Tokenized", "Perps", "TradFi Brokers"] as const;

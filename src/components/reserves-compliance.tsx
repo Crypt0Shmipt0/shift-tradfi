@@ -100,24 +100,14 @@ export function ReservesCompliance() {
             <article className="flex flex-col items-start gap-3 rounded-2xl border border-black/[0.06] border-t-2 border-t-gold bg-white px-7 py-8 md:px-8 md:py-10 transition-colors hover:bg-[#f9fafb] h-full">
               <div
                 aria-hidden="true"
-                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-tint"
+                className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#021c24]"
               >
-                {/* Audit seal — checkmark inside ribbon shield */}
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#0BB4D4"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  role="img"
-                  aria-label="Audit seal"
+                <span
+                  className="font-[var(--font-grotesk)] font-bold text-[#FFE600] text-[20px] leading-none tracking-tight"
+                  style={{ letterSpacing: "-0.05em" }}
                 >
-                  <path d="M12 2 4.5 5v6c0 4.6 3.2 8.6 7.5 9.9 4.3-1.3 7.5-5.3 7.5-9.9V5L12 2Z" />
-                  <path d="m8.5 12 2.5 2.5L15.5 10" />
-                </svg>
+                  EY
+                </span>
               </div>
               <h3 className="font-grotesk text-[20px] font-medium text-[#021c24]">
                 EY (Cyprus) — Independent Audit

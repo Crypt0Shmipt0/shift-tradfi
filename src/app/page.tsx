@@ -12,6 +12,7 @@ import { ReservesCompliance } from "@/components/reserves-compliance";
 import { MarketsTable } from "@/components/markets-table";
 import { ApiSection } from "@/components/api-section";
 import { Media } from "@/components/media";
+import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
 import { Footer } from "@/components/footer";
 import { ScrollProgress } from "@/lib/motion";
@@ -35,6 +36,7 @@ export default function Home() {
         <MarketsTable />
         <ApiSection />
         <Media />
+        <Faq />
         <FinalCta />
       </main>
       <Footer />
