@@ -74,8 +74,7 @@ export function Comparison() {
               column widths so columns align across every row globally. */}
           <RevealStagger
             staggerChildren={0.04}
-            className="grid gap-3 grid-cols-[1.6fr_1.2fr_1fr_1fr_1fr]"
-            style={{ minWidth: 900 }}
+            className="grid gap-3 grid-cols-[1.6fr_1.2fr_1fr_1fr_1fr] min-w-[900px]"
           >
             {/* Header cells — static, no stagger variant attached so they
                 render immediately without animation. */}
